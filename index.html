@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mary Huang — Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.typekit.net/mwr2qgm.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/lab.css">
+  <link rel="alternate" type="application/rss+xml" title="Mary Huang — Lab" href="/lab/feed.xml">
+</head>
+<body>
+  <header class="page-header">
+    <a href="/index.html"><h5 class="name-title">Mary Huang</h5></a>
+  </header>
+  <section class="lab-list-section">
+    <header class="lab-list-header">
+      <h1>Lab</h1>
+      <p>Notes, journals, and artifacts from ongoing work. <a href="feed.xml">RSS</a></p>
+    </header>
+    <div class="lab-grid">
+      <a class="lab-card lab-card--note cols-1" href="note/new-draft.html" data-slug="new-draft">
+<p class="card-date">June 20, 2026</p>
+      <h2 class="card-title">new draft</h2>
+      <p class="card-preview"></p>
+      
+      </a>
+      <a class="lab-card lab-card--note cols-1" href="note/new-note.html" data-slug="new-note">
+<p class="card-date">June 20, 2026</p>
+      <h2 class="card-title">new note</h2>
+      <p class="card-preview">added some text added some more text</p>
+      
+      </a>
+      <a class="lab-card lab-card--note cols-1" href="note/new.html" data-slug="new">
+<p class="card-date">June 20, 2026</p>
+      
+      <p class="card-preview"></p>
+      
+      </a>
+      <a class="lab-card lab-card--note cols-1" href="note/welcome-to-the-lab.html" data-slug="welcome-to-the-lab">
+<p class="card-date">June 20, 2026</p>
+      <h2 class="card-title">Welcome to the lab</h2>
+      <p class="card-preview">First entry in the lab. This is a Note — short, dated, good for logging the day&apos;s work.</p>
+      
+      </a>
+      <a class="lab-card lab-card--journal cols-2" href="journal/a-longer-journal-entry.html" data-slug="a-longer-journal-entry">
+<p class="card-date">June 18, 2026</p>
+      <h2 class="card-title">A longer journal entry</h2>
+      <p class="card-preview">Journals get different formatting from Notes — more like a long-form essay. They can span multiple paragraphs, and on the index grid they can take up two…</p>
+      
+      </a>
+      <a class="lab-card lab-card--artifact cols-1" href="artifact/example-artifact.html" data-slug="example-artifact">
+
+      <h2 class="card-title">Example Artifact</h2>
+      <p class="card-subtitle">A demo of the artifact post type</p>
+      <p class="card-preview">Artifacts have a main image, title, subtitle, and a longer description. They can also contain a list of inline notes below.</p>
+      </a>
+    </div>
+  </section>
+
+  <div class="lab-modal-overlay" id="lab-modal-overlay" hidden>
+    <div class="lab-modal" role="dialog" aria-modal="true">
+      <button class="lab-modal-close" id="lab-modal-close" aria-label="Close">×</button>
+      <div class="lab-modal-body" id="lab-modal-body"></div>
+    </div>
+  </div>
+
+  <template id="tpl-new-draft"><div class="post-content post-content--note">
+      <p class="post-date">June 20, 2026</p>
+      <h1 class="post-title">new draft</h1>
+      <div class="post-body"></div>
+      
+    </div></template>
+  <template id="tpl-new-note"><div class="post-content post-content--note">
+      <p class="post-date">June 20, 2026</p>
+      <h1 class="post-title">new note</h1>
+      <div class="post-body"><p>added some text added some more text</p></div>
+      
+    </div></template>
+  <template id="tpl-new"><div class="post-content post-content--note">
+      <p class="post-date">June 20, 2026</p>
+      
+      <div class="post-body"></div>
+      
+    </div></template>
+  <template id="tpl-welcome-to-the-lab"><div class="post-content post-content--note">
+      <p class="post-date">June 20, 2026</p>
+      <h1 class="post-title">Welcome to the lab</h1>
+      <div class="post-body"><p>First entry in the lab. This is a <strong>Note</strong> — short, dated, good for logging the day's work.</p></div>
+      
+    </div></template>
+  <template id="tpl-a-longer-journal-entry"><div class="post-content post-content--journal">
+      <p class="post-date">June 18, 2026</p>
+      <h1 class="post-title">A longer journal entry</h1>
+      <div class="post-body"><p>Journals get different formatting from Notes — more like a long-form essay.</p>
+<p>They can span multiple paragraphs, and on the index grid they can take up two columns instead of one if you set <code>columns: 2</code>.</p></div>
+      
+    </div></template>
+  <template id="tpl-example-artifact"><div class="post-content post-content--artifact">
+    <p class="post-date">June 15, 2026</p>
+    
+    <h1 class="post-title">Example Artifact</h1>
+    <p class="post-subtitle">A demo of the artifact post type</p>
+    <div class="post-body"><p>Artifacts have a main image, title, subtitle, and a longer description. They can also contain a list of inline notes below.</p></div>
+    <div class="artifact-notes"><div class="artifact-note">
+        <h3>First note</h3>
+        <p class="post-date">June 14, 2026</p>
+        <div class="post-body"><p>An inline note attached to this artifact.</p></div>
+        
+      </div></div>
+  </div></template>
+
+  <script src="js/lab.js"></script>
+</body>
+</html>

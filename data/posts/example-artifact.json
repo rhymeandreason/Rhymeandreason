@@ -1,0 +1,17 @@
+{
+  "type": "artifact",
+  "slug": "example-artifact",
+  "columns": 1,
+  "title": "Example Artifact",
+  "subtitle": "A demo of the artifact post type",
+  "date": "2026-06-15",
+  "description": "Artifacts have a main image, title, subtitle, and a longer description. They can also contain a list of inline notes below.",
+  "mainImage": "",
+  "notes": [
+    {
+      "title": "First note",
+      "date": "2026-06-14",
+      "body": "An inline note attached to this artifact."
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lab CMS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 6rem; color: #222; }
+  h1 { margin-bottom: 0.25rem; }
+  .hint { color: #888; font-size: 0.85rem; margin-bottom: 1.5rem; }
+  .layout { display: grid; grid-template-columns: 220px 1fr; gap: 2rem; align-items: start; }
+  .post-list { display: flex; flex-direction: column; gap: 0.4rem; border-right: 1px solid #eee; padding-right: 1rem; }
+  .post-list button { text-align: left; background: none; border: none; padding: 0.5rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+  .post-list button:hover, .post-list button.active { background: #f0f0f0; }
+  .post-list .type-tag { font-size: 0.7rem; text-transform: uppercase; color: #999; display: block; }
+  .post-list .draft-tag { font-size: 0.65rem; text-transform: uppercase; color: #b8860b; background: #fff7e0; border: 1px solid #f0d98c; border-radius: 4px; padding: 0.05rem 0.35rem; margin-left: 0.4rem; }
+  .new-btn { margin-bottom: 1rem; width: 100%; padding: 0.5rem; background: #222; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+  .toolbar { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #eee; }
+  .build-btn { background: #0b5fff; color: #fff; border: none; padding: 0.65rem 1.4rem; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem; }
+  .build-btn:disabled { background: #aac2f5; cursor: default; }
+  .draft-count { font-size: 0.85rem; color: #b8860b; }
+  form { display: flex; flex-direction: column; gap: 0.9rem; }
+  label { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.85rem; font-weight: 600; }
+  input, textarea, select { font-family: inherit; font-size: 0.95rem; padding: 0.5rem; border: 1px solid #ccc; border-radius: 6px; }
+  textarea { min-height: 6rem; resize: vertical; }
+  .row { display: flex; gap: 1rem; }
+  .row > label { flex: 1; }
+  .note-item { border: 1px solid #ddd; border-radius: 8px; padding: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; position: relative; }
+  .note-item .remove { position: absolute; top: 0.5rem; right: 0.5rem; background: none; border: none; cursor: pointer; color: #c33; font-weight: bold; }
+  .actions { display: flex; gap: 0.75rem; margin-top: 0.5rem; }
+  button.primary { background: #1a7f37; color: #fff; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; }
+  button.secondary { background: #eee; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; }
+  button.danger { background: #fff; color: #c33; border: 1px solid #c33; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; }
+  .thumbs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.25rem; }
+  .thumbs img { height: 60px; border-radius: 4px; }
+  #status { font-size: 0.85rem; color: #1a7f37; min-height: 1.2em; }
+  fieldset { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+</style>
+</head>
+<body>
+  <h1>Lab CMS</h1>
+  <p class="hint">Local-only editor. Saving writes JSON into <code>lab/data/posts/</code> — posts stay <strong>draft</strong> until you build the site.</p>
+  <div class="toolbar">
+    <button class="build-btn" id="build-btn">Build site</button>
+    <span class="draft-count" id="draft-count"></span>
+  </div>
+  <div class="layout">
+    <div>
+      <button class="new-btn" id="new-btn">+ New post</button>
+      <div class="post-list" id="post-list"></div>
+    </div>
+    <form id="post-form"></form>
+  </div>
+  <p id="status"></p>
+
+<script>
+const listEl = document.getElementById('post-list');
+const formEl = document.getElementById('post-form');
+const statusEl = document.getElementById('status');
+const buildBtn = document.getElementById('build-btn');
+const draftCountEl = document.getElementById('draft-count');
+let current = null; // current post object being edited, or null for "new"
+let currentType = 'note';
+
+async function api(path, opts) {
+  const res = await fetch(path, opts);
+  if (!res.ok) throw new Error((await res.json()).error || res.statusText);
+  return res.json();
+}
+
+async function loadList() {
+  const posts = await api('/api/posts');
+  listEl.innerHTML = '';
+  posts.forEach(p => {
+    const btn = document.createElement('button');
+    btn.innerHTML = `<span class="type-tag">${p.type}${p.draft ? '<span class="draft-tag">draft</span>' : ''}</span>${p.title || p.body?.slice(0, 30) || p.slug}`;
+    btn.onclick = () => selectPost(p);
+    listEl.appendChild(btn);
+  });
+  const draftCount = posts.filter(p => p.draft).length;
+  draftCountEl.textContent = draftCount ? `${draftCount} unbuilt post${draftCount === 1 ? '' : 's'}` : 'Everything built';
+  return posts;
+}
+
+buildBtn.addEventListener('click', async () => {
+  buildBtn.disabled = true;
+  buildBtn.textContent = 'Building…';
+  try {
+    await api('/api/build', { method: 'POST' });
+    statusEl.style.color = '#1a7f37';
+    statusEl.textContent = 'Site built at ' + new Date().toLocaleTimeString();
+    await loadList();
+  } catch (err) {
+    statusEl.style.color = '#c33';
+    statusEl.textContent = 'Build error: ' + err.message;
+  } finally {
+    buildBtn.disabled = false;
+    buildBtn.textContent = 'Build site';
+  }
+});
+
+function uploadField(label, name, multiple) {
+  return `<label>${label}
+    <input type="file" name="${name}" accept="image/*" ${multiple ? 'multiple' : ''} data-upload>
+    <div class="thumbs" data-thumbs-for="${name}"></div>
+  </label>`;
+}
+
+function renderForm(post) {
+  currentType = post.type;
+  const isNew = !post.slug;
+  let fields = '';
+  if (post.type === 'note' || post.type === 'journal') {
+    fields = `
+      <label>Title (optional)<input type="text" name="title" value="${post.title || ''}"></label>
+      <label>Date<input type="date" name="date" value="${post.date || ''}"></label>
+      <label>Columns
+        <select name="columns">
+          <option value="1" ${post.columns === 1 ? 'selected' : ''}>1 (default)</option>
+          <option value="2" ${post.columns === 2 ? 'selected' : ''}>2</option>
+        </select>
+      </label>
+      <label>Body<textarea name="body">${post.body || ''}</textarea></label>
+      ${uploadField('Images', 'images', true)}
+    `;
+  } else {
+    fields = `
+      <label>Title<input type="text" name="title" value="${post.title || ''}" required></label>
+      <label>Subtitle<input type="text" name="subtitle" value="${post.subtitle || ''}"></label>
+      <label>Date<input type="date" name="date" value="${post.date || ''}"></label>
+      <label>Columns
+        <select name="columns">
+          <option value="1" ${post.columns === 1 ? 'selected' : ''}>1 (default)</option>
+          <option value="2" ${post.columns === 2 ? 'selected' : ''}>2</option>
+        </select>
+      </label>
+      ${uploadField('Main image', 'mainImage', false)}
+      <label>Description<textarea name="description">${post.description || ''}</textarea></label>
+      <div id="notes-list"></div>
+      <button type="button" class="secondary" id="add-note">+ Add note</button>
+    `;
+  }
+
+  formEl.innerHTML = `
+    <fieldset>
+      <label>Slug ${isNew ? '' : '(locked after creation)'}<input type="text" name="slug" value="${post.slug || ''}" ${isNew ? '' : 'readonly'} required></label>
+      <label>Type
+        <select name="type">
+          <option value="note" ${post.type === 'note' ? 'selected' : ''}>Note</option>
+          <option value="journal" ${post.type === 'journal' ? 'selected' : ''}>Journal</option>
+          <option value="artifact" ${post.type === 'artifact' ? 'selected' : ''}>Artifact</option>
+        </select>
+      </label>
+      ${fields}
+      <div class="actions">
+        <button type="submit" class="primary">Save</button>
+        ${isNew ? '' : '<button type="button" class="danger" id="delete-btn">Delete</button>'}
+      </div>
+    </fieldset>
+  `;
+
+  formEl.querySelector('select[name=type]')?.addEventListener('change', e => {
+    currentType = e.target.value;
+    renderForm({ ...post, type: currentType });
+  });
+
+  if (post.type === 'artifact') {
+    const notesList = formEl.querySelector('#notes-list');
+    const notes = post.notes ? [...post.notes] : [];
+    function renderNotes() {
+      notesList.innerHTML = notes.map((n, i) => `
+        <div class="note-item" data-note-index="${i}">
+          <button type="button" class="remove" data-remove-note="${i}">×</button>
+          <label>Note title<input type="text" data-note-field="title" data-note-index="${i}" value="${n.title || ''}"></label>
+          <label>Note date<input type="date" data-note-field="date" data-note-index="${i}" value="${n.date || ''}"></label>
+          <label>Note body<textarea data-note-field="body" data-note-index="${i}">${n.body || ''}</textarea></label>
+        </div>
+      `).join('');
+      notesList.querySelectorAll('[data-remove-note]').forEach(b => b.onclick = () => {
+        notes.splice(Number(b.dataset.removeNote), 1);
+        renderNotes();
+      });
+      notesList.querySelectorAll('[data-note-field]').forEach(inp => inp.oninput = () => {
+        notes[Number(inp.dataset.noteIndex)][inp.dataset.noteField] = inp.value;
+      });
+    }
+    renderNotes();
+    formEl.querySelector('#add-note').onclick = () => { notes.push({ title: '', date: '', body: '' }); renderNotes(); };
+    formEl._getNotes = () => notes;
+  }
+
+  // image upload previews + tracking uploaded filenames
+  formEl.querySelectorAll('[data-upload]').forEach(input => {
+    const existing = input.name === 'mainImage'
+      ? (post.mainImage ? [post.mainImage] : [])
+      : (post.images || []);
+    input._uploaded = [...existing];
+    const thumbsEl = formEl.querySelector(`[data-thumbs-for="${input.name}"]`);
+    function renderThumbs() {
+      thumbsEl.innerHTML = input._uploaded.map(f => `<img src="images/${f}">`).join('');
+    }
+    renderThumbs();
+    input.addEventListener('change', async () => {
+      for (const file of input.files) {
+        const dataUrl = await new Promise((resolve, reject) => {
+          const r = new FileReader();
+          r.onload = () => resolve(r.result);
+          r.onerror = reject;
+          r.readAsDataURL(file);
+        });
+        const { filename } = await api('/api/upload', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filename: file.name, dataUrl }),
+        });
+        if (input.name === 'mainImage') input._uploaded = [filename];
+        else input._uploaded.push(filename);
+      }
+      renderThumbs();
+    });
+  });
+
+  formEl.querySelector('#delete-btn')?.addEventListener('click', async () => {
+    if (!confirm('Delete this post?')) return;
+    clearTimeout(autosaveTimer);
+    await api('/api/posts/' + encodeURIComponent(post.slug), { method: 'DELETE' });
+    statusEl.textContent = 'Deleted.';
+    current = null;
+    loadList();
+    renderForm(blankPost('note'));
+  });
+}
+
+function blankPost(type) {
+  return { type, columns: 1, date: new Date().toISOString().slice(0, 10) };
+}
+
+function selectPost(post) {
+  clearTimeout(autosaveTimer);
+  current = post;
+  renderForm(post);
+}
+
+document.getElementById('new-btn').onclick = () => {
+  clearTimeout(autosaveTimer);
+  current = null;
+  renderForm(blankPost('note'));
+};
+
+function postFromForm() {
+  const data = new FormData(formEl);
+  const post = { type: data.get('type') || currentType, slug: data.get('slug'), columns: Number(data.get('columns')) };
+  if (post.type === 'note' || post.type === 'journal') {
+    post.title = data.get('title') || '';
+    post.date = data.get('date') || '';
+    post.body = data.get('body') || '';
+    post.images = formEl.querySelector('input[name=images]')?._uploaded || [];
+  } else {
+    post.title = data.get('title') || '';
+    post.subtitle = data.get('subtitle') || '';
+    post.date = data.get('date') || '';
+    post.description = data.get('description') || '';
+    post.mainImage = (formEl.querySelector('input[name=mainImage]')?._uploaded || [])[0] || '';
+    post.notes = formEl._getNotes ? formEl._getNotes() : [];
+  }
+  return post;
+}
+
+let saveInFlight = null;
+async function savePostNow(label) {
+  if (!formEl.checkValidity()) return;
+  const post = postFromForm();
+  if (!post.slug) return;
+  statusEl.style.color = '#1a7f37';
+  statusEl.textContent = 'Saving…';
+  const task = api('/api/posts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(post) })
+    .then(async saved => {
+      current = saved;
+      statusEl.textContent = (label || 'Saved') + ' at ' + new Date().toLocaleTimeString();
+      await loadList();
+    })
+    .catch(err => {
+      statusEl.style.color = '#c33';
+      statusEl.textContent = 'Error: ' + err.message;
+    });
+  saveInFlight = task;
+  return task;
+}
+
+formEl.addEventListener('submit', e => {
+  e.preventDefault();
+  clearTimeout(autosaveTimer);
+  savePostNow('Saved');
+});
+
+// ---------- debounced autosave ----------
+const AUTOSAVE_DELAY = 1200;
+let autosaveTimer = null;
+formEl.addEventListener('input', () => {
+  clearTimeout(autosaveTimer);
+  autosaveTimer = setTimeout(() => savePostNow('Autosaved'), AUTOSAVE_DELAY);
+});
+formEl.addEventListener('change', e => {
+  if (e.target.matches('[data-upload]')) return; // upload already saves the file; autosave will pick up the reference on next input/change
+  clearTimeout(autosaveTimer);
+  autosaveTimer = setTimeout(() => savePostNow('Autosaved'), AUTOSAVE_DELAY);
+});
+
+renderForm(blankPost('note'));
+loadList();
+</script>
+</body>
+</html>
