@@ -129,6 +129,13 @@
     box-shadow: 0 0 0 3px rgba(110,97,84,0.12);
   }
   input[readonly] { background: var(--surface); color: var(--text-muted); cursor: default; }
+  input.invalid { border-color: var(--rose); }
+  input.invalid:focus { box-shadow: 0 0 0 3px var(--rose-soft); }
+  .field-warn {
+    font-size: 0.72rem; font-weight: 400; text-transform: none; letter-spacing: 0;
+    color: var(--rose); font-style: italic;
+  }
+  .field-warn:empty { display: none; }
 
   /* ---------- File upload ---------- */
   input[type="file"] {
@@ -396,8 +403,11 @@ let draggedSlug = null;
 const dropIndicator = document.createElement('div');
 dropIndicator.className = 'drop-indicator';
 
+let existingSlugs = new Set();
+
 async function loadList() {
   const posts = await api('/api/posts');
+  existingSlugs = new Set(posts.map(p => p.slug));
   listEl.innerHTML = '';
   posts.forEach(p => {
     const btn = document.createElement('button');
@@ -528,6 +538,26 @@ function renderForm(post) {
     renderForm({ ...post, type: currentType });
   });
 
+  // auto-fill the slug from the title for new posts, until the user edits it
+  if (isNew) {
+    const slugInput = formEl.querySelector('input[name=slug]');
+    const titleInput = formEl.querySelector('input[name=title]');
+    const warn = document.createElement('span');
+    warn.className = 'field-warn';
+    slugInput?.closest('label')?.appendChild(warn);
+    const checkSlug = () => {
+      const taken = slugInput.value && existingSlugs.has(slugInput.value);
+      warn.textContent = taken ? 'A post with this slug already exists' : '';
+      slugInput.classList.toggle('invalid', !!taken);
+    };
+    slugInput?.addEventListener('input', () => { slugInput.dataset.edited = '1'; checkSlug(); });
+    titleInput?.addEventListener('input', () => {
+      if (!slugInput || slugInput.dataset.edited) return;
+      slugInput.value = uniqueSlug(slugify(titleInput.value));
+      checkSlug();
+    });
+  }
+
   if (post.type === 'artifact') {
     const notesList = formEl.querySelector('#notes-list');
     const notes = post.notes ? [...post.notes] : [];
@@ -596,6 +626,21 @@ function renderForm(post) {
   });
 
   enhanceDates(formEl);
+}
+
+function slugify(s) {
+  return (s || '')
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function uniqueSlug(base) {
+  if (!base || !existingSlugs.has(base)) return base;
+  let n = 2;
+  while (existingSlugs.has(`${base}-${n}`)) n++;
+  return `${base}-${n}`;
 }
 
 function blankPost(type) {
