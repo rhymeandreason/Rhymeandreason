@@ -6,156 +6,196 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   :root {
-    --bg: #f5f6fa;
-    --surface: #ffffff;
-    --border: #e6e8ef;
-    --text: #1a1d29;
-    --text-muted: #6b7280;
-    --accent: #5b5bf0;
-    --accent-hover: #4747dd;
-    --accent-soft: #edecff;
-    --success: #15803d;
-    --success-soft: #ecfdf3;
-    --danger: #dc2626;
-    --danger-soft: #fef2f2;
-    --warn: #b45309;
-    --warn-soft: #fffbeb;
-    --warn-border: #fde68a;
-    --radius: 10px;
-    --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.06);
+    --bg: #f7f5f0;
+    --surface: #efece5;
+    --elevated: #ffffff;
+    --border: rgba(42, 42, 40, 0.10);
+    --border-strong: rgba(42, 42, 40, 0.18);
+    --text: #2a2a28;
+    --text-muted: #8a8678;
+    --text-soft: #b6b1a4;
+    --accent: #6e6154;        /* warm clay */
+    --accent-soft: #ead9c5;
+    --sage: #6f7d6a;
+    --rose: #a85a4a;
+    --rose-soft: rgba(168, 90, 74, 0.10);
+    --shadow-sm: 0 1px 2px rgba(42, 42, 40, 0.04);
+    --shadow-md: 0 4px 16px rgba(42, 42, 40, 0.06);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --sans: "Futura", "Futura PT", system-ui, -apple-system, sans-serif;
   }
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    max-width: 1080px;
+    font-family: var(--sans);
+    max-width: 940px;
     margin: 0 auto;
-    padding: 2.5rem 1.5rem 6rem;
+    padding: 3.5rem 2rem 6rem;
     color: var(--text);
     background: var(--bg);
-    line-height: 1.5;
+    line-height: 1.6;
+    letter-spacing: -0.005em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  h1 { margin: 0 0 0.2rem; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; }
-  .hint { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.75rem; }
-  .hint code { background: var(--accent-soft); color: var(--accent-hover); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.8em; }
 
+  /* ---------- Masthead ---------- */
+  .masthead { margin-bottom: 2.75rem; }
+  .eyebrow {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--text-soft); font-weight: 500; margin-bottom: 0.5rem;
+  }
+  h1 {
+    margin: 0; font-size: 2rem; font-weight: 600; letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+  .hint { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.75rem; max-width: 48ch; }
+  .hint code {
+    font-family: ui-monospace, "JetBrains Mono", monospace;
+    background: var(--surface); color: var(--accent);
+    padding: 0.1rem 0.4rem; border-radius: 5px; font-size: 0.82em;
+  }
+
+  /* ---------- Build toolbar ---------- */
   .toolbar {
     display: flex; align-items: center; gap: 1rem;
-    margin-bottom: 1.75rem; padding: 1rem 1.25rem;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); box-shadow: var(--shadow);
+    margin-bottom: 2.5rem;
   }
   .build-btn {
-    background: var(--accent); color: #fff; border: none;
-    padding: 0.65rem 1.4rem; border-radius: 8px; cursor: pointer;
-    font-weight: 600; font-size: 0.9rem; transition: background 0.15s ease, transform 0.1s ease;
+    background: var(--text); color: var(--bg); border: none;
+    padding: 0.65rem 1.5rem; border-radius: 999px; cursor: pointer;
+    font-family: var(--sans); font-weight: 500; font-size: 0.85rem;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: opacity 0.15s ease, transform 0.12s ease;
   }
-  .build-btn:hover:not(:disabled) { background: var(--accent-hover); }
+  .build-btn:hover:not(:disabled) { opacity: 0.88; }
   .build-btn:active:not(:disabled) { transform: scale(0.98); }
-  .build-btn:disabled { background: #c7c8f5; cursor: default; }
-  .draft-count { font-size: 0.85rem; color: var(--warn); font-weight: 500; }
+  .build-btn:disabled { opacity: 0.5; cursor: default; }
+  .draft-count { font-size: 0.82rem; color: var(--text-muted); font-weight: 400; }
 
-  .layout { display: grid; grid-template-columns: 260px 1fr; gap: 1.5rem; align-items: start; }
+  .layout { display: grid; grid-template-columns: 240px 1fr; gap: 2rem; align-items: start; }
 
-  .sidebar {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); box-shadow: var(--shadow);
-    padding: 0.85rem;
-  }
+  /* ---------- Sidebar ---------- */
+  .sidebar { position: sticky; top: 1.5rem; }
   .new-btn {
-    margin-bottom: 0.85rem; width: 100%; padding: 0.6rem;
-    background: var(--text); color: #fff; border: none; border-radius: 8px;
-    cursor: pointer; font-weight: 600; font-size: 0.85rem;
-    transition: background 0.15s ease;
+    margin-bottom: 1rem; width: 100%; padding: 0.7rem;
+    background: none; color: var(--text-muted); border: 1px dashed var(--border-strong);
+    border-radius: 999px; cursor: pointer;
+    font-family: var(--sans); font-weight: 500; font-size: 0.82rem;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
   }
-  .new-btn:hover { background: #000; }
-  .post-list { display: flex; flex-direction: column; gap: 0.25rem; }
+  .new-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(110,97,84,0.04); }
+  .post-list { display: flex; flex-direction: column; gap: 0.15rem; }
   .post-list button {
-    text-align: left; background: none; border: none; padding: 0.55rem 0.65rem;
-    border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: var(--text);
-    transition: background 0.12s ease;
+    text-align: left; background: none; border: none; padding: 0.6rem 0.7rem;
+    border-radius: var(--radius-sm); cursor: grab; font-family: var(--sans);
+    font-size: 0.88rem; color: var(--text); transition: background 0.12s ease;
   }
-  .post-list button:hover { background: var(--bg); }
-  .post-list button.active { background: var(--accent-soft); color: var(--accent-hover); }
-  .post-list button { cursor: grab; }
+  .post-list button:hover { background: var(--surface); }
+  .post-list button.active { background: var(--accent-soft); color: var(--accent); }
   .post-list button.dragging { opacity: 0.4; }
-  .post-list .drop-indicator { height: 2px; margin: 0.2rem 0.65rem; background: var(--accent); border-radius: 1px; }
-  .post-list .type-tag { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-muted); display: block; margin-bottom: 0.1rem; }
+  .post-list .drop-indicator { height: 2px; margin: 0.2rem 0.7rem; background: var(--accent); border-radius: 1px; }
+  .post-list .type-tag {
+    font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--text-soft); display: block; margin-bottom: 0.2rem; font-weight: 500;
+  }
+  .post-list button.active .type-tag { color: var(--accent); opacity: 0.7; }
   .post-list .draft-tag {
-    font-size: 0.62rem; text-transform: uppercase; color: var(--warn);
-    background: var(--warn-soft); border: 1px solid var(--warn-border);
-    border-radius: 4px; padding: 0.05rem 0.35rem; margin-left: 0.4rem;
+    font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--rose);
+    background: var(--rose-soft); border-radius: 4px; padding: 0.05rem 0.35rem; margin-left: 0.4rem;
   }
 
+  /* ---------- Editor ---------- */
   form {
-    display: flex; flex-direction: column; gap: 1.1rem;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); box-shadow: var(--shadow);
-    padding: 1.5rem;
+    display: flex; flex-direction: column; gap: 1.4rem;
+    background: var(--elevated); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow-sm);
+    padding: 2.25rem;
   }
-  label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.82rem; font-weight: 600; color: var(--text); }
+  label {
+    display: flex; flex-direction: column; gap: 0.4rem;
+    font-size: 0.72rem; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--text-muted);
+  }
   input, textarea, select {
-    font-family: inherit; font-size: 0.9rem; padding: 0.55rem 0.7rem;
-    border: 1px solid var(--border); border-radius: 8px; background: #fff;
-    color: var(--text); transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    font-family: var(--sans); font-size: 0.95rem; padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg);
+    color: var(--text); letter-spacing: -0.005em;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
   }
+  input:hover, textarea:hover, select:hover { border-color: var(--border-strong); }
   input:focus, textarea:focus, select:focus {
-    outline: none; border-color: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-soft);
+    outline: none; border-color: var(--accent); background: var(--elevated);
+    box-shadow: 0 0 0 3px rgba(110,97,84,0.12);
   }
-  input[readonly] { background: var(--bg); color: var(--text-muted); }
-  textarea { min-height: 6rem; resize: vertical; }
+  input[readonly] { background: var(--surface); color: var(--text-muted); cursor: default; }
+  textarea {
+    min-height: 9rem; resize: vertical; line-height: 1.7;
+    font-size: 1rem;
+  }
+  /* the body is the heart of the writing experience — give it room */
+  textarea[name="body"] { min-height: 16rem; }
   .row { display: flex; gap: 1rem; }
   .row > label { flex: 1; }
 
   .note-item {
-    border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 0.9rem; display: flex; flex-direction: column; gap: 0.55rem;
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 1.1rem; display: flex; flex-direction: column; gap: 0.7rem;
     position: relative; background: var(--bg);
   }
   .note-item .remove {
-    position: absolute; top: 0.5rem; right: 0.5rem; background: none; border: none;
-    cursor: pointer; color: var(--danger); font-weight: bold; font-size: 1rem;
-    width: 1.6rem; height: 1.6rem; border-radius: 6px; transition: background 0.12s ease;
+    position: absolute; top: 0.6rem; right: 0.6rem; background: none; border: none;
+    cursor: pointer; color: var(--text-soft); font-size: 1.1rem; line-height: 1;
+    width: 1.7rem; height: 1.7rem; border-radius: 6px; transition: background 0.12s ease, color 0.12s ease;
   }
-  .note-item .remove:hover { background: var(--danger-soft); }
+  .note-item .remove:hover { background: var(--rose-soft); color: var(--rose); }
 
-  .actions { display: flex; gap: 0.75rem; margin-top: 0.25rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
-  button { font-family: inherit; }
+  .actions { display: flex; gap: 0.6rem; margin-top: 0.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+  button { font-family: var(--sans); }
   button.primary {
-    background: var(--success); color: #fff; border: none; padding: 0.6rem 1.3rem;
-    border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.88rem;
-    transition: background 0.15s ease;
+    background: var(--text); color: var(--bg); border: none; padding: 0.65rem 1.6rem;
+    border-radius: 999px; cursor: pointer; font-weight: 500; font-size: 0.85rem;
+    transition: opacity 0.15s ease, transform 0.12s ease;
   }
-  button.primary:hover { background: #116631; }
+  button.primary:hover { opacity: 0.88; }
+  button.primary:active { transform: scale(0.98); }
   button.secondary {
-    background: var(--bg); border: 1px solid var(--border); padding: 0.6rem 1.2rem;
-    border-radius: 8px; cursor: pointer; font-size: 0.88rem; color: var(--text);
-    transition: background 0.15s ease;
+    background: none; border: 1px dashed var(--border-strong); padding: 0.6rem 1.2rem;
+    border-radius: 999px; cursor: pointer; font-size: 0.82rem; font-weight: 500; color: var(--text-muted);
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
   }
-  button.secondary:hover { background: #ebecf2; }
+  button.secondary:hover { border-color: var(--accent); color: var(--accent); background: rgba(110,97,84,0.04); }
   button.danger {
-    background: #fff; color: var(--danger); border: 1px solid #f3c2c2; padding: 0.6rem 1.2rem;
-    border-radius: 8px; cursor: pointer; font-size: 0.88rem; transition: background 0.15s ease;
+    background: none; color: var(--text-muted); border: 1px solid var(--border-strong); padding: 0.6rem 1.3rem;
+    border-radius: 999px; cursor: pointer; font-size: 0.82rem; font-weight: 500;
+    transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
   }
-  button.danger:hover { background: var(--danger-soft); }
+  button.danger:hover { color: var(--rose); border-color: var(--rose); background: var(--rose-soft); }
+  .actions .danger { margin-left: auto; }
 
-  .thumbs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.35rem; }
-  .thumbs img { height: 64px; border-radius: 8px; border: 1px solid var(--border); object-fit: cover; }
+  .thumbs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.45rem; }
+  .thumbs img { height: 64px; border-radius: var(--radius-sm); border: 1px solid var(--border); object-fit: cover; }
 
   #status {
-    font-size: 0.85rem; color: var(--success); min-height: 1.2em;
-    margin-top: 1.25rem; text-align: center;
+    font-size: 0.82rem; color: var(--text-muted); min-height: 1.2em;
+    margin-top: 1.5rem; text-align: center; font-style: italic;
   }
-  fieldset { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+  fieldset { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.4rem; }
 
-  @media (max-width: 700px) {
+  @media (max-width: 720px) {
+    body { padding: 2.5rem 1.25rem 4rem; }
     .layout { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    form { padding: 1.5rem; }
   }
 </style>
 </head>
 <body>
-  <h1>Lab CMS</h1>
-  <p class="hint">Local-only editor. Saving writes JSON into <code>lab/data/posts/</code> — posts stay <strong>draft</strong> until you build the site.</p>
+  <div class="masthead">
+    <p class="eyebrow">Writing Desk</p>
+    <h1>Lab</h1>
+    <p class="hint">A quiet, local-only editor. Saving writes to <code>lab/data/posts/</code>; your words stay in draft until you build the site.</p>
+  </div>
   <div class="toolbar">
     <button class="build-btn" id="build-btn">Build site</button>
     <span class="draft-count" id="draft-count"></span>
