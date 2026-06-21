@@ -40,7 +40,7 @@
   }
 
   /* ---------- Masthead ---------- */
-  .masthead { margin-bottom: 2.75rem; }
+  .masthead { margin-bottom: 1.5rem; }
   .eyebrow {
     font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em;
     color: var(--text-soft); font-weight: 500; margin-bottom: 0.5rem;
@@ -58,8 +58,9 @@
 
   /* ---------- Build toolbar ---------- */
   .toolbar {
-    display: flex; align-items: center; gap: 1rem;
-    margin-bottom: 2.5rem;
+    display: flex; 
+align-items: center; gap: 10px;
+    margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);
   }
   .build-btn {
     background: var(--text); color: var(--bg); border: none;
@@ -73,7 +74,7 @@
   .build-btn:disabled { opacity: 0.5; cursor: default; }
   .draft-count { font-size: 0.82rem; color: var(--text-muted); font-weight: 400; }
 
-  .layout { display: grid; grid-template-columns: 240px 1fr; gap: 2rem; align-items: start; }
+  .layout { display: grid; grid-template-columns: 280px 1fr; gap: 2.5rem; align-items: start; }
 
   /* ---------- Sidebar ---------- */
   .sidebar { position: sticky; top: 1.5rem; }
@@ -107,10 +108,21 @@
 
   /* ---------- Editor ---------- */
   form {
-    display: flex; flex-direction: column; gap: 1.4rem;
+    display: flex; flex-direction: column;
     background: var(--elevated); border: 1px solid var(--border);
     border-radius: var(--radius); box-shadow: var(--shadow-sm);
-    padding: 2.25rem;
+  }
+  .form-top {
+    position: sticky; top: 0; z-index: 5;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 1.1rem 2.25rem; background: var(--elevated);
+    border-bottom: 1px solid var(--border);
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .form-top-left { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
+  .form-heading {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--text-soft); font-weight: 500;
   }
   label {
     display: flex; flex-direction: column; gap: 0.4rem;
@@ -231,7 +243,7 @@
   }
   .note-item .remove:hover { background: var(--rose-soft); color: var(--rose); }
 
-  .actions { display: flex; gap: 0.6rem; margin-top: 0.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+  .actions { display: flex; align-items: center; gap: 0.6rem; }
   button { font-family: var(--sans); }
   button.primary {
     background: var(--text); color: var(--bg); border: none; padding: 0.65rem 1.6rem;
@@ -252,43 +264,45 @@
     transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
   }
   button.danger:hover { color: var(--rose); border-color: var(--rose); background: var(--rose-soft); }
-  .actions .danger { margin-left: auto; }
 
   .thumbs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.45rem; }
   .thumbs img { height: 64px; border-radius: var(--radius-sm); border: 1px solid var(--border); object-fit: cover; }
 
   #status {
-    font-size: 0.82rem; color: var(--text-muted); min-height: 1.2em;
-    margin-top: 1.5rem; text-align: center; font-style: italic;
+    font-size: 0.8rem; color: var(--text-muted); min-height: 1.1em;
+    font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  fieldset { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.4rem; }
+  fieldset { border: none; padding: 2.25rem; margin: 0; display: flex; flex-direction: column; gap: 1.4rem; }
 
   @media (max-width: 720px) {
     body { padding: 2.5rem 1.25rem 4rem; }
     .layout { grid-template-columns: 1fr; }
     .sidebar { position: static; }
-    form { padding: 1.5rem; }
+    fieldset { padding: 1.5rem; }
+    .form-top { padding: 0.9rem 1.5rem; }
   }
 </style>
 </head>
 <body>
-  <div class="masthead">
-    <p class="eyebrow">Writing Desk</p>
-    <h1>Lab</h1>
-    <p class="hint">A quiet, local-only editor. Saving writes to <code>lab/data/posts/</code>; your words stay in draft until you build the site.</p>
-  </div>
-  <div class="toolbar">
-    <button class="build-btn" id="build-btn">Build site</button>
-    <span class="draft-count" id="draft-count"></span>
-  </div>
   <div class="layout">
-    <div class="sidebar">
+    <aside class="sidebar">
+      <div class="masthead">
+        <p class="eyebrow">Writing Desk</p>
+        <h1>Lab</h1>
+        <p class="hint">A quiet, local-only editor. Saving writes to <code>lab/data/posts/</code>; posts stay in draft until you build.</p>
+      </div>
+      <div class="toolbar">
+        <button class="build-btn" id="build-btn">Build site</button>
+        <span class="draft-count" id="draft-count"></span>
+      </div>
       <button class="new-btn" id="new-btn">+ New post</button>
       <div class="post-list" id="post-list"></div>
-    </div>
-    <form id="post-form"></form>
+    </aside>
+    <main class="main">
+      <form id="post-form"></form>
+      <p id="status"></p>
+    </main>
   </div>
-  <p id="status"></p>
 
 <script>
 const listEl = document.getElementById('post-list');
@@ -516,6 +530,15 @@ function renderForm(post) {
   }
 
   formEl.innerHTML = `
+    <div class="form-top">
+      <div class="form-top-left">
+        <span class="form-heading">${isNew ? 'New post' : 'Editing'}</span>
+      </div>
+      <div class="actions">
+        ${isNew ? '' : '<button type="button" class="danger" id="delete-btn">Delete</button>'}
+        <button type="submit" class="primary">Save</button>
+      </div>
+    </div>
     <fieldset>
       <label>Slug ${isNew ? '' : '(locked after creation)'}<input type="text" name="slug" value="${post.slug || ''}" ${isNew ? '' : 'readonly'} required></label>
       <label>Type
@@ -526,12 +549,11 @@ function renderForm(post) {
         </select>
       </label>
       ${fields}
-      <div class="actions">
-        <button type="submit" class="primary">Save</button>
-        ${isNew ? '' : '<button type="button" class="danger" id="delete-btn">Delete</button>'}
-      </div>
     </fieldset>
   `;
+
+  // relocate the persistent status node into the sticky header, under the heading
+  formEl.querySelector('.form-top-left').appendChild(statusEl);
 
   formEl.querySelector('select[name=type]')?.addEventListener('change', e => {
     currentType = e.target.value;
