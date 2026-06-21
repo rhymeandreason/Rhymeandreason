@@ -129,6 +129,80 @@
     box-shadow: 0 0 0 3px rgba(110,97,84,0.12);
   }
   input[readonly] { background: var(--surface); color: var(--text-muted); cursor: default; }
+
+  /* ---------- File upload ---------- */
+  input[type="file"] {
+    padding: 0.4rem 0.5rem; font-size: 0.85rem; color: var(--text-muted); cursor: pointer;
+  }
+  input[type="file"]::file-selector-button {
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.02em;
+    color: var(--text); background: var(--surface); border: 1px solid var(--border-strong);
+    border-radius: 999px; padding: 0.4rem 1rem; margin-right: 0.85rem; cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+  input[type="file"]::file-selector-button:hover {
+    border-color: var(--accent); color: var(--accent); background: rgba(110,97,84,0.04);
+  }
+
+  /* ---------- Date field (custom picker) ---------- */
+  input.date-input {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238a8678' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='18' rx='2'/><line x1='3' y1='9' x2='21' y2='9'/><line x1='8' y1='2' x2='8' y2='6'/><line x1='16' y1='2' x2='16' y2='6'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2.4rem;
+  }
+  input.date-input::placeholder { color: var(--text-soft); }
+
+  .dp-popup {
+    position: absolute; z-index: 200; width: 260px;
+    background: var(--elevated); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 0.85rem;
+    box-shadow: 0 8px 28px rgba(42,42,40,0.14), 0 2px 6px rgba(42,42,40,0.06);
+    opacity: 0; transform: translateY(-4px) scale(0.98); pointer-events: none;
+    transition: opacity 0.12s ease, transform 0.12s ease;
+  }
+  .dp-popup.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+  .dp-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; }
+  .dp-title {
+    font-size: 0.82rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--text);
+  }
+  .dp-nav {
+    width: 1.9rem; height: 1.9rem; border: none; background: none; cursor: pointer;
+    border-radius: 999px; color: var(--text-muted); font-size: 1.1rem; line-height: 1;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background 0.12s ease, color 0.12s ease;
+  }
+  .dp-nav:hover { background: var(--surface); color: var(--text); }
+  .dp-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+  .dp-dow {
+    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 500;
+    color: var(--text-soft); text-align: center; padding: 0.3rem 0;
+  }
+  .dp-day {
+    aspect-ratio: 1; border: none; background: none; cursor: pointer;
+    border-radius: 999px; font-family: var(--sans); font-size: 0.82rem; color: var(--text);
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background 0.1s ease, color 0.1s ease;
+  }
+  .dp-day:hover { background: var(--surface); }
+  .dp-day.today { color: var(--accent); font-weight: 600; }
+  .dp-day.selected { background: var(--accent); color: var(--bg); font-weight: 500; }
+  .dp-day.selected:hover { background: var(--accent); }
+  .dp-foot {
+    display: flex; justify-content: space-between; margin-top: 0.7rem;
+    padding-top: 0.6rem; border-top: 1px solid var(--border);
+  }
+  .dp-foot button {
+    background: none; border: none; cursor: pointer; font-family: var(--sans);
+    font-size: 0.74rem; font-weight: 500; letter-spacing: 0.02em; padding: 0.25rem 0.4rem;
+    border-radius: 6px; transition: color 0.12s ease, background 0.12s ease;
+  }
+  .dp-today-btn { color: var(--accent); }
+  .dp-today-btn:hover { background: rgba(110,97,84,0.08); }
+  .dp-clear { color: var(--text-soft); }
+  .dp-clear:hover { color: var(--rose); background: var(--rose-soft); }
   textarea {
     min-height: 9rem; resize: vertical; line-height: 1.7;
     font-size: 1rem;
@@ -222,6 +296,100 @@ async function api(path, opts) {
   const res = await fetch(path, opts);
   if (!res.ok) throw new Error((await res.json()).error || res.statusText);
   return res.json();
+}
+
+// ---------- custom date picker ----------
+const DP_MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const dpPad = n => String(n).padStart(2, '0');
+const dpIso = (y, m, d) => `${y}-${dpPad(m + 1)}-${dpPad(d)}`;
+let dpPopup = null, dpInput = null, dpYear = 0, dpMonth = 0;
+
+function enhanceDates(root) {
+  root.querySelectorAll('input[type="date"]').forEach(input => {
+    if (input.dataset.dpEnhanced) return;
+    input.dataset.dpEnhanced = '1';
+    input.type = 'text';
+    input.readOnly = true;
+    input.placeholder = 'Select date';
+    input.classList.add('date-input');
+    input.addEventListener('click', () => openDp(input));
+  });
+}
+
+function buildDpPopup() {
+  dpPopup = document.createElement('div');
+  dpPopup.className = 'dp-popup';
+  document.body.appendChild(dpPopup);
+  dpPopup.addEventListener('click', e => {
+    const nav = e.target.closest('[data-nav]');
+    if (nav) {
+      dpMonth += Number(nav.dataset.nav);
+      if (dpMonth < 0) { dpMonth = 11; dpYear--; }
+      if (dpMonth > 11) { dpMonth = 0; dpYear++; }
+      renderDp();
+      return;
+    }
+    if (e.target.closest('[data-clear]')) { commitDp(''); return; }
+    const day = e.target.closest('[data-iso]');
+    if (day) commitDp(day.dataset.iso);
+  });
+  document.addEventListener('click', e => {
+    if (!dpPopup.classList.contains('open')) return;
+    if (dpPopup.contains(e.target) || e.target === dpInput) return;
+    closeDp();
+  });
+  window.addEventListener('keydown', e => { if (e.key === 'Escape') closeDp(); });
+}
+
+function openDp(input) {
+  if (!dpPopup) buildDpPopup();
+  dpInput = input;
+  const valid = /^\d{4}-\d{2}-\d{2}$/.test(input.value);
+  const base = valid ? new Date(input.value + 'T00:00:00') : new Date();
+  dpYear = base.getFullYear();
+  dpMonth = base.getMonth();
+  renderDp();
+  const r = input.getBoundingClientRect();
+  dpPopup.style.top = (r.bottom + window.scrollY + 6) + 'px';
+  dpPopup.style.left = (r.left + window.scrollX) + 'px';
+  dpPopup.classList.add('open');
+}
+
+function closeDp() { dpPopup?.classList.remove('open'); dpInput = null; }
+
+function commitDp(iso) {
+  if (!dpInput) return;
+  dpInput.value = iso;
+  dpInput.dispatchEvent(new Event('input', { bubbles: true }));
+  dpInput.dispatchEvent(new Event('change', { bubbles: true }));
+  closeDp();
+}
+
+function renderDp() {
+  const sel = dpInput && /^\d{4}-\d{2}-\d{2}$/.test(dpInput.value) ? dpInput.value : null;
+  const now = new Date();
+  const todayIso = dpIso(now.getFullYear(), now.getMonth(), now.getDate());
+  const startDay = new Date(dpYear, dpMonth, 1).getDay();
+  const daysInMonth = new Date(dpYear, dpMonth + 1, 0).getDate();
+  let html = `<div class="dp-head">
+    <button type="button" class="dp-nav" data-nav="-1" aria-label="Previous month">‹</button>
+    <span class="dp-title">${DP_MONTHS[dpMonth]} ${dpYear}</span>
+    <button type="button" class="dp-nav" data-nav="1" aria-label="Next month">›</button>
+  </div><div class="dp-grid">`;
+  ['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(d => html += `<span class="dp-dow">${d}</span>`);
+  for (let i = 0; i < startDay; i++) html += '<span></span>';
+  for (let day = 1; day <= daysInMonth; day++) {
+    const iso = dpIso(dpYear, dpMonth, day);
+    const cls = ['dp-day'];
+    if (iso === sel) cls.push('selected');
+    if (iso === todayIso) cls.push('today');
+    html += `<button type="button" class="${cls.join(' ')}" data-iso="${iso}">${day}</button>`;
+  }
+  html += `</div><div class="dp-foot">
+    <button type="button" class="dp-today-btn" data-iso="${todayIso}">Today</button>
+    <button type="button" class="dp-clear" data-clear>Clear</button>
+  </div>`;
+  dpPopup.innerHTML = html;
 }
 
 let draggedSlug = null;
@@ -379,6 +547,7 @@ function renderForm(post) {
       notesList.querySelectorAll('[data-note-field]').forEach(inp => inp.oninput = () => {
         notes[Number(inp.dataset.noteIndex)][inp.dataset.noteField] = inp.value;
       });
+      enhanceDates(notesList);
     }
     renderNotes();
     formEl.querySelector('#add-note').onclick = () => { notes.push({ title: '', date: '', body: '' }); renderNotes(); };
@@ -425,6 +594,8 @@ function renderForm(post) {
     loadList();
     renderForm(blankPost('note'));
   });
+
+  enhanceDates(formEl);
 }
 
 function blankPost(type) {
