@@ -4,8 +4,8 @@
  * edit posts via lab/admin.html. Saving writes the post's JSON but does NOT rebuild
  * the static site — posts stay "draft" until you click Build (or POST /api/build).
  *
- *   Run: node lab/admin-server.js
- *   Open: http://localhost:4848/lab/admin.html
+ *   Run: node admin-server.js
+ *   Open: http://localhost:4848/admin.html
  */
 const http = require('http');
 const fs = require('fs');
@@ -14,7 +14,7 @@ const { listPosts, getPost, savePost, deletePost, markDraft, readDraftSlugs, IMA
 const { build } = require('./build');
 
 const PORT = 4848;
-const SITE_ROOT = path.join(ROOT, '..');
+const SITE_ROOT = ROOT;
 
 const MIME = {
   '.html': 'text/html', '.css': 'text/css', '.js': 'application/javascript',

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mary Huang — Lab</title>
-    <link>https://mary-huang.com/lab/</link>
+    <title>Rhyme &amp; Reason - lab and studio</title>
+    <link>https://rhymeandreason.studio//</link>
     <description>Notes, journals, and artifacts from ongoing work.</description>
     <language>en-us</language>
-    <atom:link href="https://mary-huang.com/lab/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://rhymeandreason.studio//feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>new draft</title>
-      <link>https://mary-huang.com/lab/note/new-draft.html</link>
-      <guid isPermaLink="true">https://mary-huang.com/lab/note/new-draft.html</guid>
+      <link>https://rhymeandreason.studio//note/new-draft.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//note/new-draft.html</guid>
       <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
       <category>note</category>
       <description><![CDATA[<div class="post-content post-content--note">
@@ -21,8 +21,8 @@
     </item>
     <item>
       <title>new note</title>
-      <link>https://mary-huang.com/lab/note/new-note.html</link>
-      <guid isPermaLink="true">https://mary-huang.com/lab/note/new-note.html</guid>
+      <link>https://rhymeandreason.studio//note/new-note.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//note/new-note.html</guid>
       <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
       <category>note</category>
       <description><![CDATA[<div class="post-content post-content--note">
@@ -34,8 +34,8 @@
     </item>
     <item>
       <title></title>
-      <link>https://mary-huang.com/lab/note/new.html</link>
-      <guid isPermaLink="true">https://mary-huang.com/lab/note/new.html</guid>
+      <link>https://rhymeandreason.studio//note/new.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//note/new.html</guid>
       <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
       <category>note</category>
       <description><![CDATA[<div class="post-content post-content--note">
@@ -47,8 +47,8 @@
     </item>
     <item>
       <title>Welcome to the lab</title>
-      <link>https://mary-huang.com/lab/note/welcome-to-the-lab.html</link>
-      <guid isPermaLink="true">https://mary-huang.com/lab/note/welcome-to-the-lab.html</guid>
+      <link>https://rhymeandreason.studio//note/welcome-to-the-lab.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//note/welcome-to-the-lab.html</guid>
       <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
       <category>note</category>
       <description><![CDATA[<div class="post-content post-content--note">
@@ -60,8 +60,8 @@
     </item>
     <item>
       <title>A longer journal entry</title>
-      <link>https://mary-huang.com/lab/journal/a-longer-journal-entry.html</link>
-      <guid isPermaLink="true">https://mary-huang.com/lab/journal/a-longer-journal-entry.html</guid>
+      <link>https://rhymeandreason.studio//journal/a-longer-journal-entry.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//journal/a-longer-journal-entry.html</guid>
       <pubDate>Thu, 18 Jun 2026 12:00:00 GMT</pubDate>
       <category>journal</category>
       <description><![CDATA[<div class="post-content post-content--journal">
@@ -74,8 +74,8 @@
     </item>
     <item>
       <title>Example Artifact</title>
-      <link>https://mary-huang.com/lab/artifact/example-artifact.html</link>
-      <guid isPermaLink="true">https://mary-huang.com/lab/artifact/example-artifact.html</guid>
+      <link>https://rhymeandreason.studio//artifact/example-artifact.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/example-artifact.html</guid>
       <pubDate>Mon, 15 Jun 2026 12:00:00 GMT</pubDate>
       <category>artifact</category>
       <description><![CDATA[<div class="post-content post-content--artifact">

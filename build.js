@@ -11,10 +11,10 @@ const path = require('path');
 const { md, preview, escapeHtml, listPosts, clearDrafts, ROOT } = require('./lib');
 
 const SITE = {
-  title: 'Mary Huang — Lab',
+  title: 'Rhyme & Reason - lab and studio',
   description: 'Notes, journals, and artifacts from ongoing work.',
-  url: 'https://mary-huang.com',
-  basePath: '/lab',
+  url: 'https://rhymeandreason.studio',
+  basePath: '/',
   author: 'Mary Huang',
 };
 
