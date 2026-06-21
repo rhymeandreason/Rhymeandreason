@@ -5,36 +5,149 @@
 <title>Lab CMS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 6rem; color: #222; }
-  h1 { margin-bottom: 0.25rem; }
-  .hint { color: #888; font-size: 0.85rem; margin-bottom: 1.5rem; }
-  .layout { display: grid; grid-template-columns: 220px 1fr; gap: 2rem; align-items: start; }
-  .post-list { display: flex; flex-direction: column; gap: 0.4rem; border-right: 1px solid #eee; padding-right: 1rem; }
-  .post-list button { text-align: left; background: none; border: none; padding: 0.5rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
-  .post-list button:hover, .post-list button.active { background: #f0f0f0; }
-  .post-list .type-tag { font-size: 0.7rem; text-transform: uppercase; color: #999; display: block; }
-  .post-list .draft-tag { font-size: 0.65rem; text-transform: uppercase; color: #b8860b; background: #fff7e0; border: 1px solid #f0d98c; border-radius: 4px; padding: 0.05rem 0.35rem; margin-left: 0.4rem; }
-  .new-btn { margin-bottom: 1rem; width: 100%; padding: 0.5rem; background: #222; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
-  .toolbar { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #eee; }
-  .build-btn { background: #0b5fff; color: #fff; border: none; padding: 0.65rem 1.4rem; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem; }
-  .build-btn:disabled { background: #aac2f5; cursor: default; }
-  .draft-count { font-size: 0.85rem; color: #b8860b; }
-  form { display: flex; flex-direction: column; gap: 0.9rem; }
-  label { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.85rem; font-weight: 600; }
-  input, textarea, select { font-family: inherit; font-size: 0.95rem; padding: 0.5rem; border: 1px solid #ccc; border-radius: 6px; }
+  :root {
+    --bg: #f5f6fa;
+    --surface: #ffffff;
+    --border: #e6e8ef;
+    --text: #1a1d29;
+    --text-muted: #6b7280;
+    --accent: #5b5bf0;
+    --accent-hover: #4747dd;
+    --accent-soft: #edecff;
+    --success: #15803d;
+    --success-soft: #ecfdf3;
+    --danger: #dc2626;
+    --danger-soft: #fef2f2;
+    --warn: #b45309;
+    --warn-soft: #fffbeb;
+    --warn-border: #fde68a;
+    --radius: 10px;
+    --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.06);
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 6rem;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.5;
+  }
+  h1 { margin: 0 0 0.2rem; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; }
+  .hint { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.75rem; }
+  .hint code { background: var(--accent-soft); color: var(--accent-hover); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.8em; }
+
+  .toolbar {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.75rem; padding: 1rem 1.25rem;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+  }
+  .build-btn {
+    background: var(--accent); color: #fff; border: none;
+    padding: 0.65rem 1.4rem; border-radius: 8px; cursor: pointer;
+    font-weight: 600; font-size: 0.9rem; transition: background 0.15s ease, transform 0.1s ease;
+  }
+  .build-btn:hover:not(:disabled) { background: var(--accent-hover); }
+  .build-btn:active:not(:disabled) { transform: scale(0.98); }
+  .build-btn:disabled { background: #c7c8f5; cursor: default; }
+  .draft-count { font-size: 0.85rem; color: var(--warn); font-weight: 500; }
+
+  .layout { display: grid; grid-template-columns: 260px 1fr; gap: 1.5rem; align-items: start; }
+
+  .sidebar {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 0.85rem;
+  }
+  .new-btn {
+    margin-bottom: 0.85rem; width: 100%; padding: 0.6rem;
+    background: var(--text); color: #fff; border: none; border-radius: 8px;
+    cursor: pointer; font-weight: 600; font-size: 0.85rem;
+    transition: background 0.15s ease;
+  }
+  .new-btn:hover { background: #000; }
+  .post-list { display: flex; flex-direction: column; gap: 0.25rem; }
+  .post-list button {
+    text-align: left; background: none; border: none; padding: 0.55rem 0.65rem;
+    border-radius: 8px; cursor: pointer; font-size: 0.85rem; color: var(--text);
+    transition: background 0.12s ease;
+  }
+  .post-list button:hover { background: var(--bg); }
+  .post-list button.active { background: var(--accent-soft); color: var(--accent-hover); }
+  .post-list .type-tag { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-muted); display: block; margin-bottom: 0.1rem; }
+  .post-list .draft-tag {
+    font-size: 0.62rem; text-transform: uppercase; color: var(--warn);
+    background: var(--warn-soft); border: 1px solid var(--warn-border);
+    border-radius: 4px; padding: 0.05rem 0.35rem; margin-left: 0.4rem;
+  }
+
+  form {
+    display: flex; flex-direction: column; gap: 1.1rem;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 1.5rem;
+  }
+  label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.82rem; font-weight: 600; color: var(--text); }
+  input, textarea, select {
+    font-family: inherit; font-size: 0.9rem; padding: 0.55rem 0.7rem;
+    border: 1px solid var(--border); border-radius: 8px; background: #fff;
+    color: var(--text); transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  input:focus, textarea:focus, select:focus {
+    outline: none; border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  input[readonly] { background: var(--bg); color: var(--text-muted); }
   textarea { min-height: 6rem; resize: vertical; }
   .row { display: flex; gap: 1rem; }
   .row > label { flex: 1; }
-  .note-item { border: 1px solid #ddd; border-radius: 8px; padding: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; position: relative; }
-  .note-item .remove { position: absolute; top: 0.5rem; right: 0.5rem; background: none; border: none; cursor: pointer; color: #c33; font-weight: bold; }
-  .actions { display: flex; gap: 0.75rem; margin-top: 0.5rem; }
-  button.primary { background: #1a7f37; color: #fff; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; }
-  button.secondary { background: #eee; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; }
-  button.danger { background: #fff; color: #c33; border: 1px solid #c33; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; }
-  .thumbs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.25rem; }
-  .thumbs img { height: 60px; border-radius: 4px; }
-  #status { font-size: 0.85rem; color: #1a7f37; min-height: 1.2em; }
-  fieldset { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+
+  .note-item {
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 0.9rem; display: flex; flex-direction: column; gap: 0.55rem;
+    position: relative; background: var(--bg);
+  }
+  .note-item .remove {
+    position: absolute; top: 0.5rem; right: 0.5rem; background: none; border: none;
+    cursor: pointer; color: var(--danger); font-weight: bold; font-size: 1rem;
+    width: 1.6rem; height: 1.6rem; border-radius: 6px; transition: background 0.12s ease;
+  }
+  .note-item .remove:hover { background: var(--danger-soft); }
+
+  .actions { display: flex; gap: 0.75rem; margin-top: 0.25rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+  button { font-family: inherit; }
+  button.primary {
+    background: var(--success); color: #fff; border: none; padding: 0.6rem 1.3rem;
+    border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.88rem;
+    transition: background 0.15s ease;
+  }
+  button.primary:hover { background: #116631; }
+  button.secondary {
+    background: var(--bg); border: 1px solid var(--border); padding: 0.6rem 1.2rem;
+    border-radius: 8px; cursor: pointer; font-size: 0.88rem; color: var(--text);
+    transition: background 0.15s ease;
+  }
+  button.secondary:hover { background: #ebecf2; }
+  button.danger {
+    background: #fff; color: var(--danger); border: 1px solid #f3c2c2; padding: 0.6rem 1.2rem;
+    border-radius: 8px; cursor: pointer; font-size: 0.88rem; transition: background 0.15s ease;
+  }
+  button.danger:hover { background: var(--danger-soft); }
+
+  .thumbs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.35rem; }
+  .thumbs img { height: 64px; border-radius: 8px; border: 1px solid var(--border); object-fit: cover; }
+
+  #status {
+    font-size: 0.85rem; color: var(--success); min-height: 1.2em;
+    margin-top: 1.25rem; text-align: center;
+  }
+  fieldset { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+
+  @media (max-width: 700px) {
+    .layout { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -45,7 +158,7 @@
     <span class="draft-count" id="draft-count"></span>
   </div>
   <div class="layout">
-    <div>
+    <div class="sidebar">
       <button class="new-btn" id="new-btn">+ New post</button>
       <div class="post-list" id="post-list"></div>
     </div>
@@ -74,6 +187,7 @@ async function loadList() {
   posts.forEach(p => {
     const btn = document.createElement('button');
     btn.innerHTML = `<span class="type-tag">${p.type}${p.draft ? '<span class="draft-tag">draft</span>' : ''}</span>${p.title || p.body?.slice(0, 30) || p.slug}`;
+    if (current && current.slug === p.slug) btn.classList.add('active');
     btn.onclick = () => selectPost(p);
     listEl.appendChild(btn);
   });
