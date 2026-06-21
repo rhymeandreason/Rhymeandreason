@@ -76,7 +76,22 @@ function listPosts() {
   return fs.readdirSync(POSTS_DIR)
     .filter(f => f.endsWith('.json'))
     .map(f => JSON.parse(fs.readFileSync(path.join(POSTS_DIR, f), 'utf8')))
-    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    .sort((a, b) => {
+      if (a.order != null && b.order != null) return a.order - b.order;
+      if (a.order != null) return -1;
+      if (b.order != null) return 1;
+      return (b.date || '').localeCompare(a.date || '');
+    });
+}
+
+function reorderPosts(orderedSlugs) {
+  orderedSlugs.forEach((slug, i) => {
+    const file = path.join(POSTS_DIR, slugify(slug) + '.json');
+    if (!fs.existsSync(file)) return;
+    const post = JSON.parse(fs.readFileSync(file, 'utf8'));
+    post.order = i;
+    fs.writeFileSync(file, JSON.stringify(post, null, 2));
+  });
 }
 
 function getPost(slug) {
@@ -137,7 +152,7 @@ function clearDrafts() {
 }
 
 module.exports = {
-  md, inline, preview, escapeHtml, listPosts, getPost, savePost, deletePost, slugify,
+  md, inline, preview, escapeHtml, listPosts, getPost, savePost, deletePost, slugify, reorderPosts,
   readDraftSlugs, markDraft, unmarkDraft, clearDrafts,
   TYPES, POSTS_DIR, IMAGES_DIR, ROOT,
 };

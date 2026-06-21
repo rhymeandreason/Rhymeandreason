@@ -10,7 +10,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { listPosts, getPost, savePost, deletePost, markDraft, readDraftSlugs, IMAGES_DIR, ROOT } = require('./lib');
+const { listPosts, getPost, savePost, deletePost, reorderPosts, markDraft, readDraftSlugs, IMAGES_DIR, ROOT } = require('./lib');
 const { build } = require('./build');
 
 const PORT = 4848;
@@ -60,6 +60,13 @@ async function handleApi(req, res, url) {
   if (url.pathname.startsWith('/api/posts/') && req.method === 'DELETE') {
     const slug = decodeURIComponent(url.pathname.slice('/api/posts/'.length));
     deletePost(slug);
+    return sendJson(res, 200, { ok: true });
+  }
+  if (url.pathname === '/api/reorder' && req.method === 'POST') {
+    const { slugs } = JSON.parse((await readBody(req)).toString('utf8'));
+    if (!Array.isArray(slugs)) return sendJson(res, 400, { error: 'Expected { slugs: [...] }' });
+    reorderPosts(slugs);
+    slugs.forEach(markDraft);
     return sendJson(res, 200, { ok: true });
   }
   if (url.pathname === '/api/upload' && req.method === 'POST') {
