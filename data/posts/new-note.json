@@ -5,5 +5,6 @@
   "title": "new note",
   "date": "2026-06-20",
   "body": "added some text\nadded some more text",
-  "images": []
+  "images": [],
+  "order": 4
 }

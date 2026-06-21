@@ -7,72 +7,6 @@
     <language>en-us</language>
     <atom:link href="https://rhymeandreason.studio//feed.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>new draft</title>
-      <link>https://rhymeandreason.studio//note/new-draft.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//note/new-draft.html</guid>
-      <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
-      <category>note</category>
-      <description><![CDATA[<div class="post-content post-content--note">
-      <p class="post-date">June 20, 2026</p>
-      <h1 class="post-title">new draft</h1>
-      <div class="post-body"></div>
-      
-    </div>]]></description>
-    </item>
-    <item>
-      <title>new note</title>
-      <link>https://rhymeandreason.studio//note/new-note.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//note/new-note.html</guid>
-      <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
-      <category>note</category>
-      <description><![CDATA[<div class="post-content post-content--note">
-      <p class="post-date">June 20, 2026</p>
-      <h1 class="post-title">new note</h1>
-      <div class="post-body"><p>added some text added some more text</p></div>
-      
-    </div>]]></description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://rhymeandreason.studio//note/new.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//note/new.html</guid>
-      <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
-      <category>note</category>
-      <description><![CDATA[<div class="post-content post-content--note">
-      <p class="post-date">June 20, 2026</p>
-      
-      <div class="post-body"></div>
-      
-    </div>]]></description>
-    </item>
-    <item>
-      <title>Welcome to the lab</title>
-      <link>https://rhymeandreason.studio//note/welcome-to-the-lab.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//note/welcome-to-the-lab.html</guid>
-      <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
-      <category>note</category>
-      <description><![CDATA[<div class="post-content post-content--note">
-      <p class="post-date">June 20, 2026</p>
-      <h1 class="post-title">Welcome to the lab</h1>
-      <div class="post-body"><p>First entry in the lab. This is a <strong>Note</strong> — short, dated, good for logging the day's work.</p></div>
-      
-    </div>]]></description>
-    </item>
-    <item>
-      <title>A longer journal entry</title>
-      <link>https://rhymeandreason.studio//journal/a-longer-journal-entry.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//journal/a-longer-journal-entry.html</guid>
-      <pubDate>Thu, 18 Jun 2026 12:00:00 GMT</pubDate>
-      <category>journal</category>
-      <description><![CDATA[<div class="post-content post-content--journal">
-      <p class="post-date">June 18, 2026</p>
-      <h1 class="post-title">A longer journal entry</h1>
-      <div class="post-body"><p>Journals get different formatting from Notes — more like a long-form essay.</p>
-<p>They can span multiple paragraphs, and on the index grid they can take up two columns instead of one if you set <code>columns: 2</code>.</p></div>
-      
-    </div>]]></description>
-    </item>
-    <item>
       <title>Example Artifact</title>
       <link>https://rhymeandreason.studio//artifact/example-artifact.html</link>
       <guid isPermaLink="true">https://rhymeandreason.studio//artifact/example-artifact.html</guid>
@@ -91,6 +25,74 @@
         
       </div></div>
   </div>]]></description>
+    </item>
+    <item>
+      <title>Artifact 2</title>
+      <link>https://rhymeandreason.studio//artifact/new-draft.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/new-draft.html</guid>
+      <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <p class="post-date">June 20, 2026</p>
+    
+    <h1 class="post-title">Artifact 2</h1>
+    
+    <div class="post-body"></div>
+    
+  </div>]]></description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://rhymeandreason.studio//note/new.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//note/new.html</guid>
+      <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
+      <category>note</category>
+      <description><![CDATA[<div class="post-content post-content--note">
+      <p class="post-date">June 20, 2026</p>
+      
+      <div class="post-body"></div>
+      
+    </div>]]></description>
+    </item>
+    <item>
+      <title>A longer journal entry</title>
+      <link>https://rhymeandreason.studio//journal/a-longer-journal-entry.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//journal/a-longer-journal-entry.html</guid>
+      <pubDate>Thu, 18 Jun 2026 12:00:00 GMT</pubDate>
+      <category>journal</category>
+      <description><![CDATA[<div class="post-content post-content--journal">
+      <p class="post-date">June 18, 2026</p>
+      <h1 class="post-title">A longer journal entry</h1>
+      <div class="post-body"><p>Journals get different formatting from Notes — more like a long-form essay.</p>
+<p>They can span multiple paragraphs, and on the index grid they can take up two columns instead of one if you set <code>columns: 2</code>.</p></div>
+      
+    </div>]]></description>
+    </item>
+    <item>
+      <title>new note</title>
+      <link>https://rhymeandreason.studio//note/new-note.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//note/new-note.html</guid>
+      <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
+      <category>note</category>
+      <description><![CDATA[<div class="post-content post-content--note">
+      <p class="post-date">June 20, 2026</p>
+      <h1 class="post-title">new note</h1>
+      <div class="post-body"><p>added some text added some more text</p></div>
+      
+    </div>]]></description>
+    </item>
+    <item>
+      <title>Welcome to the lab</title>
+      <link>https://rhymeandreason.studio//note/welcome-to-the-lab.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//note/welcome-to-the-lab.html</guid>
+      <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
+      <category>note</category>
+      <description><![CDATA[<div class="post-content post-content--note">
+      <p class="post-date">June 20, 2026</p>
+      <h1 class="post-title">Welcome to the lab</h1>
+      <div class="post-body"><p>First entry in the lab. This is a <strong>Note</strong> — short, dated, good for logging the day's work.</p></div>
+      
+    </div>]]></description>
     </item>
   </channel>
 </rss>

@@ -1,9 +1,12 @@
 {
-  "type": "note",
+  "type": "artifact",
   "slug": "new-draft",
   "columns": 1,
-  "title": "new draft",
+  "title": "Artifact 2",
+  "subtitle": "",
   "date": "2026-06-20",
-  "body": "",
-  "images": []
+  "description": "",
+  "mainImage": "",
+  "notes": [],
+  "order": 1
 }
