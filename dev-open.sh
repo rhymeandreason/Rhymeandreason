@@ -12,5 +12,7 @@ if ! curl -s -o /dev/null "$URL_INDEX"; then
   until curl -s -o /dev/null "$URL_INDEX"; do sleep 0.3; done
 fi
 
+osascript -e 'display notification "Server is running" with title "Rhyme and Reason"'
+
 open "$URL_CMS"
 open "$URL_INDEX"
