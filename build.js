@@ -109,11 +109,11 @@ ${cardPreviewHtml(p)}
 ${head(SITE.title)}
 </head>
 <body>
-${pageHeader}
   <section class="lab-list-section">
     <header class="lab-list-header">
+      <p class="lab-list-kicker">${escapeHtml(SITE.author)}</p>
       <h1>Lab</h1>
-      <p>${escapeHtml(SITE.description)} <a href="feed.xml">RSS</a></p>
+      <p class="lab-list-intro">${escapeHtml(SITE.description)} <a href="feed.xml">RSS</a></p>
     </header>
     <div class="lab-grid">
 ${cards}

@@ -1,49 +1,89 @@
 .lab-list-section {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 6rem;
+  padding: 6rem 2rem 8rem;
+}
+
+.lab-list-header {
+  max-width: 640px;
+  margin: 0 0 4.5rem;
+}
+
+.lab-list-kicker {
+  font-family: "futura-pt", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+  margin: 0 0 1.25rem;
 }
 
 .lab-list-header h1 {
-  margin-bottom: 0.25rem;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 4.2rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #161412;
+  margin: 0 0 1.25rem;
 }
 
-.lab-list-header p {
-  color: #666;
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
+.lab-list-intro {
+  font-family: "futura-pt", sans-serif;
+  color: #6b6660;
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+.lab-list-intro a {
+  color: #161412;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.25);
+}
+
+.lab-list-intro a:hover {
+  text-decoration-color: rgba(0, 0, 0, 0.6);
 }
 
 .lab-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-auto-flow: dense;
-  grid-auto-rows: 300px;
-  gap: 1.5rem;
+  grid-auto-rows: 340px;
+  gap: 1px;
+  background-color: #e4e0da;
+  border-top: 1px solid #e4e0da;
+  border-left: 1px solid #e4e0da;
 }
 
-@media (max-width: 1400px) { .lab-grid { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 1100px) { .lab-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 800px)  { .lab-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 500px)  { .lab-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 1100px) { .lab-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 800px)  { .lab-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 500px)  { .lab-grid { grid-template-columns: 2fr; grid-auto-rows: auto;}}
 
 .lab-card {
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 100%;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  border: 1px solid #e2e2e2;
-  border-radius: 12px;
-  padding: 1.75rem;
-  background: #fff;
-  transition: box-shadow 0.15s ease, transform 0.15s ease;
+  padding: 2.25rem 2rem;
+  background: #fbfaf7;
+  transition: background-color 0.2s ease;
 }
 
 .lab-card:hover {
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+  background: #f3f1ec;
+}
+
+.lab-card:hover .card-title {
+  color: #161412;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.2);
 }
 
 .lab-card.cols-2 {
@@ -55,31 +95,40 @@
 }
 
 .lab-card .card-date {
-  font-size: 0.95rem;
-  color: #999;
-  margin: 0 0 0.5rem;
+  font-family: "futura-pt", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.38);
+  margin: 0 0 0.9rem;
   flex-shrink: 0;
 }
 
 .lab-card .card-title {
-  font-size: 1.7rem;
-  line-height: 1.2;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  color: #1c1a17;
   margin: 0 0 0.5rem;
   flex-shrink: 0;
 }
 
 .lab-card .card-subtitle {
-  color: #666;
-  margin: 0 0 0.6rem;
+  color: #8a8478;
+  margin: 0 0 0.7rem;
+  font-family: "futura-pt", sans-serif;
   font-style: italic;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   flex-shrink: 0;
 }
 
 .lab-card .card-preview {
-  font-size: 1.1rem;
-  color: #444;
-  line-height: 1.5;
+  font-family: "futura-pt", sans-serif;
+  font-size: 1rem;
+  color: #5c5750;
+  line-height: 1.6;
   margin: 0;
   overflow: hidden;
   display: -webkit-box;
@@ -88,30 +137,30 @@
 }
 
 .lab-card .card-image {
-  width: calc(100% + 3.5rem);
-  margin: -1.75rem -1.75rem 1rem;
-  height: 140px;
+  width: calc(100% + 4rem);
+  margin: -2.25rem -2rem 1.25rem;
+  height: 160px;
   object-fit: cover;
   display: block;
   flex-shrink: 0;
 }
 
 .lab-card--journal {
-  background: #fbfaf7;
+  background: #f7f4ee;
 }
 
 .lab-card--journal .card-title {
-  font-family: Georgia, serif;
-  font-size: 1.85rem;
+  font-style: italic;
+  font-size: 1.65rem;
 }
 
 .lab-card--artifact {
-  background: #fafafa;
+  background: #fafaf8;
 }
 
 .lab-card--artifact .card-title {
-  font-size: 1.5rem;
-  margin-bottom: 0.2rem;
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
 }
 
 /* ---------- post content (shared by standalone page + modal) ---------- */
