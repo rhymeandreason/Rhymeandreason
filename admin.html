@@ -78,7 +78,7 @@
   .post-list button.active { background: var(--accent-soft); color: var(--accent-hover); }
   .post-list button { cursor: grab; }
   .post-list button.dragging { opacity: 0.4; }
-  .post-list button.drag-over { box-shadow: inset 0 2px 0 var(--accent); }
+  .post-list .drop-indicator { height: 2px; margin: 0.2rem 0.65rem; background: var(--accent); border-radius: 1px; }
   .post-list .type-tag { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-muted); display: block; margin-bottom: 0.1rem; }
   .post-list .draft-tag {
     font-size: 0.62rem; text-transform: uppercase; color: var(--warn);
@@ -185,6 +185,8 @@ async function api(path, opts) {
 }
 
 let draggedSlug = null;
+const dropIndicator = document.createElement('div');
+dropIndicator.className = 'drop-indicator';
 
 async function loadList() {
   const posts = await api('/api/posts');
@@ -203,32 +205,38 @@ async function loadList() {
     btn.addEventListener('dragend', () => {
       draggedSlug = null;
       btn.classList.remove('dragging');
-      listEl.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
-    });
-    btn.addEventListener('dragover', e => {
-      e.preventDefault();
-      if (btn.dataset.slug === draggedSlug) return;
-      btn.classList.add('drag-over');
-    });
-    btn.addEventListener('dragleave', () => btn.classList.remove('drag-over'));
-    btn.addEventListener('drop', async e => {
-      e.preventDefault();
-      btn.classList.remove('drag-over');
-      if (!draggedSlug || draggedSlug === p.slug) return;
-      const slugs = [...listEl.querySelectorAll('button')].map(b => b.dataset.slug);
-      const from = slugs.indexOf(draggedSlug);
-      const to = slugs.indexOf(p.slug);
-      slugs.splice(from, 1);
-      slugs.splice(to, 0, draggedSlug);
-      await api('/api/reorder', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ slugs }) });
-      await loadList();
+      dropIndicator.remove();
     });
     listEl.appendChild(btn);
   });
+
   const draftCount = posts.filter(p => p.draft).length;
   draftCountEl.textContent = draftCount ? `${draftCount} unbuilt post${draftCount === 1 ? '' : 's'}` : 'Everything built';
   return posts;
 }
+
+listEl.addEventListener('dragover', e => {
+  if (!draggedSlug) return;
+  e.preventDefault();
+  const items = [...listEl.querySelectorAll('button:not(.dragging)')];
+  const after = items.find(el => e.clientY < el.getBoundingClientRect().top + el.getBoundingClientRect().height / 2);
+  listEl.insertBefore(dropIndicator, after || null);
+});
+listEl.addEventListener('drop', async e => {
+  e.preventDefault();
+  if (!draggedSlug || !dropIndicator.parentNode) return;
+  const slugs = [...listEl.children]
+    .filter(el => el !== dropIndicator)
+    .map(el => el.dataset.slug);
+  const from = slugs.indexOf(draggedSlug);
+  let to = [...listEl.children].indexOf(dropIndicator);
+  if (from < to) to -= 1; // account for removing the dragged item shifting later indices
+  slugs.splice(from, 1);
+  slugs.splice(to, 0, draggedSlug);
+  dropIndicator.remove();
+  await api('/api/reorder', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ slugs }) });
+  await loadList();
+});
 
 buildBtn.addEventListener('click', async () => {
   buildBtn.disabled = true;
