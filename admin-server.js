@@ -23,6 +23,57 @@ const MIME = {
   '.webp': 'image/webp', '.xml': 'application/xml', '.ico': 'image/x-icon',
 };
 
+// ---------- live reload (dev only) ----------
+const reloadClients = new Set();
+
+function notifyReload(kind = 'reload') {
+  for (const client of reloadClients) {
+    try { client.write(`data: ${kind}\n\n`); } catch { /* dropped on next close */ }
+  }
+}
+
+function handleLiveReload(req, res) {
+  res.writeHead(200, {
+    'Content-Type': 'text/event-stream',
+    'Cache-Control': 'no-cache',
+    Connection: 'keep-alive',
+  });
+  res.write('retry: 1000\n\n');
+  reloadClients.add(res);
+  req.on('close', () => reloadClients.delete(res));
+}
+
+// Watch the stylesheets so editing css/*.css hot-swaps without a full rebuild.
+let cssDebounce = null;
+try {
+  fs.watch(path.join(ROOT, 'css'), () => {
+    clearTimeout(cssDebounce);
+    cssDebounce = setTimeout(() => notifyReload('css'), 80);
+  });
+} catch { /* no css dir yet — fine */ }
+
+const LIVE_RELOAD_SNIPPET = `
+<script>
+(function () {
+  try {
+    var es = new EventSource('/api/livereload');
+    es.onmessage = function (e) {
+      if (e.data === 'css') {
+        document.querySelectorAll('link[rel="stylesheet"]').forEach(function (l) {
+          var u = new URL(l.href, location.href);
+          if (u.host !== location.host) return; // skip CDN stylesheets
+          u.searchParams.set('_lr', Date.now());
+          l.href = u.href;
+        });
+      } else {
+        location.reload();
+      }
+    };
+  } catch (_) {}
+})();
+</script>
+`;
+
 function send(res, status, body, headers = {}) {
   res.writeHead(status, headers);
   res.end(body);
@@ -42,6 +93,9 @@ function readBody(req) {
 }
 
 async function handleApi(req, res, url) {
+  if (url.pathname === '/api/livereload' && req.method === 'GET') {
+    return handleLiveReload(req, res);
+  }
   if (url.pathname === '/api/posts' && req.method === 'GET') {
     const drafts = new Set(readDraftSlugs());
     return sendJson(res, 200, listPosts().map(p => ({ ...p, draft: drafts.has(p.slug) })));
@@ -81,6 +135,7 @@ async function handleApi(req, res, url) {
   }
   if (url.pathname === '/api/build' && req.method === 'POST') {
     build();
+    notifyReload('reload');
     return sendJson(res, 200, { ok: true });
   }
   sendJson(res, 404, { error: 'Unknown API route' });
@@ -96,6 +151,14 @@ function serveStatic(req, res, url) {
     fs.readFile(filePath, (err2, data) => {
       if (err2) return send(res, 404, 'Not found');
       const ext = path.extname(filePath);
+      // inject the live-reload client into site pages (not the CMS editor itself)
+      if (ext === '.html' && path.basename(filePath) !== 'admin.html') {
+        let html = data.toString('utf8');
+        html = html.includes('</body>')
+          ? html.replace('</body>', `${LIVE_RELOAD_SNIPPET}</body>`)
+          : html + LIVE_RELOAD_SNIPPET;
+        return send(res, 200, html, { 'Content-Type': 'text/html' });
+      }
       send(res, 200, data, { 'Content-Type': MIME[ext] || 'application/octet-stream' });
     });
   });
