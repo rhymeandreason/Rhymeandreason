@@ -16,6 +16,10 @@ h1 {
   padding: 6rem 2rem 8rem;
 }
 
+body::-webkit-scrollbar{
+display:none;
+}
+
 .lab-list-header {
   max-width: 640px;
   margin: 0 0 4.5rem;
@@ -65,7 +69,7 @@ h1 {
   grid-template-columns: repeat(5, 1fr);
   grid-auto-flow: dense;
   grid-auto-rows: 340px;
-  gap: 4px;
+  gap: 8px;
 
 }
 
