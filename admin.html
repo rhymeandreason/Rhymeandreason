@@ -163,6 +163,29 @@ align-items: center; gap: 10px;
 
   input.invalid { border-color: var(--rose); }
   input.invalid:focus { box-shadow: 0 0 0 3px var(--rose-soft); }
+
+  /* ---------- Slug (click to reveal field) ---------- */
+  .slug-row [hidden] { display: none; }
+  .slug-display {
+    display: inline-flex; align-items: baseline; gap: 0.5rem;
+    background: none; border: none; cursor: pointer; padding: 0;
+    font-family: var(--sans); text-align: left;
+  }
+  .slug-key {
+    font-size: 0.72rem; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--text-muted);
+  }
+  .slug-value {
+    font-family: ui-monospace, "JetBrains Mono", monospace;
+    font-size: 0.85rem; color: var(--text);
+    border-bottom: 1px dashed var(--border-strong);
+  }
+  .slug-edit-hint {
+    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-soft); opacity: 0; transition: opacity 0.15s ease;
+  }
+  .slug-display:hover .slug-edit-hint { opacity: 1; }
+  .slug-display:hover .slug-value { border-bottom-color: var(--accent); color: var(--accent); }
   .field-warn {
     font-size: 0.72rem; font-weight: 400; text-transform: none; letter-spacing: 0;
     color: var(--rose); font-style: italic;
@@ -518,10 +541,20 @@ function uploadField(label, name, multiple) {
 function renderForm(post) {
   currentType = post.type;
   const isNew = !post.slug;
+  const slugFieldHtml = `
+    <div class="slug-row">
+      <button type="button" class="slug-display" data-slug-display>
+        <span class="slug-key">Slug</span>
+        <span class="slug-value">${post.slug || 'set automatically'}</span>
+        <span class="slug-edit-hint">edit</span>
+      </button>
+      <label class="slug-edit" data-slug-edit hidden>Slug ${isNew ? '' : '(locked after creation)'}<input type="text" name="slug" value="${post.slug || ''}" ${isNew ? '' : 'readonly'} required></label>
+    </div>`;
   let fields = '';
   if (post.type === 'note' || post.type === 'journal') {
     fields = `
       <label>Title (optional)<input type="text" name="title" value="${post.title || ''}"></label>
+      ${slugFieldHtml}
       <label>Date<input type="date" name="date" value="${post.date || ''}"></label>
       <label>Columns
         <select name="columns">
@@ -535,6 +568,7 @@ function renderForm(post) {
   } else {
     fields = `
       <label>Title<input type="text" name="title" value="${post.title || ''}" required></label>
+      ${slugFieldHtml}
       <label>Subtitle<input type="text" name="subtitle" value="${post.subtitle || ''}"></label>
       <label>Date<input type="date" name="date" value="${post.date || ''}"></label>
       <label>Columns
@@ -569,7 +603,6 @@ function renderForm(post) {
         </div>
       </label>
       <input type="hidden" name="type" value="${post.type}">
-      <label>Slug ${isNew ? '' : '(locked after creation)'}<input type="text" name="slug" value="${post.slug || ''}" ${isNew ? '' : 'readonly'} required></label>
       ${fields}
     </fieldset>
   `;
@@ -593,9 +626,20 @@ function renderForm(post) {
     renderForm(merged);
   }));
 
+  // slug shows as a quiet line; clicking reveals the text field
+  const slugRow = formEl.querySelector('.slug-row');
+  const slugInput = formEl.querySelector('input[name=slug]');
+  const slugValueEl = slugRow.querySelector('.slug-value');
+  const syncSlugDisplay = () => { slugValueEl.textContent = slugInput.value || (isNew ? 'set automatically' : '—'); };
+  slugRow.querySelector('[data-slug-display]').addEventListener('click', () => {
+    slugRow.querySelector('[data-slug-display]').hidden = true;
+    slugRow.querySelector('[data-slug-edit]').hidden = false;
+    slugInput.focus();
+    slugInput.select();
+  });
+
   // auto-fill the slug from the title for new posts, until the user edits it
   if (isNew) {
-    const slugInput = formEl.querySelector('input[name=slug]');
     const titleInput = formEl.querySelector('input[name=title]');
     const warn = document.createElement('span');
     warn.className = 'field-warn';
@@ -605,11 +649,12 @@ function renderForm(post) {
       warn.textContent = taken ? 'A post with this slug already exists' : '';
       slugInput.classList.toggle('invalid', !!taken);
     };
-    slugInput?.addEventListener('input', () => { slugInput.dataset.edited = '1'; checkSlug(); });
+    slugInput?.addEventListener('input', () => { slugInput.dataset.edited = '1'; checkSlug(); syncSlugDisplay(); });
     titleInput?.addEventListener('input', () => {
       if (!slugInput || slugInput.dataset.edited) return;
       slugInput.value = uniqueSlug(slugify(titleInput.value));
       checkSlug();
+      syncSlugDisplay();
     });
   }
 
