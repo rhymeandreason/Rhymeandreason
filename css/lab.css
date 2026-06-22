@@ -196,11 +196,7 @@ body::-webkit-scrollbar {
   color: #E8E7E5;
 }
 
-.lab-card--artifact:hover {
-  //background: radial-gradient(99.48% 115.08% at 50% 50%, #E8E7E5 0%, #828180 100%);
-  background: var(--blue);
-  color: var(--lime);
-}
+
 
 
 .lab-card--journal .card-title {
@@ -226,13 +222,19 @@ body::-webkit-scrollbar {
   letter-spacing: 2%;
 }
 
+.lab-card--artifact:hover, .lab-card--journal:hover {
+  //background: radial-gradient(99.48% 115.08% at 50% 50%, #E8E7E5 0%, #828180 100%);
+  background: var(--blue);
+  color: var(--lime);
+}
+
 .lab-modal-body {
   padding: 4rem;
 }
 
 /* ---------- post content (shared by standalone page + modal) ---------- */
 .post-content {
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 .post-date {
@@ -242,8 +244,7 @@ body::-webkit-scrollbar {
 }
 
 .post-title {
-
-  margin: 0 0 0.5rem;
+  margin: 0 0 4rem;
 }
 
 .post-subtitle {
@@ -254,6 +255,7 @@ body::-webkit-scrollbar {
 
 .post-body p {
   margin: 0 0 1em;
+font-size: 1.8rem;
 }
 
 .post-images {
@@ -288,7 +290,8 @@ body::-webkit-scrollbar {
 }
 
 .post-content--journal .post-body {
-  font-size: 1.6rem;
+ // font-size: 1.6rem;
+padding-bottom: 8rem;
 }
 
 .lab-standalone {
@@ -329,12 +332,16 @@ body::-webkit-scrollbar {
 .lab-modal {
   background: #fff;
   border-radius: 10px;
-  max-width: 720px;
+  max-width: 600px;
   width: 100%;
   max-height: 85vh;
   overflow-y: auto;
   padding: 2.5rem 2rem;
   position: relative;
+}
+
+.lab-modal::-webkit-scrollbar{
+display: none;
 }
 
 .lab-modal-close {
