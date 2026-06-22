@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Windy City";
+  src: url("../fonts/WindyCity.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .lab-list-section {
   max-width: 1600px;
   margin: 0 auto;
@@ -150,8 +158,10 @@
 }
 
 .lab-card--journal .card-title {
-  font-style: italic;
-  font-size: 1.65rem;
+  font-family: "Windy City", "futura-pt", sans-serif;
+  font-style: normal;
+  font-size: 2rem;
+  font-weight: normal;
 }
 
 .lab-card--artifact {
