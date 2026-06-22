@@ -52,21 +52,6 @@
   </div>]]></description>
     </item>
     <item>
-      <title>Studio Space</title>
-      <link>https://rhymeandreason.studio//artifact/studio-space-2.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/studio-space-2.html</guid>
-      <pubDate>Thu, 04 Jun 2026 12:00:00 GMT</pubDate>
-      <category>artifact</category>
-      <description><![CDATA[<div class="post-content post-content--artifact">
-    <p class="post-date">June 4, 2026</p>
-    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/1782152006747-Screenshot-2026-06-20-at-11-08-45-AM.png" alt="">
-    <h1 class="post-title">Studio Space</h1>
-    
-    <div class="post-body"></div>
-    
-  </div>]]></description>
-    </item>
-    <item>
       <title>Personal Personal Computing</title>
       <link>https://rhymeandreason.studio//journal/personal-personal-computing.html</link>
       <guid isPermaLink="true">https://rhymeandreason.studio//journal/personal-personal-computing.html</guid>
@@ -84,6 +69,21 @@
 <p>I’ve got a list of ideas but I’m trying not to plan so much. Build in the moment and don’t extrapolate. So far I’m going to keep my Mac and iPhone since I already own those, but I do want to try more open source hardware and seeing how much that can handle. </p></div>
       
     </div>]]></description>
+    </item>
+    <item>
+      <title>Studio Space</title>
+      <link>https://rhymeandreason.studio//artifact/studio-space-2.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/studio-space-2.html</guid>
+      <pubDate>Thu, 04 Jun 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <p class="post-date">June 4, 2026</p>
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/1782152006747-Screenshot-2026-06-20-at-11-08-45-AM.png" alt="">
+    <h1 class="post-title">Studio Space</h1>
+    
+    <div class="post-body"></div>
+    
+  </div>]]></description>
     </item>
     <item>
       <title>Git Helper</title>
@@ -131,6 +131,66 @@
   </div>]]></description>
     </item>
     <item>
+      <title>Image Editor</title>
+      <link>https://rhymeandreason.studio//artifact/image-editor.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/image-editor.html</guid>
+      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <p class="post-date">June 22, 2026</p>
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/1782154690500-Screenshot-2026-06-22-at-11-42-20-AM.png" alt="">
+    <h1 class="post-title">Image Editor</h1>
+    
+    <div class="post-body"></div>
+    
+  </div>]]></description>
+    </item>
+    <item>
+      <title>Daily Note</title>
+      <link>https://rhymeandreason.studio//artifact/daily-note.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/daily-note.html</guid>
+      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <p class="post-date">June 22, 2026</p>
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/1782155617205-Screenshot-2026-06-22-at-11-43-06-AM.png" alt="">
+    <h1 class="post-title">Daily Note</h1>
+    
+    <div class="post-body"></div>
+    
+  </div>]]></description>
+    </item>
+    <item>
+      <title>File Directory</title>
+      <link>https://rhymeandreason.studio//artifact/file-directory.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/file-directory.html</guid>
+      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <p class="post-date">June 22, 2026</p>
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/1782156169138-Screenshot-2026-06-21-at-8-44-40-PM.png" alt="">
+    <h1 class="post-title">File Directory</h1>
+    
+    <div class="post-body"></div>
+    
+  </div>]]></description>
+    </item>
+    <item>
+      <title>RAM Overview</title>
+      <link>https://rhymeandreason.studio//artifact/ram-overview.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/ram-overview.html</guid>
+      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <p class="post-date">June 22, 2026</p>
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/1782156089534-Screenshot-2026-06-22-at-11-43-24-AM.png" alt="">
+    <h1 class="post-title">RAM Overview</h1>
+    
+    <div class="post-body"></div>
+    
+  </div>]]></description>
+    </item>
+    <item>
       <title>Containers for Knowledge</title>
       <link>https://rhymeandreason.studio//journal/containers-for-knowledge.html</link>
       <guid isPermaLink="true">https://rhymeandreason.studio//journal/containers-for-knowledge.html</guid>
@@ -146,21 +206,6 @@
 <p>LLMs are the container we have crafted that is closest to the native liquid nature of raw information. Its flow is innately a firehose. Give it some containers and it will gladly reflow. </p></div>
       
     </div>]]></description>
-    </item>
-    <item>
-      <title>Image Editor</title>
-      <link>https://rhymeandreason.studio//artifact/image-editor.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/image-editor.html</guid>
-      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
-      <category>artifact</category>
-      <description><![CDATA[<div class="post-content post-content--artifact">
-    <p class="post-date">June 22, 2026</p>
-    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/1782154690500-Screenshot-2026-06-22-at-11-42-20-AM.png" alt="">
-    <h1 class="post-title">Image Editor</h1>
-    
-    <div class="post-body"></div>
-    
-  </div>]]></description>
     </item>
     <item>
       <title>Itching for New Interfaces</title>
@@ -183,21 +228,6 @@
 <p>There’s a storm and the power is out. The internet is out. Why do I sit down at my computer and open the browser? What is it that I need to do? Muscle memory that supersedes utility.</p></div>
       
     </div>]]></description>
-    </item>
-    <item>
-      <title>Daily Note</title>
-      <link>https://rhymeandreason.studio//artifact/daily-note.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/daily-note.html</guid>
-      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
-      <category>artifact</category>
-      <description><![CDATA[<div class="post-content post-content--artifact">
-    <p class="post-date">June 22, 2026</p>
-    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/1782155617205-Screenshot-2026-06-22-at-11-43-06-AM.png" alt="">
-    <h1 class="post-title">Daily Note</h1>
-    
-    <div class="post-body"></div>
-    
-  </div>]]></description>
     </item>
   </channel>
 </rss>
