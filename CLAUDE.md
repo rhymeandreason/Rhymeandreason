@@ -24,6 +24,8 @@ Instructions:
 2. Run `node build.js` to regenerate all output files.
 3. Verify the generated `index.html` / post pages reflect the change.
 
+**If `admin-server.js` is already running, restart it after editing `build.js`/`lib.js`.** Node caches `require()`d modules in memory, so a running server keeps using the old template even after the file on disk is fixed — clicking "Build Site" in the CMS will silently regenerate `index.html` from the stale version. Restart with `./dev-stop.sh && ./dev-open.sh` (or `node admin-server.js`) before relying on a build to pick up the change.
+
 ## Post ordering
 
 - `lib.js`'s `listPosts()` sorts by `order` field if present on **both** posts being compared, otherwise falls back to `date` descending.
