@@ -2,11 +2,11 @@
   "type": "artifact",
   "slug": "slides",
   "columns": 1,
+  "order": 2,
   "title": "Slides",
-  "subtitle": "",
+  "subtitle": "V.0.2",
   "date": "2026-06-22",
   "description": "",
   "mainImage": "1782153031957-Screenshot-2026-06-16-at-9-32-27-PM.png",
-  "notes": [],
-  "order": 2
+  "notes": []
 }

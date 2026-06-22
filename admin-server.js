@@ -11,7 +11,14 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { listPosts, getPost, savePost, deletePost, reorderPosts, markDraft, readDraftSlugs, IMAGES_DIR, ROOT } = require('./lib');
-const { build } = require('./build');
+
+// Re-require build.js (and lib.js, which it depends on) fresh from disk on every build,
+// so edits to either file take effect without restarting this server.
+function freshBuild() {
+  delete require.cache[require.resolve('./build')];
+  delete require.cache[require.resolve('./lib')];
+  return require('./build').build();
+}
 
 const PORT = 4848;
 const SITE_ROOT = ROOT;
@@ -134,7 +141,7 @@ async function handleApi(req, res, url) {
     return sendJson(res, 200, { filename: safeName });
   }
   if (url.pathname === '/api/build' && req.method === 'POST') {
-    build();
+    freshBuild();
     notifyReload('reload');
     return sendJson(res, 200, { ok: true });
   }

@@ -2,11 +2,11 @@
   "type": "artifact",
   "slug": "modes",
   "columns": 1,
+  "order": 1,
   "title": "Modes",
-  "subtitle": "",
+  "subtitle": "V.0.8",
   "date": "2026-06-22",
-  "description": "",
+  "description": "This is my favorite tool to date. Modes are saved window layouts under a Project. This spotlight tool pops up on ctrl+space, and allows changing Projects and Modes with a few quick keystrokes. Tab to edit.\n\nThis simple geometric design is more of the style I'd like to do for this project. Most everything is tidy and wireframe-y. I hope to push things out of the beige zone in short order.",
   "mainImage": "1782152150195-Screenshot-2026-06-21-at-1-00-37-PM.png",
-  "notes": [],
-  "order": 1
+  "notes": []
 }

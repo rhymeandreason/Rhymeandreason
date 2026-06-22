@@ -24,7 +24,7 @@ Instructions:
 2. Run `node build.js` to regenerate all output files.
 3. Verify the generated `index.html` / post pages reflect the change.
 
-**If `admin-server.js` is already running, restart it after editing `build.js`/`lib.js`.** Node caches `require()`d modules in memory, so a running server keeps using the old template even after the file on disk is fixed — clicking "Build Site" in the CMS will silently regenerate `index.html` from the stale version. Restart with `./dev-stop.sh && ./dev-open.sh` (or `node admin-server.js`) before relying on a build to pick up the change.
+`admin-server.js`'s `/api/build` handler busts `require.cache` for `build.js`/`lib.js` before each build, so editing those files takes effect immediately on the next "Build Site" click — no server restart needed. (If you ever bypass the API and call `build()` some other way, watch out for Node's `require()` module cache serving a stale version.)
 
 ## Post ordering
 

@@ -56,12 +56,10 @@ function cardPreviewHtml(p) {
   if (p.type === 'artifact') {
     return `${p.mainImage ? `<img class="card-image" src="images/${escapeHtml(p.mainImage)}" alt="">` : ''}
       <h2 class="card-title">${escapeHtml(p.title)}</h2>
-      ${p.subtitle ? `<p class="card-subtitle">${escapeHtml(p.subtitle)}</p>` : ''}
-      <p class="card-preview">${escapeHtml(preview(p.description))}</p>`;
+      ${p.subtitle ? `<p class="card-subtitle">${escapeHtml(p.subtitle)}</p>` : ''}`;
   }
   return `<p class="card-date">${formatDate(p.date)}</p>
       ${p.title ? `<h2 class="card-title">${escapeHtml(p.title)}</h2>` : ''}
-      <p class="card-preview">${escapeHtml(preview(p.body))}</p>
       ${(p.images && p.images[0]) ? `<img class="card-image" src="images/${escapeHtml(p.images[0])}" alt="">` : ''}`;
 }
 

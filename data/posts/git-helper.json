@@ -2,11 +2,11 @@
   "type": "artifact",
   "slug": "git-helper",
   "columns": 1,
+  "order": 6,
   "title": "Git Helper",
-  "subtitle": "",
+  "subtitle": "V.1.0",
   "date": "2026-06-22",
-  "description": "",
+  "description": "I've used Github Desktop for a long time. But it only gives you one window, and it doesn't shrink below a certain size. So I made my own Git helper, which is much smaller and simpler. It just has pending commits, the button to \"commit all\", and the last commit. Clicking a file opens it in the Code Editor. \n\nThe bright colors are set per project. It's my favorite feature. I can see what Project I'm in right away.",
   "mainImage": "1782154269116-Screenshot-2026-06-22-at-11-37-21-AM.png",
-  "notes": [],
-  "order": 6
+  "notes": []
 }

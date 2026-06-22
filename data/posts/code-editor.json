@@ -4,7 +4,7 @@
   "columns": 1,
   "order": 0,
   "title": "Code Editor",
-  "subtitle": "",
+  "subtitle": "V.0.3",
   "date": "2026-06-22",
   "description": "I made my own code editor. My goal is to make a simpler editor just for css, html, and markdown. This might be a bit of going down the rabbit hole of making tools to make tools, but there are some specific features I couldn't find elsewhere.\n\nMainly: view diffs highlighted inline. AI writes big chunks of code all at once, and I want to see what it did. Default is 'uncommitted changes' (which is what Zed gives you), but I also have 'last commit', because sometimes the agent commits all in one go.\n",
   "mainImage": "1782153114546-Screenshot-2026-06-17-at-8-47-57-PM.png",
