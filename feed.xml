@@ -249,5 +249,48 @@
       
     </div>]]></description>
     </item>
+    <item>
+      <title>Git Pulse</title>
+      <link>https://rhymeandreason.studio//artifact/git-pulse.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/git-pulse.html</guid>
+      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/1782171348619-pasted-1782171326876.png" alt="">
+    <h1 class="post-title">Git Pulse</h1>
+    <p class="post-subtitle">V.0.1</p>
+    <div class="post-body"><p>A punchcard of my git commits. </p></div>
+    
+  </div>]]></description>
+    </item>
+    <item>
+      <title>Studio AI</title>
+      <link>https://rhymeandreason.studio//artifact/studio-ai.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/studio-ai.html</guid>
+      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/1782171455009-Screenshot-2026-06-18-at-5-48-26-PM.png" alt="">
+    <h1 class="post-title">Studio AI</h1>
+    <p class="post-subtitle">V.0.2</p>
+    <div class="post-body"><p>I made my own UI for Claude Code. I put cute animated animal sprites, custom set per project. It has tabs, which the Claude desktop app doesn't have. </p>
+<p> It doesn't quite work well enough for me to use it reliably yet. But it was fun and satisfying to get this far in a day.</p></div>
+    
+  </div>]]></description>
+    </item>
+    <item>
+      <title>Window Size</title>
+      <link>https://rhymeandreason.studio//artifact/window-size.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/window-size.html</guid>
+      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/1782171067196-Screenshot-2026-06-22-at-12-29-57-PM.png" alt="">
+    <h1 class="post-title">Window Size</h1>
+    <p class="post-subtitle">V.0.1</p>
+    <div class="post-body"><p>The simplest thing. It prints the window size of whatever window I click on. Yet so useful!</p></div>
+    
+  </div>]]></description>
+    </item>
   </channel>
 </rss>

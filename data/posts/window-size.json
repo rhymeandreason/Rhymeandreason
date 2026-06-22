@@ -1,0 +1,11 @@
+{
+  "type": "artifact",
+  "slug": "window-size",
+  "columns": 1,
+  "title": "Window Size",
+  "subtitle": "V.0.1",
+  "date": "2026-06-22",
+  "description": "The simplest thing. It prints the window size of whatever window I click on. Yet so useful!",
+  "mainImage": "1782171067196-Screenshot-2026-06-22-at-12-29-57-PM.png",
+  "notes": []
+}

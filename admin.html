@@ -563,6 +563,7 @@ function renderForm(post) {
         </select>
       </label>
       <label>Body<textarea name="body">${post.body || ''}</textarea></label>
+      ${post.type === 'journal' ? `<label>Blurb (optional, shown on card)<textarea name="blurb">${post.blurb || ''}</textarea></label>` : ''}
       ${uploadField('Images', 'images', true)}
     `;
   } else {
@@ -771,6 +772,7 @@ function postFromForm(typeOverride) {
     post.title = data.get('title') || '';
     post.date = data.get('date') || '';
     post.body = data.get('body') || '';
+    if (post.type === 'journal') post.blurb = data.get('blurb') || '';
     post.images = formEl.querySelector('input[name=images]')?._uploaded || [];
   } else {
     post.title = data.get('title') || '';

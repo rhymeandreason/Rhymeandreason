@@ -211,6 +211,47 @@ body::-webkit-scrollbar {
   font-weight: normal;
 }
 
+.card-blurb {
+  font-family: "futura-pt", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: rgba(232, 231, 229, 0.75);
+  margin: 0.75rem 0 0;
+font-weight:300;
+}
+
+.card-cols {
+  display: flex;
+  gap: 2rem;
+  height: 100%;
+}
+
+.card-col-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-col-blurb {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
+.card-col-blurb .card-blurb {
+  margin: 0;
+}
+
+.lab-card--journal .card-kicker {
+  font-family: "futura-pt", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(232, 231, 229, 0.5);
+  margin: 0 0 0.4rem;
+}
+
 .lab-card--artifact {}
 
 .lab-card--artifact .card-title {

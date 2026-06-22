@@ -57,9 +57,21 @@ function cardPreviewHtml(p) {
       <h2 class="card-title">${escapeHtml(p.title)}</h2>
       ${p.subtitle ? `<p class="card-subtitle">${escapeHtml(p.subtitle)}</p>` : ''}`;
   }
-  return `<p class="card-date">${formatDate(p.date)}</p>
+  const main = `${p.type === 'journal' ? `<p class="card-kicker">Journal</p>` : ''}
+      <p class="card-date">${formatDate(p.date)}</p>
       ${p.title ? `<h2 class="card-title">${escapeHtml(p.title)}</h2>` : ''}
       ${(p.images && p.images[0]) ? `<img class="card-image" src="images/${escapeHtml(p.images[0])}" alt="">` : ''}`;
+
+  if (p.type === 'journal' && p.blurb) {
+    if (p.columns === 2) {
+      return `<div class="card-cols">
+      <div class="card-col-main">${main}</div>
+      <div class="card-col-blurb"><p class="card-blurb">${escapeHtml(p.blurb)}</p></div>
+    </div>`;
+    }
+    return `${main}\n      <p class="card-blurb">${escapeHtml(p.blurb)}</p>`;
+  }
+  return main;
 }
 
 // ---------- templates ----------
