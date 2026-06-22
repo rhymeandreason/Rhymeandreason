@@ -1,9 +1,20 @@
+:root {
+  --blue: #4101F7;
+  --lime: #CFF665;
+  --yellow: #FEE602;
+  --text: #1c1a17;
+}
+
 @font-face {
   font-family: "Windy City";
   src: url("../fonts/WindyCity.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+
+body {
+  color: var(--text);
 }
 
 h1 {
@@ -16,8 +27,8 @@ h1 {
   padding: 6rem 2rem 8rem;
 }
 
-body::-webkit-scrollbar{
-display:none;
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .lab-list-header {
@@ -105,6 +116,7 @@ display:none;
   background: #E8E7E5;
   transition: background-color 0.2s ease;
 }
+
 /*
 .lab-card:hover {
   background: #f3f1ec;
@@ -131,7 +143,7 @@ display:none;
   font-family: "futura-pt", sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
-letter-spacing: 5%;
+  letter-spacing: 5%;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.38);
   margin: 0 0 1rem;
@@ -143,7 +155,6 @@ letter-spacing: 5%;
   font-weight: 600;
   font-size: 3rem;
   line-height: 1.25;
-  color: #1c1a17;
   margin: 0 0 0.5rem;
   flex-shrink: 0;
 }
@@ -182,21 +193,28 @@ letter-spacing: 5%;
 
 .lab-card--journal {
   background: #313130;
-color: #E8E7E5;
+  color: #E8E7E5;
 }
+
+.lab-card--artifact:hover {
+  //background: radial-gradient(99.48% 115.08% at 50% 50%, #E8E7E5 0%, #828180 100%);
+  background: var(--blue);
+  color: var(--lime);
+}
+
 
 .lab-card--journal .card-title {
   font-family: "Windy City", "futura-pt", sans-serif;
-font-size: 3.2rem;
+  font-size: 3.2rem;
   letter-spacing: 6%;
   font-style: normal;
   font-weight: normal;
-color: #E8E7E5;
 }
 
-.lab-card--journal .card-date, .lab-card--journal h2{
-color: #E8E7E5;
-font-weight: normal;
+.lab-card--journal .card-date,
+.lab-card--journal h2 {
+  color: #E8E7E5;
+  font-weight: normal;
 }
 
 .lab-card--artifact {}
