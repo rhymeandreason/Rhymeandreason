@@ -6,6 +6,15 @@
   font-display: swap;
 }
 
+body {
+  font-family: "futura-pt", sans-serif;
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
 .lab-list-section {
   max-width: 1600px;
   margin: 0 auto;
@@ -68,18 +77,32 @@
 }
 
 
-@media (max-width: 1100px) { .lab-grid { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 800px)  { .lab-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 500px)  { .lab-grid { grid-template-columns: 2fr; grid-auto-rows: auto;}}
+@media (max-width: 1100px) {
+  .lab-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .lab-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .lab-grid {
+    grid-template-columns: 2fr;
+    grid-auto-rows: auto;
+  }
+}
 
 .lab-card {
   display: flex;
   flex-direction: column;
-  height: 100%;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  padding: 2.25rem 2rem;
+  padding: 2.5rem 2rem;
   background: #fbfaf7;
   transition: background-color 0.2s ease;
 }
@@ -90,7 +113,7 @@
 
 .lab-card:hover .card-title {
   color: #161412;
-  text-decoration: underline;
+  text-decoration: none;
   text-decoration-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -99,7 +122,9 @@
 }
 
 @media (max-width: 500px) {
-  .lab-card.cols-2 { grid-column: span 1; }
+  .lab-card.cols-2 {
+    grid-column: span 1;
+  }
 }
 
 .lab-card .card-date {
@@ -115,8 +140,8 @@
 
 .lab-card .card-title {
   font-family: "futura-pt", sans-serif;
-  font-weight: 500;
-  font-size: 1.5rem;
+  font-weight: 600;
+  font-size: 3rem;
   line-height: 1.25;
   color: #1c1a17;
   margin: 0 0 0.5rem;
@@ -146,9 +171,9 @@
 
 .lab-card .card-image {
   width: calc(100% + 4rem);
-  margin: -2.25rem -2rem 1.25rem;
-  height: 160px;
-  object-fit: cover;
+  margin: 1rem 1rem;
+  width: 90%;
+  object-fit: contain;
   display: block;
   flex-shrink: 0;
 }
@@ -159,8 +184,8 @@
 
 .lab-card--journal .card-title {
   font-family: "Windy City", "futura-pt", sans-serif;
+letter-spacing: 5%;
   font-style: normal;
-  font-size: 2rem;
   font-weight: normal;
 }
 
@@ -173,19 +198,70 @@
   margin-bottom: 0.3rem;
 }
 
-/* ---------- post content (shared by standalone page + modal) ---------- */
-.post-content { line-height: 1.6; }
-.post-date { font-size: 0.85rem; color: #999; margin: 0 0 0.5rem; }
-.post-title { margin: 0 0 0.5rem; }
-.post-subtitle { color: #666; font-style: italic; margin: 0 0 1rem; }
-.post-body p { margin: 0 0 1em; }
-.post-images { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
-.post-image { max-width: 100%; border-radius: 6px; }
-.artifact-main-image { width: 100%; border-radius: 8px; margin-bottom: 1rem; }
-.artifact-notes { margin-top: 2rem; border-top: 1px solid #eee; padding-top: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
-.artifact-note h3 { margin: 0 0 0.25rem; }
+.lab-modal-body{
+padding: 4rem;
+}
 
-.post-content--journal .post-body { font-family: Georgia, serif; font-size: 1.05rem; }
+/* ---------- post content (shared by standalone page + modal) ---------- */
+.post-content {
+  line-height: 1.6;
+}
+
+.post-date {
+  font-size: 1.25 rem;
+  color: #999;
+  margin: 0 0 1rem;
+}
+
+.post-title {
+
+  margin: 0 0 0.5rem;
+}
+
+.post-subtitle {
+  color: #666;
+  font-style: italic;
+  margin: 0 0 1rem;
+}
+
+.post-body p {
+  margin: 0 0 1em;
+}
+
+.post-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.post-image {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+.artifact-main-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.artifact-notes {
+  margin-top: 2rem;
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.artifact-note h3 {
+  margin: 0 0 0.25rem;
+}
+
+.post-content--journal .post-body {
+  font-size: 1.6rem;
+}
 
 .lab-standalone {
   max-width: 720px;
@@ -193,9 +269,18 @@
   padding: 2rem 1.5rem 6rem;
 }
 
-.back-link { margin-top: 2rem; }
-.back-link a { color: #666; text-decoration: none; }
-.back-link a:hover { text-decoration: underline; }
+.back-link {
+  margin-top: 2rem;
+}
+
+.back-link a {
+  color: #666;
+  text-decoration: none;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}
 
 /* ---------- modal ---------- */
 .lab-modal-overlay {
@@ -209,7 +294,9 @@
   z-index: 100;
 }
 
-.lab-modal-overlay[hidden] { display: none; }
+.lab-modal-overlay[hidden] {
+  display: none;
+}
 
 .lab-modal {
   background: #fff;
@@ -235,4 +322,6 @@
   color: #999;
 }
 
-.lab-modal-close:hover { color: #333; }
+.lab-modal-close:hover {
+  color: #333;
+}
