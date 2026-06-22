@@ -141,6 +141,26 @@ align-items: center; gap: 10px;
     box-shadow: 0 0 0 3px rgba(110,97,84,0.12);
   }
   input[readonly] { background: var(--surface); color: var(--text-muted); cursor: default; }
+
+  /* ---------- Type segmented control ---------- */
+  .type-toggle {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    padding: 3px; background: var(--bg);
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+  }
+  .type-btn {
+    padding: 0.5rem 0.75rem; border-radius: 6px;
+    border: none; background: none; cursor: pointer;
+    font-family: var(--sans); font-size: 0.85rem; font-weight: 500;
+    text-transform: none; letter-spacing: -0.005em; color: var(--text-muted);
+    transition: color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  }
+  .type-btn:hover { color: var(--text); }
+  .type-btn.active {
+    background: var(--elevated); color: var(--text);
+    box-shadow: var(--shadow-sm); cursor: default;
+  }
+
   input.invalid { border-color: var(--rose); }
   input.invalid:focus { box-shadow: 0 0 0 3px var(--rose-soft); }
   .field-warn {
@@ -541,14 +561,15 @@ function renderForm(post) {
       </div>
     </div>
     <fieldset>
-      <label>Slug ${isNew ? '' : '(locked after creation)'}<input type="text" name="slug" value="${post.slug || ''}" ${isNew ? '' : 'readonly'} required></label>
       <label>Type
-        <select name="type">
-          <option value="note" ${post.type === 'note' ? 'selected' : ''}>Note</option>
-          <option value="journal" ${post.type === 'journal' ? 'selected' : ''}>Journal</option>
-          <option value="artifact" ${post.type === 'artifact' ? 'selected' : ''}>Artifact</option>
-        </select>
+        <div class="type-toggle">
+          <button type="button" class="type-btn ${post.type === 'note' ? 'active' : ''}" data-type="note">Note</button>
+          <button type="button" class="type-btn ${post.type === 'journal' ? 'active' : ''}" data-type="journal">Journal</button>
+          <button type="button" class="type-btn ${post.type === 'artifact' ? 'active' : ''}" data-type="artifact">Artifact</button>
+        </div>
       </label>
+      <input type="hidden" name="type" value="${post.type}">
+      <label>Slug ${isNew ? '' : '(locked after creation)'}<input type="text" name="slug" value="${post.slug || ''}" ${isNew ? '' : 'readonly'} required></label>
       ${fields}
     </fieldset>
   `;
@@ -556,8 +577,9 @@ function renderForm(post) {
   // relocate the persistent status node into the sticky header, under the heading
   formEl.querySelector('.form-top-left').appendChild(statusEl);
 
-  formEl.querySelector('select[name=type]')?.addEventListener('change', e => {
-    const newType = e.target.value;
+  formEl.querySelectorAll('.type-btn').forEach(btn => btn.addEventListener('click', () => {
+    const newType = btn.dataset.type;
+    if (newType === post.type) return;
     const captured = postFromForm(post.type); // capture what's in the form under the OLD type
     currentType = newType;
     const merged = { ...post, ...captured, type: newType };
@@ -569,7 +591,7 @@ function renderForm(post) {
       merged.images = captured.mainImage ? [captured.mainImage] : (post.images || []);
     }
     renderForm(merged);
-  });
+  }));
 
   // auto-fill the slug from the title for new posts, until the user edits it
   if (isNew) {
