@@ -7,90 +7,24 @@
     <language>en-us</language>
     <atom:link href="https://rhymeandreason.studio//feed.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Example Artifact</title>
-      <link>https://rhymeandreason.studio//artifact/example-artifact.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/example-artifact.html</guid>
-      <pubDate>Mon, 15 Jun 2026 12:00:00 GMT</pubDate>
-      <category>artifact</category>
-      <description><![CDATA[<div class="post-content post-content--artifact">
-    <p class="post-date">June 15, 2026</p>
-    
-    <h1 class="post-title">Example Artifact</h1>
-    <p class="post-subtitle">A demo of the artifact post type</p>
-    <div class="post-body"><p>Artifacts have a main image, title, subtitle, and a longer description. They can also contain a list of inline notes below.</p></div>
-    <div class="artifact-notes"><div class="artifact-note">
-        <h3>First note</h3>
-        <p class="post-date">June 14, 2026</p>
-        <div class="post-body"><p>An inline note attached to this artifact.</p></div>
-        
-      </div></div>
-  </div>]]></description>
-    </item>
-    <item>
-      <title>Artifact 2</title>
-      <link>https://rhymeandreason.studio//artifact/new-draft.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/new-draft.html</guid>
-      <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
-      <category>artifact</category>
-      <description><![CDATA[<div class="post-content post-content--artifact">
-    <p class="post-date">June 20, 2026</p>
-    
-    <h1 class="post-title">Artifact 2</h1>
-    
-    <div class="post-body"></div>
-    
-  </div>]]></description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://rhymeandreason.studio//note/new.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//note/new.html</guid>
-      <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
-      <category>note</category>
-      <description><![CDATA[<div class="post-content post-content--note">
-      <p class="post-date">June 20, 2026</p>
-      
-      <div class="post-body"></div>
-      
-    </div>]]></description>
-    </item>
-    <item>
-      <title>A longer journal entry</title>
-      <link>https://rhymeandreason.studio//journal/a-longer-journal-entry.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//journal/a-longer-journal-entry.html</guid>
-      <pubDate>Thu, 18 Jun 2026 12:00:00 GMT</pubDate>
+      <title>Itching for New Interfaces</title>
+      <link>https://rhymeandreason.studio//journal/itching-for-new-interfaces.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//journal/itching-for-new-interfaces.html</guid>
+      <pubDate>Wed, 20 May 2026 12:00:00 GMT</pubDate>
       <category>journal</category>
       <description><![CDATA[<div class="post-content post-content--journal">
-      <p class="post-date">June 18, 2026</p>
-      <h1 class="post-title">A longer journal entry</h1>
-      <div class="post-body"><p>Journals get different formatting from Notes — more like a long-form essay.</p>
-<p>They can span multiple paragraphs, and on the index grid they can take up two columns instead of one if you set <code>columns: 2</code>.</p></div>
-      
-    </div>]]></description>
-    </item>
-    <item>
-      <title>new note</title>
-      <link>https://rhymeandreason.studio//note/new-note.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//note/new-note.html</guid>
-      <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
-      <category>note</category>
-      <description><![CDATA[<div class="post-content post-content--note">
-      <p class="post-date">June 20, 2026</p>
-      <h1 class="post-title">new note</h1>
-      <div class="post-body"><p>added some text added some more text</p></div>
-      
-    </div>]]></description>
-    </item>
-    <item>
-      <title>Welcome to the lab</title>
-      <link>https://rhymeandreason.studio//note/welcome-to-the-lab.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//note/welcome-to-the-lab.html</guid>
-      <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
-      <category>note</category>
-      <description><![CDATA[<div class="post-content post-content--note">
-      <p class="post-date">June 20, 2026</p>
-      <h1 class="post-title">Welcome to the lab</h1>
-      <div class="post-body"><p>First entry in the lab. This is a <strong>Note</strong> — short, dated, good for logging the day's work.</p></div>
+      <p class="post-date">May 20, 2026</p>
+      <h1 class="post-title">Itching for New Interfaces</h1>
+      <div class="post-body"><p>Every interface now feels outdated. I notice the effort I put into dragging windows on my screen. Finding the application after it’s minimized. Searching for files. Searching for the right app. Searching for the settings panel to toggle the right setting. Searching the web to find that settings panel. Settings is the junk drawer of any app or OS, and yet it’s the drawer I most frequently open.</p>
+<p>Even for apps I use regularly, there is no interface where I do not have to search to do the thing I want. The apps are always updating. The familiar button I have pressed for years is suddenly somewhere else entirely. There is ever more clutter of new features, on surfaces where I only use 10% of the current features.</p>
+<p>I do not need more screen time. And yet every software experience seems to be designed to demand my time and my eyes.</p>
+<p>I also don’t want to talk to the computer. At times it would be useful…when I’m driving, or cooking…the computer should be able to deliver on straightforward requests. But the car dash doesn’t see the text message for changing the meetup location. The Echo doesn’t know the recipe I’ve loaded on my phone. And they talk too much…paragraphs when I expect 10 words.</p>
+<p>I love taking a walk without my phone. But then I want to take a photo of the clouds overlooking the ridge. I love drawing in my sketchbook. But then I want to undo that stray mark. I love seeing my friends in person. But many of them live thousands of miles away.</p>
+<p>Technology eagerly shouts, “I am here for all of those needs!” Yet the experience is unsatisfying. A meal delivered that is too many empty calories.</p>
+<p>Notifications notifications notifications. I’ve paid thousands of dollars for pieces of aluminum and glass that seem entirely focused on delivering notifications that I don’t care about. I turn all of them off. But then I miss my messages. How do I just get the messages. So many different settings. Yet impossible to achieve this simplest of intents.</p>
+<p>I’m scrolling again. Why? I could be doing anything else. But I want to know what’s going on in the world. What are other people doing? I scroll. This video is so funny. Look at this cute thing! Wow this new product is impressive. This person is upset. No it’s just rage bait. Here’s a useful post. Bookmark. Now where did I save that to? Oh no I’ve been scrolling for 40 minutes.</p>
+<p>I’m logging in to an account for something important. What did I put for these security questions? Mother’s maiden name, high school, pet’s name. But I didn’t put the real answers of course. What imaginary life did I conceive of when creating this account? I made a super secure password for this site. But now I can’t autocomplete it…I have to type it in. So I copy and paste this obscure incantation of characters into Notes, so that I can see it to type in on my device. I shouldn't admit that I do that.</p>
+<p>There’s a storm and the power is out. The internet is out. Why do I sit down at my computer and open the browser? What is it that I need to do? Muscle memory that supersedes utility.</p></div>
       
     </div>]]></description>
     </item>

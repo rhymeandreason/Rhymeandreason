@@ -342,6 +342,7 @@ function buildDpPopup() {
   dpPopup.className = 'dp-popup';
   document.body.appendChild(dpPopup);
   dpPopup.addEventListener('click', e => {
+    e.stopPropagation(); // keep the outside-click handler from closing on in-popup clicks
     const nav = e.target.closest('[data-nav]');
     if (nav) {
       dpMonth += Number(nav.dataset.nav);
