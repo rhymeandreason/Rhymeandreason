@@ -2,11 +2,11 @@
   "type": "artifact",
   "slug": "file-directory",
   "columns": 1,
+  "order": 11,
   "title": "File Directory",
-  "subtitle": "",
+  "subtitle": "V.0.2",
   "date": "2026-06-22",
-  "description": "",
+  "description": "A single column file browser that lists all my linked folders in a Project. Because a Project might often have a code repo and a folder of images or videos that aren't in the main Project folder.\nIt lives in its own window so that I can make it extra tall.\nA super bright color highlight, toggle for font size, and single click to open. ",
   "mainImage": "1782156169138-Screenshot-2026-06-21-at-8-44-40-PM.png",
-  "notes": [],
-  "order": 11
+  "notes": []
 }

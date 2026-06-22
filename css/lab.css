@@ -159,13 +159,11 @@ body::-webkit-scrollbar {
   flex-shrink: 0;
 }
 
-.lab-card .card-subtitle {
-  color: #8a8478;
-  margin: 0 0 0.7rem;
-  font-family: "futura-pt", sans-serif;
-  font-style: italic;
-  font-size: 1.05rem;
+.lab-card .card-subtitle, .post-subtitle {
+  font-size: 1.75rem;
+  margin: 0;
   flex-shrink: 0;
+  opacity: .5;
 }
 
 .lab-card .card-preview {
@@ -222,10 +220,14 @@ body::-webkit-scrollbar {
   letter-spacing: 2%;
 }
 
-.lab-card--artifact:hover, .lab-card--journal:hover {
-  //background: radial-gradient(99.48% 115.08% at 50% 50%, #E8E7E5 0%, #828180 100%);
+.lab-card--artifact:hover,
+.lab-card--journal:hover {
   background: var(--blue);
   color: var(--lime);
+}
+
+.lab-card--artifact:hover .card-subtitle{
+color: var(--lime);
 }
 
 .lab-modal-body {
@@ -247,15 +249,9 @@ body::-webkit-scrollbar {
   margin: 0 0 4rem;
 }
 
-.post-subtitle {
-  color: #666;
-  font-style: italic;
-  margin: 0 0 1rem;
-}
-
 .post-body p {
   margin: 0 0 1em;
-font-size: 1.8rem;
+  font-size: 1.8rem;
 }
 
 .post-images {
@@ -290,8 +286,8 @@ font-size: 1.8rem;
 }
 
 .post-content--journal .post-body {
- // font-size: 1.6rem;
-padding-bottom: 8rem;
+  // font-size: 1.6rem;
+  padding-bottom: 8rem;
 }
 
 .lab-standalone {
@@ -365,8 +361,21 @@ padding-bottom: 8rem;
   position: relative;
 }
 
-.lab-modal::-webkit-scrollbar{
-display: none;
+.lab-modal--artifact {
+  max-width: 420px;
+}
+.lab-modal--artifact .lab-modal-body {
+padding: 2rem;
+}
+.lab-modal--artifact .post-title{
+margin-bottom: 0;
+}
+.lab-modal--artifact .post-body{
+margin-top: 2rem;
+}
+
+.lab-modal::-webkit-scrollbar {
+  display: none;
 }
 
 .lab-modal-close {

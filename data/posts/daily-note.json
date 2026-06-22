@@ -2,11 +2,11 @@
   "type": "artifact",
   "slug": "daily-note",
   "columns": 1,
+  "order": 10,
   "title": "Daily Note",
-  "subtitle": "",
+  "subtitle": "V.0.3",
   "date": "2026-06-22",
-  "description": "",
+  "description": "Daily Note lives in the top menu bar with its own icon. I made it because I will make a 'to-do' list, and then several days later make another one. The items are usually low stakes, and there's no point in saving all the different to-do lists. If something is on there for ages, and I still haven't done it, I just delete it. High priority things that I super definitely have to do get a calendar event. Or I actually just remember, because I don't bother remembering the little stuff.\n\nSo this is just One List. Any unchecked items get carried forward to the next day. I put the calendar because I think it looks nice at the bottom, a bit like a stationery page.\n",
   "mainImage": "1782155617205-Screenshot-2026-06-22-at-11-43-06-AM.png",
-  "notes": [],
-  "order": 10
+  "notes": []
 }

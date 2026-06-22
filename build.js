@@ -43,7 +43,6 @@ function renderPost(p, imgBase = '../images/') {
         ${(n.images || []).map(src => `<img class="post-image" src="${imgBase}${escapeHtml(src)}" alt="">`).join('\n')}
       </div>`).join('\n');
   return `<div class="post-content post-content--artifact">
-    <p class="post-date">${formatDate(p.date)}</p>
     ${p.mainImage ? `<img class="artifact-main-image" src="${imgBase}${escapeHtml(p.mainImage)}" alt="">` : ''}
     <h1 class="post-title">${escapeHtml(p.title)}</h1>
     ${p.subtitle ? `<p class="post-subtitle">${escapeHtml(p.subtitle)}</p>` : ''}

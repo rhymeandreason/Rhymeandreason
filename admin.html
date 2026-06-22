@@ -751,12 +751,16 @@ function selectPost(post) {
   clearTimeout(autosaveTimer);
   current = post;
   renderForm(post);
+  listEl.querySelectorAll('button.active').forEach(btn => btn.classList.remove('active'));
+  const btn = listEl.querySelector(`button[data-slug="${post.slug}"]`);
+  if (btn) btn.classList.add('active');
 }
 
 document.getElementById('new-btn').onclick = () => {
   clearTimeout(autosaveTimer);
   current = null;
   renderForm(blankPost('note'));
+  listEl.querySelectorAll('button.active').forEach(btn => btn.classList.remove('active'));
 };
 
 function postFromForm(typeOverride) {

@@ -2,11 +2,11 @@
   "type": "artifact",
   "slug": "image-editor",
   "columns": 1,
+  "order": 9,
   "title": "Image Editor",
-  "subtitle": "",
+  "subtitle": "V.0.3",
   "date": "2026-06-22",
-  "description": "",
+  "description": "I built my own image editor because 90% of the editing I do is super basic. I found that I would put images into Figma just because I like their simple sliders and export functions. I hate opening Photoshop. I also use Preview to rotate images and remove backgrounds. \n\nMost of the handiness is in almost invisible:\n-Remove background using Apple's native, super-fast feature.\n-Real export for web, including WebP.\n-Copy/paste all the edits from one image to another. \n-Loads super fast.\n\nI also tried making an 'extend background' feature, but it doesn't work super well. Usually when I open Photoshop, it's just because I need to expand or clean up the background. I spent too much of an evening trying to get a local image generation model to work. It looks like the next MacOS release will include native background extend, so I'm fine with just waiting for that.",
   "mainImage": "1782154690500-Screenshot-2026-06-22-at-11-42-20-AM.png",
-  "notes": [],
-  "order": 9
+  "notes": []
 }

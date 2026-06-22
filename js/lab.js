@@ -3,6 +3,7 @@
   const body = document.getElementById('lab-modal-body');
   const imagePane = document.getElementById('lab-modal-image');
   const closeBtn = document.getElementById('lab-modal-close');
+  const modalBox = overlay.querySelector('.lab-modal');
 
   function openModal(slug, push) {
     const tpl = document.getElementById('tpl-' + slug);
@@ -18,6 +19,7 @@
     } else {
       overlay.classList.remove('lab-modal-overlay--split');
     }
+    modalBox.classList.toggle('lab-modal--artifact', isArtifact);
 
     overlay.hidden = false;
     document.body.style.overflow = 'hidden';
@@ -27,6 +29,7 @@
   function closeModal(push) {
     overlay.hidden = true;
     overlay.classList.remove('lab-modal-overlay--split');
+    modalBox.classList.remove('lab-modal--artifact');
     document.body.style.overflow = '';
     if (push) history.pushState({}, '', location.pathname);
   }
