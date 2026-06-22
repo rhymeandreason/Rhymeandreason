@@ -557,8 +557,18 @@ function renderForm(post) {
   formEl.querySelector('.form-top-left').appendChild(statusEl);
 
   formEl.querySelector('select[name=type]')?.addEventListener('change', e => {
-    currentType = e.target.value;
-    renderForm({ ...post, type: currentType });
+    const newType = e.target.value;
+    const captured = postFromForm(post.type); // capture what's in the form under the OLD type
+    currentType = newType;
+    const merged = { ...post, ...captured, type: newType };
+    // Note/Journal store images[] (multi); Artifact stores mainImage (single) — carry across.
+    const isList = t => t === 'note' || t === 'journal';
+    if (isList(post.type) && newType === 'artifact') {
+      merged.mainImage = (captured.images || [])[0] || post.mainImage || '';
+    } else if (post.type === 'artifact' && isList(newType)) {
+      merged.images = captured.mainImage ? [captured.mainImage] : (post.images || []);
+    }
+    renderForm(merged);
   });
 
   // auto-fill the slug from the title for new posts, until the user edits it
@@ -682,9 +692,9 @@ document.getElementById('new-btn').onclick = () => {
   renderForm(blankPost('note'));
 };
 
-function postFromForm() {
+function postFromForm(typeOverride) {
   const data = new FormData(formEl);
-  const post = { type: data.get('type') || currentType, slug: data.get('slug'), columns: Number(data.get('columns')) };
+  const post = { type: typeOverride || data.get('type') || currentType, slug: data.get('slug'), columns: Number(data.get('columns')) };
   if (post.type === 'note' || post.type === 'journal') {
     post.title = data.get('title') || '';
     post.date = data.get('date') || '';
@@ -731,14 +741,16 @@ formEl.addEventListener('submit', e => {
 // ---------- debounced autosave ----------
 const AUTOSAVE_DELAY = 1200;
 let autosaveTimer = null;
-formEl.addEventListener('input', () => {
+function scheduleAutosave() {
+  // only autosave posts that already exist — a new post saves on explicit Save
+  if (!current) return;
   clearTimeout(autosaveTimer);
   autosaveTimer = setTimeout(() => savePostNow('Autosaved'), AUTOSAVE_DELAY);
-});
+}
+formEl.addEventListener('input', scheduleAutosave);
 formEl.addEventListener('change', e => {
   if (e.target.matches('[data-upload]')) return; // upload already saves the file; autosave will pick up the reference on next input/change
-  clearTimeout(autosaveTimer);
-  autosaveTimer = setTimeout(() => savePostNow('Autosaved'), AUTOSAVE_DELAY);
+  scheduleAutosave();
 });
 
 renderForm(blankPost('note'));
