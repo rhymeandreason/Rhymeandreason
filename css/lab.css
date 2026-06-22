@@ -127,7 +127,7 @@ h1 {
   font-family: "futura-pt", sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+letter-spacing: 5%;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.38);
   margin: 0 0 1rem;
@@ -183,7 +183,8 @@ color: #E8E7E5;
 
 .lab-card--journal .card-title {
   font-family: "Windy City", "futura-pt", sans-serif;
-  letter-spacing: 5%;
+font-size: 3.2rem;
+  letter-spacing: 6%;
   font-style: normal;
   font-weight: normal;
 color: #E8E7E5;
@@ -191,6 +192,7 @@ color: #E8E7E5;
 
 .lab-card--journal .card-date, .lab-card--journal h2{
 color: #E8E7E5;
+font-weight: normal;
 }
 
 .lab-card--artifact {}
