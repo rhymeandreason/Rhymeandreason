@@ -6,11 +6,6 @@
   font-display: swap;
 }
 
-body {
-  font-family: "futura-pt", sans-serif;
-  font-size: 1rem;
-}
-
 h1 {
   font-size: 3rem;
 }
@@ -28,7 +23,7 @@ h1 {
 
 .lab-list-kicker {
   font-family: "futura-pt", sans-serif;
-  font-size: 0.78rem;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -38,11 +33,11 @@ h1 {
 
 .lab-list-header h1 {
   font-family: "futura-pt", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-style: normal;
-  font-size: 4.2rem;
+  font-size: 4.4rem;
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: 1%;
   color: #161412;
   margin: 0 0 1.25rem;
 }
@@ -51,7 +46,7 @@ h1 {
   font-family: "futura-pt", sans-serif;
   color: #6b6660;
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 2rem;
   line-height: 1.6;
 }
 
@@ -70,10 +65,8 @@ h1 {
   grid-template-columns: repeat(5, 1fr);
   grid-auto-flow: dense;
   grid-auto-rows: 340px;
-  gap: 1px;
-  background-color: #e4e0da;
-  border-top: 1px solid #e4e0da;
-  border-left: 1px solid #e4e0da;
+  gap: 4px;
+
 }
 
 
@@ -104,10 +97,11 @@ h1 {
   text-decoration: none;
   color: inherit;
   padding: 2.5rem 2rem;
-  background: #fbfaf7;
+  //background: #fbfaf7;
+  background: #E8E7E5;
   transition: background-color 0.2s ease;
 }
-
+/*
 .lab-card:hover {
   background: #f3f1ec;
 }
@@ -117,6 +111,7 @@ h1 {
   text-decoration: none;
   text-decoration-color: rgba(0, 0, 0, 0.2);
 }
+*/
 
 .lab-card.cols-2 {
   grid-column: span 2;
@@ -130,12 +125,12 @@ h1 {
 
 .lab-card .card-date {
   font-family: "futura-pt", sans-serif;
-  font-size: 0.78rem;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.38);
-  margin: 0 0 0.9rem;
+  margin: 0 0 1rem;
   flex-shrink: 0;
 }
 
@@ -175,14 +170,15 @@ h1 {
   margin: 1rem 1rem;
   width: 90%;
   max-height: 70%;
-aspect-ratio: 1 / 2;
+  aspect-ratio: 1 / 2;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
 }
 
 .lab-card--journal {
-  background: #f7f4ee;
+  background: #313130;
+color: #E8E7E5;
 }
 
 .lab-card--journal .card-title {
@@ -190,15 +186,20 @@ aspect-ratio: 1 / 2;
   letter-spacing: 5%;
   font-style: normal;
   font-weight: normal;
+color: #E8E7E5;
 }
 
-.lab-card--artifact {
-  background: #fafaf8;
+.lab-card--journal .card-date, .lab-card--journal h2{
+color: #E8E7E5;
 }
+
+.lab-card--artifact {}
 
 .lab-card--artifact .card-title {
-  font-size: 1.4rem;
+  font-size: 1.75rem;
   margin-bottom: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 2%;
 }
 
 .lab-modal-body {
