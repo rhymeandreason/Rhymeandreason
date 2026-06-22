@@ -329,6 +329,31 @@ padding-bottom: 8rem;
   display: none;
 }
 
+.lab-modal-overlay--split {
+  gap: 1.5rem;
+}
+
+.lab-modal-image {
+  display: none;
+}
+
+.lab-modal-overlay--split .lab-modal-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  width: 100%;
+  max-height: 85vh;
+}
+
+.lab-modal-overlay--split .lab-modal-image .artifact-main-image {
+  max-width: 100%;
+  max-height: 85vh;
+  width: auto;
+  margin: 0;
+  object-fit: contain;
+}
+
 .lab-modal {
   background: #fff;
   border-radius: 10px;

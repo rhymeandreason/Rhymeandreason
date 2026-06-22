@@ -762,6 +762,7 @@ document.getElementById('new-btn').onclick = () => {
 function postFromForm(typeOverride) {
   const data = new FormData(formEl);
   const post = { type: typeOverride || data.get('type') || currentType, slug: data.get('slug'), columns: Number(data.get('columns')) };
+  if (current && current.order != null) post.order = current.order;
   if (post.type === 'note' || post.type === 'journal') {
     post.title = data.get('title') || '';
     post.date = data.get('date') || '';
