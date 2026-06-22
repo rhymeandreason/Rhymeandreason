@@ -99,6 +99,7 @@ h1 {
 .lab-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
@@ -173,6 +174,8 @@ h1 {
   width: calc(100% + 4rem);
   margin: 1rem 1rem;
   width: 90%;
+  max-height: 70%;
+aspect-ratio: 1 / 2;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
@@ -184,7 +187,7 @@ h1 {
 
 .lab-card--journal .card-title {
   font-family: "Windy City", "futura-pt", sans-serif;
-letter-spacing: 5%;
+  letter-spacing: 5%;
   font-style: normal;
   font-weight: normal;
 }
@@ -198,8 +201,8 @@ letter-spacing: 5%;
   margin-bottom: 0.3rem;
 }
 
-.lab-modal-body{
-padding: 4rem;
+.lab-modal-body {
+  padding: 4rem;
 }
 
 /* ---------- post content (shared by standalone page + modal) ---------- */
