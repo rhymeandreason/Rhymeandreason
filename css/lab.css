@@ -375,8 +375,13 @@ height:2rem;
 }
 
 .post-body p {
+font-family:'museo-slab';
   margin: 0 0 1em;
   font-size: 1.8rem;
+}
+
+.lab-modal--artifact p{
+font-size: 1.5rem;
 }
 
 .post-images {
