@@ -356,6 +356,45 @@ height:2rem;
   color: var(--lime);
 }
 
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .lab-list-section {
+    padding: 1.5rem 1.5rem 5rem;
+  }
+  .lab-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 0 0 5rem;
+  }
+  .lab-list-header h1 {
+    width: 100%;
+    font-size: 3.6rem;
+text-align: center;
+  }
+  .lab-list-header h2 {
+    text-align: left;
+display:none;
+  }
+  .lab-list-intro {
+    text-align: center;
+    flex: none;
+    width: 100%;
+  }
+  .card-cols {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto !important;
+    gap: 1rem;
+  }
+  .card-col-blurb {
+    align-items: flex-start;
+  }
+  .lab-card.cols-3 .card-title {
+    font-size: 2.6rem !important;
+  }
+}
+
 .lab-modal-body {
   padding: 4rem;
 }
