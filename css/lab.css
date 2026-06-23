@@ -138,6 +138,7 @@ body::-webkit-scrollbar {
 }
 
 
+
 @media (max-width: 500px) {
   .lab-card.cols-2,
   .lab-card.cols-3 {
@@ -212,15 +213,16 @@ body::-webkit-scrollbar {
 }
 
 
-
-
 .lab-card--journal .card-title {
   font-family: "Windy City", "futura-pt", sans-serif;
   font-size: 3.2rem;
   letter-spacing: 6%;
   font-style: normal;
   font-weight: normal;
+}
 
+.cols-3 .card-title {
+font-size:4rem !important;
 }
 
 .lab-card--journal .card-date,
