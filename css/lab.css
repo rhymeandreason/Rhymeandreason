@@ -50,46 +50,51 @@ body::-webkit-scrollbar {
 }
 
 .lab-list-header {
-  width:100%;
+  width: 100%;
   margin: 0 0 4.5rem;
   color: var(--black);
   text-transform: uppercase;
-display:flex;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
-.lab-list-header h1 {
-  font-weight: 800;
-  font-style: normal;
-  font-size: 3.2rem;
-  line-height: 1;
-  letter-spacing: 3%;
-  margin: 0 0 1.25rem;
-  width: 200px;
-}
-
+.lab-list-header h1,
 .lab-list-header h2 {
   font-weight: 800;
   font-style: normal;
   font-size: 3.2rem;
   line-height: 1;
   letter-spacing: 3%;
-  margin: 0 0 1.25rem;
-  width: 170px;
-text-align: right;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.lab-list-header h1{
+width:200px;
+}
+
+.lab-list-header h2 {
+  text-align: right;
+width:160px;
 }
 
 .lab-list-intro {
-  font-family: "futura-pt", sans-serif;
   color: var(--gray-600);
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.6rem;
   line-height: 1.6;
+  flex: 1;
+  text-align: center;
+text-decoration: none;
+font-weight: 500;
+letter-spacing: 3%;
+
 }
 
-.lab-list-intro a {
-  color: var(--black);
-  text-decoration: underline;
-  text-decoration-color: var(--black-25);
+.lab-list-intro a:hover {
+  color: var(--blue);
 }
 
 .lab-list-intro a:hover {

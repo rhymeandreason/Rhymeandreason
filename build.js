@@ -121,8 +121,8 @@ ${head(SITE.title)}
   <section class="lab-list-section">
     <header class="lab-list-header">
       <h1>Rhyme &amp; Reason</h1>
-      <h2>Studio &amp; Lab</h2>
       <p class="lab-list-intro"><a href="feed.xml">RSS</a> · <a href="https://github.com/rhymeandreason/Studio" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/maryhuang1/" target="_blank" rel="noopener">LinkedIn</a> · <a href="mailto:rhymeandreason1.0@gmail.com">Email</a></p>
+      <h2>Studio &amp; Lab</h2>
     </header>
     <div class="lab-grid">
 ${cards}
