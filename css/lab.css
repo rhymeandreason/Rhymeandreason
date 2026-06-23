@@ -133,6 +133,7 @@ body::-webkit-scrollbar {
   grid-column: span 2;
 }
 
+
 @media (max-width: 500px) {
   .lab-card.cols-2 {
     grid-column: span 1;
@@ -214,6 +215,7 @@ body::-webkit-scrollbar {
   letter-spacing: 6%;
   font-style: normal;
   font-weight: normal;
+
 }
 
 .lab-card--journal .card-date,
@@ -234,6 +236,7 @@ body::-webkit-scrollbar {
 
 .card-cols {
   display: flex;
+  align-items: flex-end;
   gap: 2rem;
   height: 100%;
 }
@@ -241,14 +244,13 @@ body::-webkit-scrollbar {
 .card-col-main {
   flex: 1;
   min-width: 0;
-align-items:center;
 }
 
 .card-col-blurb {
   flex: 1;
   min-width: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .card-col-blurb .card-blurb {
