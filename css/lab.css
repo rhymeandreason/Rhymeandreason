@@ -437,18 +437,18 @@ font-size:4rem !important;
 }
 
 .lab-modal-close {
-  position: sticky;
-  float: right;
-  top: 0;
-  right: 0;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
   background: none;
   border: none;
-  font-size: 1.75rem;
+  font-size: 2.25rem;
   line-height: 1;
   cursor: pointer;
-  color: #999;
+  color: #fff;
+  z-index: 101;
 }
 
 .lab-modal-close:hover {
-  color: #333;
+  color: var(--lime, #ccc);
 }
