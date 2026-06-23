@@ -28,12 +28,7 @@
       <h2 class="card-title">Modes</h2>
       <p class="card-subtitle">V.0.8</p>
       </a>
-      <a class="lab-card lab-card--artifact cols-1" href="artifact/slides.html" data-slug="slides">
-<img class="card-image" src="images/1782153031957-Screenshot-2026-06-16-at-9-32-27-PM.png" alt="">
-      <h2 class="card-title">Slides</h2>
-      <p class="card-subtitle">V.0.2</p>
-      </a>
-      <a class="lab-card lab-card--journal cols-2" href="journal/personal-personal-computing.html" data-slug="personal-personal-computing">
+      <a class="lab-card lab-card--journal cols-3" href="journal/personal-personal-computing.html" data-slug="personal-personal-computing">
 <p class="card-meta"><span class="card-kicker">Journal</span><span class="card-date">June 3, 2026</span></p>
       <div class="card-cols">
       <div class="card-col-main"><h2 class="card-title">Personal Personal Computing</h2>
@@ -45,6 +40,11 @@
 <p class="card-meta"><span class="card-kicker">Journal</span><span class="card-date">June 22, 2026</span></p>
       <h2 class="card-title"> 3 Weeks of Building</h2>
       
+      </a>
+      <a class="lab-card lab-card--artifact cols-1" href="artifact/slides.html" data-slug="slides">
+<img class="card-image" src="images/1782153031957-Screenshot-2026-06-16-at-9-32-27-PM.png" alt="">
+      <h2 class="card-title">Slides</h2>
+      <p class="card-subtitle">V.0.2</p>
       </a>
       <a class="lab-card lab-card--artifact cols-1" href="artifact/studio-space-2.html" data-slug="studio-space-2">
 <img class="card-image" src="images/1782152006747-Screenshot-2026-06-20-at-11-08-45-AM.png" alt="">
@@ -76,6 +76,11 @@
       <h2 class="card-title">Daily Note</h2>
       <p class="card-subtitle">V.0.3</p>
       </a>
+      <a class="lab-card lab-card--journal cols-1" href="journal/containers-for-knowledge.html" data-slug="containers-for-knowledge">
+<p class="card-meta"><span class="card-kicker">Journal</span><span class="card-date">June 22, 2026</span></p>
+      <h2 class="card-title">Containers for Knowledge</h2>
+      
+      </a>
       <a class="lab-card lab-card--artifact cols-1" href="artifact/file-directory.html" data-slug="file-directory">
 <img class="card-image" src="images/1782156169138-Screenshot-2026-06-21-at-8-44-40-PM.png" alt="">
       <h2 class="card-title">File Directory</h2>
@@ -85,11 +90,6 @@
 <img class="card-image" src="images/1782156089534-Screenshot-2026-06-22-at-11-43-24-AM.png" alt="">
       <h2 class="card-title">RAM Overview</h2>
       <p class="card-subtitle">V.0.2</p>
-      </a>
-      <a class="lab-card lab-card--journal cols-1" href="journal/containers-for-knowledge.html" data-slug="containers-for-knowledge">
-<p class="card-meta"><span class="card-kicker">Journal</span><span class="card-date">June 22, 2026</span></p>
-      <h2 class="card-title">Containers for Knowledge</h2>
-      
       </a>
       <a class="lab-card lab-card--journal cols-1" href="journal/itching-for-new-interfaces.html" data-slug="itching-for-new-interfaces">
 <p class="card-meta"><span class="card-kicker">Journal</span><span class="card-date">May 20, 2026</span></p>
@@ -138,17 +138,6 @@
 <p>This simple geometric design is more of the style I'd like to do for this project. Most everything is tidy and wireframe-y. I hope to push things out of the beige zone in short order.</p></div>
     
   </div></template>
-  <template id="tpl-slides"><div class="post-content post-content--artifact">
-    <img class="artifact-main-image" src="images/1782153031957-Screenshot-2026-06-16-at-9-32-27-PM.png" alt="">
-    <h1 class="post-title">Slides</h1>
-    <p class="post-subtitle">V.0.2</p>
-    <div class="post-body"><p>I noticed people using LLMs to generate slides. Powerpoint is far too heavy for this. People soon figure that out and then start doing Markdown or Html slide decks. There's many advantages for using AI to summarize content and put it into slides.</p>
-<p>I feel this needs its own editor. Mine is built on a simple json schema. The LLM can easily write json and focus on editing content. Then use the editor to apply themes and do edits. </p>
-<p>My specific POV here is that I want to change themes after the slides are made, and it applies to the whole deck. Not pick the theme first before I get started. I also believe templates should be simple. I welcomed Figma Slides as a huge improvement over Google Slides, but still have found their themes to be over-complicated. And somehow editing and copy/paste still takes way too long in Figma slides. (Try adding links to pages and editing them, it's infuriating.)</p>
-<p>Html is great for slides because it has all the text flow and styling features you can ever want, and publishing slides online is innately useful. But I don't want to be editing html and css to make a presentation, even with the help of an AI agent. Themes and templates serve the purpose of helping to structure the presentation without too much distraction from the content.</p>
-<p>This is one of my more ambitious ideas. To make a simple tool that facilitates collaboration with AI yet still has a lot of design controls. So far this has been just over 1 day of work, so I haven't put too much effort into making it nice yet. </p></div>
-    
-  </div></template>
   <template id="tpl-personal-personal-computing"><div class="post-content post-content--journal">
       <p class="post-date">June 3, 2026</p>
       <h1 class="post-title">Personal Personal Computing</h1>
@@ -172,6 +161,17 @@
 <p>Now I want to be refining what I've built instead of generating more apps. Although I also want to test some more weird ideas. </p></div>
       
     </div></template>
+  <template id="tpl-slides"><div class="post-content post-content--artifact">
+    <img class="artifact-main-image" src="images/1782153031957-Screenshot-2026-06-16-at-9-32-27-PM.png" alt="">
+    <h1 class="post-title">Slides</h1>
+    <p class="post-subtitle">V.0.2</p>
+    <div class="post-body"><p>I noticed people using LLMs to generate slides. Powerpoint is far too heavy for this. People soon figure that out and then start doing Markdown or Html slide decks. There's many advantages for using AI to summarize content and put it into slides.</p>
+<p>I feel this needs its own editor. Mine is built on a simple json schema. The LLM can easily write json and focus on editing content. Then use the editor to apply themes and do edits. </p>
+<p>My specific POV here is that I want to change themes after the slides are made, and it applies to the whole deck. Not pick the theme first before I get started. I also believe templates should be simple. I welcomed Figma Slides as a huge improvement over Google Slides, but still have found their themes to be over-complicated. And somehow editing and copy/paste still takes way too long in Figma slides. (Try adding links to pages and editing them, it's infuriating.)</p>
+<p>Html is great for slides because it has all the text flow and styling features you can ever want, and publishing slides online is innately useful. But I don't want to be editing html and css to make a presentation, even with the help of an AI agent. Themes and templates serve the purpose of helping to structure the presentation without too much distraction from the content.</p>
+<p>This is one of my more ambitious ideas. To make a simple tool that facilitates collaboration with AI yet still has a lot of design controls. So far this has been just over 1 day of work, so I haven't put too much effort into making it nice yet. </p></div>
+    
+  </div></template>
   <template id="tpl-studio-space-2"><div class="post-content post-content--artifact">
     <img class="artifact-main-image" src="images/1782152006747-Screenshot-2026-06-20-at-11-08-45-AM.png" alt="">
     <h1 class="post-title">Studio Space</h1>
@@ -220,6 +220,16 @@
 <p>So this is just One List. Any unchecked items get carried forward to the next day. I put the calendar because I think it looks nice at the bottom, a bit like a stationery page.</p></div>
     
   </div></template>
+  <template id="tpl-containers-for-knowledge"><div class="post-content post-content--journal">
+      <p class="post-date">June 22, 2026</p>
+      <h1 class="post-title">Containers for Knowledge</h1>
+      <div class="post-body"><p>Information is liquid, and reshapes itself to fit the container. We endlessly reflow knowledge from one container to another in efforts to grasp its truth. Yet the form of the container also affects its function.</p>
+<p>A slide deck is not the same as a research paper. A blog post, press release, social media post, all different containers. A website, a video, a book. While the industry is fond of predicting the 'death' of a medium when a new technology for knowledge distribution becomes available, the truth is that humans thirsty for insight and inspiration will gladly add more containers than subtract.</p>
+<p>We build new containers when there is the feeling of missing something. Missing on the idea or feeling or grand concept of the author. Classes, lectures, webinars are containers. So too are comics, zines, movies, music, games.</p>
+<p>An illustration is beautiful not because it looks nice next to an article, but because it adds a lens for seeing. A soundtrack doesn't fill silence, it creates an entire mood and space to inhabit.</p>
+<p>LLMs are the container we have crafted that is closest to the native liquid nature of raw information. Its flow is innately a firehose. Give it some containers and it will gladly reflow. </p></div>
+      
+    </div></template>
   <template id="tpl-file-directory"><div class="post-content post-content--artifact">
     <img class="artifact-main-image" src="images/1782156169138-Screenshot-2026-06-21-at-8-44-40-PM.png" alt="">
     <h1 class="post-title">File Directory</h1>
@@ -235,16 +245,6 @@
 <p> It sits in my top menu bar and expands if I click it. I had looked for an existing app that does this, but couldn't find anything that's this simple. I don't need a meter of everything, I just need to know when to close some apps.</p></div>
     
   </div></template>
-  <template id="tpl-containers-for-knowledge"><div class="post-content post-content--journal">
-      <p class="post-date">June 22, 2026</p>
-      <h1 class="post-title">Containers for Knowledge</h1>
-      <div class="post-body"><p>Information is liquid, and reshapes itself to fit the container. We endlessly reflow knowledge from one container to another in efforts to grasp its truth. Yet the form of the container also affects its function.</p>
-<p>A slide deck is not the same as a research paper. A blog post, press release, social media post, all different containers. A website, a video, a book. While the industry is fond of predicting the 'death' of a medium when a new technology for knowledge distribution becomes available, the truth is that humans thirsty for insight and inspiration will gladly add more containers than subtract.</p>
-<p>We build new containers when there is the feeling of missing something. Missing on the idea or feeling or grand concept of the author. Classes, lectures, webinars are containers. So too are comics, zines, movies, music, games.</p>
-<p>An illustration is beautiful not because it looks nice next to an article, but because it adds a lens for seeing. A soundtrack doesn't fill silence, it creates an entire mood and space to inhabit.</p>
-<p>LLMs are the container we have crafted that is closest to the native liquid nature of raw information. Its flow is innately a firehose. Give it some containers and it will gladly reflow. </p></div>
-      
-    </div></template>
   <template id="tpl-itching-for-new-interfaces"><div class="post-content post-content--journal">
       <p class="post-date">May 20, 2026</p>
       <h1 class="post-title">Itching for New Interfaces</h1>

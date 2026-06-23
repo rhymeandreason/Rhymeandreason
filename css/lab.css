@@ -133,9 +133,14 @@ body::-webkit-scrollbar {
   grid-column: span 2;
 }
 
+.lab-card.cols-3 {
+  grid-column: span 3;
+}
+
 
 @media (max-width: 500px) {
-  .lab-card.cols-2 {
+  .lab-card.cols-2,
+  .lab-card.cols-3 {
     grid-column: span 1;
   }
 }

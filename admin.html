@@ -560,6 +560,7 @@ function renderForm(post) {
         <select name="columns">
           <option value="1" ${post.columns === 1 ? 'selected' : ''}>1 (default)</option>
           <option value="2" ${post.columns === 2 ? 'selected' : ''}>2</option>
+          <option value="3" ${post.columns === 3 ? 'selected' : ''}>3</option>
         </select>
       </label>
       <label>Body<textarea name="body">${post.body || ''}</textarea></label>
@@ -576,6 +577,7 @@ function renderForm(post) {
         <select name="columns">
           <option value="1" ${post.columns === 1 ? 'selected' : ''}>1 (default)</option>
           <option value="2" ${post.columns === 2 ? 'selected' : ''}>2</option>
+          <option value="3" ${post.columns === 3 ? 'selected' : ''}>3</option>
         </select>
       </label>
       ${uploadField('Main image', 'mainImage', false)}

@@ -7,5 +7,6 @@
   "date": "2026-06-22",
   "description": "I made my own UI for Claude Code. I put cute animated animal sprites, custom set per project. It has tabs, which the Claude desktop app doesn't have. \n\n It doesn't quite work well enough for me to use it reliably yet. But it was fun and satisfying to get this far in a day.",
   "mainImage": "1782171455009-Screenshot-2026-06-18-at-5-48-26-PM.png",
-  "notes": []
+  "notes": [],
+  "order": 16
 }

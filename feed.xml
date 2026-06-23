@@ -37,24 +37,6 @@
   </div>]]></description>
     </item>
     <item>
-      <title>Slides</title>
-      <link>https://rhymeandreason.studio//artifact/slides.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/slides.html</guid>
-      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
-      <category>artifact</category>
-      <description><![CDATA[<div class="post-content post-content--artifact">
-    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/1782153031957-Screenshot-2026-06-16-at-9-32-27-PM.png" alt="">
-    <h1 class="post-title">Slides</h1>
-    <p class="post-subtitle">V.0.2</p>
-    <div class="post-body"><p>I noticed people using LLMs to generate slides. Powerpoint is far too heavy for this. People soon figure that out and then start doing Markdown or Html slide decks. There's many advantages for using AI to summarize content and put it into slides.</p>
-<p>I feel this needs its own editor. Mine is built on a simple json schema. The LLM can easily write json and focus on editing content. Then use the editor to apply themes and do edits. </p>
-<p>My specific POV here is that I want to change themes after the slides are made, and it applies to the whole deck. Not pick the theme first before I get started. I also believe templates should be simple. I welcomed Figma Slides as a huge improvement over Google Slides, but still have found their themes to be over-complicated. And somehow editing and copy/paste still takes way too long in Figma slides. (Try adding links to pages and editing them, it's infuriating.)</p>
-<p>Html is great for slides because it has all the text flow and styling features you can ever want, and publishing slides online is innately useful. But I don't want to be editing html and css to make a presentation, even with the help of an AI agent. Themes and templates serve the purpose of helping to structure the presentation without too much distraction from the content.</p>
-<p>This is one of my more ambitious ideas. To make a simple tool that facilitates collaboration with AI yet still has a lot of design controls. So far this has been just over 1 day of work, so I haven't put too much effort into making it nice yet. </p></div>
-    
-  </div>]]></description>
-    </item>
-    <item>
       <title>Personal Personal Computing</title>
       <link>https://rhymeandreason.studio//journal/personal-personal-computing.html</link>
       <guid isPermaLink="true">https://rhymeandreason.studio//journal/personal-personal-computing.html</guid>
@@ -90,6 +72,24 @@
 <p>Now I want to be refining what I've built instead of generating more apps. Although I also want to test some more weird ideas. </p></div>
       
     </div>]]></description>
+    </item>
+    <item>
+      <title>Slides</title>
+      <link>https://rhymeandreason.studio//artifact/slides.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/slides.html</guid>
+      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/1782153031957-Screenshot-2026-06-16-at-9-32-27-PM.png" alt="">
+    <h1 class="post-title">Slides</h1>
+    <p class="post-subtitle">V.0.2</p>
+    <div class="post-body"><p>I noticed people using LLMs to generate slides. Powerpoint is far too heavy for this. People soon figure that out and then start doing Markdown or Html slide decks. There's many advantages for using AI to summarize content and put it into slides.</p>
+<p>I feel this needs its own editor. Mine is built on a simple json schema. The LLM can easily write json and focus on editing content. Then use the editor to apply themes and do edits. </p>
+<p>My specific POV here is that I want to change themes after the slides are made, and it applies to the whole deck. Not pick the theme first before I get started. I also believe templates should be simple. I welcomed Figma Slides as a huge improvement over Google Slides, but still have found their themes to be over-complicated. And somehow editing and copy/paste still takes way too long in Figma slides. (Try adding links to pages and editing them, it's infuriating.)</p>
+<p>Html is great for slides because it has all the text flow and styling features you can ever want, and publishing slides online is innately useful. But I don't want to be editing html and css to make a presentation, even with the help of an AI agent. Themes and templates serve the purpose of helping to structure the presentation without too much distraction from the content.</p>
+<p>This is one of my more ambitious ideas. To make a simple tool that facilitates collaboration with AI yet still has a lot of design controls. So far this has been just over 1 day of work, so I haven't put too much effort into making it nice yet. </p></div>
+    
+  </div>]]></description>
     </item>
     <item>
       <title>Studio Space</title>
@@ -182,6 +182,23 @@
   </div>]]></description>
     </item>
     <item>
+      <title>Containers for Knowledge</title>
+      <link>https://rhymeandreason.studio//journal/containers-for-knowledge.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//journal/containers-for-knowledge.html</guid>
+      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
+      <category>journal</category>
+      <description><![CDATA[<div class="post-content post-content--journal">
+      <p class="post-date">June 22, 2026</p>
+      <h1 class="post-title">Containers for Knowledge</h1>
+      <div class="post-body"><p>Information is liquid, and reshapes itself to fit the container. We endlessly reflow knowledge from one container to another in efforts to grasp its truth. Yet the form of the container also affects its function.</p>
+<p>A slide deck is not the same as a research paper. A blog post, press release, social media post, all different containers. A website, a video, a book. While the industry is fond of predicting the 'death' of a medium when a new technology for knowledge distribution becomes available, the truth is that humans thirsty for insight and inspiration will gladly add more containers than subtract.</p>
+<p>We build new containers when there is the feeling of missing something. Missing on the idea or feeling or grand concept of the author. Classes, lectures, webinars are containers. So too are comics, zines, movies, music, games.</p>
+<p>An illustration is beautiful not because it looks nice next to an article, but because it adds a lens for seeing. A soundtrack doesn't fill silence, it creates an entire mood and space to inhabit.</p>
+<p>LLMs are the container we have crafted that is closest to the native liquid nature of raw information. Its flow is innately a firehose. Give it some containers and it will gladly reflow. </p></div>
+      
+    </div>]]></description>
+    </item>
+    <item>
       <title>File Directory</title>
       <link>https://rhymeandreason.studio//artifact/file-directory.html</link>
       <guid isPermaLink="true">https://rhymeandreason.studio//artifact/file-directory.html</guid>
@@ -209,23 +226,6 @@
 <p> It sits in my top menu bar and expands if I click it. I had looked for an existing app that does this, but couldn't find anything that's this simple. I don't need a meter of everything, I just need to know when to close some apps.</p></div>
     
   </div>]]></description>
-    </item>
-    <item>
-      <title>Containers for Knowledge</title>
-      <link>https://rhymeandreason.studio//journal/containers-for-knowledge.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//journal/containers-for-knowledge.html</guid>
-      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
-      <category>journal</category>
-      <description><![CDATA[<div class="post-content post-content--journal">
-      <p class="post-date">June 22, 2026</p>
-      <h1 class="post-title">Containers for Knowledge</h1>
-      <div class="post-body"><p>Information is liquid, and reshapes itself to fit the container. We endlessly reflow knowledge from one container to another in efforts to grasp its truth. Yet the form of the container also affects its function.</p>
-<p>A slide deck is not the same as a research paper. A blog post, press release, social media post, all different containers. A website, a video, a book. While the industry is fond of predicting the 'death' of a medium when a new technology for knowledge distribution becomes available, the truth is that humans thirsty for insight and inspiration will gladly add more containers than subtract.</p>
-<p>We build new containers when there is the feeling of missing something. Missing on the idea or feeling or grand concept of the author. Classes, lectures, webinars are containers. So too are comics, zines, movies, music, games.</p>
-<p>An illustration is beautiful not because it looks nice next to an article, but because it adds a lens for seeing. A soundtrack doesn't fill silence, it creates an entire mood and space to inhabit.</p>
-<p>LLMs are the container we have crafted that is closest to the native liquid nature of raw information. Its flow is innately a firehose. Give it some containers and it will gladly reflow. </p></div>
-      
-    </div>]]></description>
     </item>
     <item>
       <title>Itching for New Interfaces</title>

@@ -62,7 +62,7 @@ function cardPreviewHtml(p) {
       ${(p.images && p.images[0]) ? `<img class="card-image" src="images/${escapeHtml(p.images[0])}" alt="">` : ''}`;
 
   if (p.type === 'journal' && p.blurb) {
-    if (p.columns === 2) {
+    if (p.columns === 2 || p.columns === 3) {
       return `${meta}
       <div class="card-cols">
       <div class="card-col-main">${main}</div>

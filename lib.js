@@ -110,7 +110,7 @@ function savePost(post) {
   if (!TYPES.includes(post.type)) throw new Error('Invalid post type: ' + post.type);
   if (!post.slug) throw new Error('Missing slug');
   post.slug = slugify(post.slug);
-  post.columns = post.columns === 2 ? 2 : 1;
+  post.columns = [2, 3].includes(post.columns) ? post.columns : 1;
   fs.mkdirSync(POSTS_DIR, { recursive: true });
   fs.writeFileSync(path.join(POSTS_DIR, post.slug + '.json'), JSON.stringify(post, null, 2));
   return post;
