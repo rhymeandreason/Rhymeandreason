@@ -9,7 +9,9 @@
  */
 const http = require('http');
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
+const { execFileSync } = require('child_process');
 const { listPosts, getPost, savePost, deletePost, reorderPosts, markDraft, readDraftSlugs, IMAGES_DIR, ROOT } = require('./lib');
 
 // Re-require build.js (and lib.js, which it depends on) fresh from disk on every build,
@@ -135,9 +137,31 @@ async function handleApi(req, res, url) {
     const m = /^data:([\w/+.-]+);base64,(.*)$/.exec(dataUrl || '');
     if (!m) return sendJson(res, 400, { error: 'Invalid data URL' });
     const ext = (filename.match(/\.[a-zA-Z0-9]+$/) || ['.bin'])[0].toLowerCase();
-    const safeName = `${Date.now()}-${path.basename(filename, path.extname(filename)).replace(/[^a-zA-Z0-9_-]+/g, '-')}${ext}`;
+    const stem = path.basename(filename, path.extname(filename)).replace(/[^a-zA-Z0-9_-]+/g, '-');
+    const buf = Buffer.from(m[2], 'base64');
     fs.mkdirSync(IMAGES_DIR, { recursive: true });
-    fs.writeFileSync(path.join(IMAGES_DIR, safeName), Buffer.from(m[2], 'base64'));
+
+    // Photos (jpg/png/gif) get converted to web-friendly WebP; already-optimized
+    // formats (svg, webp itself) are stored as uploaded.
+    const photoExts = new Set(['.jpg', '.jpeg', '.png', '.gif']);
+    if (photoExts.has(ext)) {
+      const safeName = `${Date.now()}-${stem}.webp`;
+      const tmpSrc = path.join(os.tmpdir(), `upload-${Date.now()}-${Math.random().toString(36).slice(2)}${ext}`);
+      fs.writeFileSync(tmpSrc, buf);
+      try {
+        const width = parseInt(execFileSync('sips', ['-g', 'pixelWidth', tmpSrc]).toString().match(/pixelWidth:\s*(\d+)/)?.[1] || '0', 10);
+        const args = ['-quiet', '-q', '80'];
+        if (width > 1600) args.push('-resize', '1600', '0'); // only downscale, never upscale
+        args.push(tmpSrc, '-o', path.join(IMAGES_DIR, safeName));
+        execFileSync('cwebp', args);
+      } finally {
+        fs.unlinkSync(tmpSrc);
+      }
+      return sendJson(res, 200, { filename: safeName });
+    }
+
+    const safeName = `${Date.now()}-${stem}${ext}`;
+    fs.writeFileSync(path.join(IMAGES_DIR, safeName), buf);
     return sendJson(res, 200, { filename: safeName });
   }
   if (url.pathname === '/api/build' && req.method === 'POST') {

@@ -106,11 +106,40 @@ function slugify(s) {
     .replace(/^-+|-+$/g, '') || 'post';
 }
 
+// Renames a freshly-uploaded image file (still under its upload timestamp name) to
+// `<slug>.ext` (or `<slug>-2.ext`, etc. for additional images on the same post), so
+// files in images/ read as which post they belong to. No-op once a file is already
+// slug-named (re-saving an existing post shouldn't keep renaming/touching its images).
+function renameImageToSlug(filename, slug, used) {
+  if (!filename || !/^\d{10,}-/.test(filename)) return filename;
+  const ext = path.extname(filename);
+  let base = slug;
+  let n = 2;
+  while (used.has(base) || fs.existsSync(path.join(IMAGES_DIR, base + ext))) {
+    base = `${slug}-${n++}`;
+  }
+  used.add(base);
+  const dest = base + ext;
+  try {
+    fs.renameSync(path.join(IMAGES_DIR, filename), path.join(IMAGES_DIR, dest));
+    return dest;
+  } catch {
+    return filename; // source file missing — leave the reference as-is
+  }
+}
+
 function savePost(post) {
   if (!TYPES.includes(post.type)) throw new Error('Invalid post type: ' + post.type);
   if (!post.slug) throw new Error('Missing slug');
   post.slug = slugify(post.slug);
   post.columns = [2, 3].includes(post.columns) ? post.columns : 1;
+
+  const used = new Set();
+  if (post.mainImage) post.mainImage = renameImageToSlug(post.mainImage, post.slug, used);
+  if (Array.isArray(post.images)) {
+    post.images = post.images.map(f => renameImageToSlug(f, post.slug, used));
+  }
+
   fs.mkdirSync(POSTS_DIR, { recursive: true });
   fs.writeFileSync(path.join(POSTS_DIR, post.slug + '.json'), JSON.stringify(post, null, 2));
   return post;
