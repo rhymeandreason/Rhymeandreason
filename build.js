@@ -120,9 +120,9 @@ ${head(SITE.title)}
 <body>
   <section class="lab-list-section">
     <header class="lab-list-header">
-      <p class="lab-list-kicker">${escapeHtml(SITE.author)}</p>
-      <h1>Lab</h1>
-      <p class="lab-list-intro">${escapeHtml(SITE.description)} <a href="feed.xml">RSS</a></p>
+      <h1>Rhyme &amp; Reason</h1>
+      <h2>Studio &amp; Lab</h2>
+      <p class="lab-list-intro"><a href="feed.xml">RSS</a> · <a href="https://github.com/rhymeandreason/Studio" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/maryhuang1/" target="_blank" rel="noopener">LinkedIn</a> · <a href="mailto:rhymeandreason1.0@gmail.com">Email</a></p>
     </header>
     <div class="lab-grid">
 ${cards}
