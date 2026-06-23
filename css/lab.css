@@ -3,7 +3,24 @@
   --lime: #CFF665;
   --yellow: #FEE602;
   --text: #1c1a17;
---modal: #AFE5ED;
+  --modal: #AFE5ED;
+
+  --white: #fff;
+  --black: #161412;
+  --card-bg: #E8E7E5;
+  --charcoal: #313130;
+
+  --gray-700: #5c5750;
+  --gray-600: #6b6660;
+  --gray-500: #999;
+  --gray-400: #666;
+  --gray-300: #eee;
+
+  --black-25: rgba(0, 0, 0, 0.25);
+  --black-38: rgba(0, 0, 0, 0.38);
+  --black-40: rgba(0, 0, 0, 0.4);
+  --black-60: rgba(0, 0, 0, 0.6);
+  --cream-75: rgba(232, 231, 229, 0.75);
 }
 
 @font-face {
@@ -43,7 +60,7 @@ body::-webkit-scrollbar {
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--black-40);
   margin: 0 0 1.25rem;
 }
 
@@ -54,26 +71,26 @@ body::-webkit-scrollbar {
   font-size: 4.4rem;
   line-height: 1;
   letter-spacing: 1%;
-  color: #161412;
+  color: var(--black);
   margin: 0 0 1.25rem;
 }
 
 .lab-list-intro {
   font-family: "futura-pt", sans-serif;
-  color: #6b6660;
+  color: var(--gray-600);
   margin: 0;
   font-size: 2rem;
   line-height: 1.6;
 }
 
 .lab-list-intro a {
-  color: #161412;
+  color: var(--black);
   text-decoration: underline;
-  text-decoration-color: rgba(0, 0, 0, 0.25);
+  text-decoration-color: var(--black-25);
 }
 
 .lab-list-intro a:hover {
-  text-decoration-color: rgba(0, 0, 0, 0.6);
+  text-decoration-color: var(--black-60);
 }
 
 .lab-grid {
@@ -114,7 +131,7 @@ body::-webkit-scrollbar {
   color: inherit;
   padding: 2.5rem 2rem;
   //background: #fbfaf7;
-  background: #E8E7E5;
+  background: var(--card-bg);
   transition: background-color 0.2s ease;
 }
 
@@ -124,7 +141,7 @@ body::-webkit-scrollbar {
 }
 
 .lab-card:hover .card-title {
-  color: #161412;
+  color: var(--black);
   text-decoration: none;
   text-decoration-color: rgba(0, 0, 0, 0.2);
 }
@@ -164,7 +181,7 @@ body::-webkit-scrollbar {
   font-weight: 600;
   letter-spacing: 5%;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.38);
+  color: var(--black-38);
   margin: 0;
 }
 
@@ -188,7 +205,7 @@ body::-webkit-scrollbar {
 .lab-card .card-preview {
   font-family: "futura-pt", sans-serif;
   font-size: 1rem;
-  color: #5c5750;
+  color: var(--gray-700);
   line-height: 1.6;
   margin: 0;
   overflow: hidden;
@@ -209,8 +226,8 @@ body::-webkit-scrollbar {
 }
 
 .lab-card--journal {
-  background: #313130;
-  color: #E8E7E5;
+  background: var(--charcoal);
+  color: var(--card-bg);
 }
 
 
@@ -229,7 +246,7 @@ font-size:4rem !important;
 .lab-card--journal .card-date,
 .lab-card--journal .card-kicker,
 .lab-card--journal h2 {
-  color: #E8E7E5;
+  color: var(--card-bg);
   font-weight: normal;
 }
 
@@ -237,7 +254,7 @@ font-size:4rem !important;
   font-family: "futura-pt", sans-serif;
   font-size: 1.6rem;
   line-height: 1.6;
-  color: rgba(232, 231, 229, 0.75);
+  color: var(--cream-75);
   margin: 0.75rem 0 0;
   font-weight: normal;
 }
@@ -295,7 +312,7 @@ font-size:4rem !important;
 
 .post-date {
   font-size: 1.25 rem;
-  color: #999;
+  color: var(--gray-500);
   margin: 0 0 1rem;
 }
 
@@ -328,7 +345,7 @@ font-size:4rem !important;
 
 .artifact-notes {
   margin-top: 2rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--gray-300);
   padding-top: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -355,7 +372,7 @@ font-size:4rem !important;
 }
 
 .back-link a {
-  color: #666;
+  color: var(--gray-400);
   text-decoration: none;
 }
 
@@ -445,10 +462,10 @@ font-size:4rem !important;
   font-size: 2.25rem;
   line-height: 1;
   cursor: pointer;
-  color: #fff;
+  color: var(--white);
   z-index: 101;
 }
 
 .lab-modal-close:hover {
-  color: var(--lime, #ccc);
+  color: var(--lime);
 }
