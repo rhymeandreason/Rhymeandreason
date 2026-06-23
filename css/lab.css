@@ -303,8 +303,9 @@ letter-spacing: 10%;
 
 .card-blurb {
   font-family: "futura-pt", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: 1.6;
+letter-spacing:2%;
   color: var(--cream-75);
   margin: 0.75rem 0 0;
   font-weight: normal;
