@@ -232,6 +232,7 @@ letter-spacing: 3%;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
+  filter: drop-shadow(0 1px 12px rgba(11, 19, 106, 0.10));
 }
 
 .lab-card--journal {
@@ -324,7 +325,7 @@ height:2rem;
 
 .post-date {
   font-size: 1.25 rem;
-  color: var(--gray-500);
+ // color: var(--gray-500);
   margin: 0 0 1rem;
 }
 
@@ -469,15 +470,20 @@ height:2rem;
   position: fixed;
   top: 2rem;
   right: 2rem;
+  display: flex;
   background: none;
   border: none;
-  font-size: 2.25rem;
+  padding: 0;
   line-height: 1;
   cursor: pointer;
-  color: var(--white);
   z-index: 101;
 }
 
-.lab-modal-close:hover {
-  color: var(--lime);
+.lab-modal-close img {
+  width: 28px;
+  height: 28px;
+}
+
+.lab-modal-close:hover img {
+  opacity: 0.6;
 }

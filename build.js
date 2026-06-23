@@ -132,7 +132,7 @@ ${cards}
   </section>
 
   <div class="lab-modal-overlay" id="lab-modal-overlay" hidden>
-    <button class="lab-modal-close" id="lab-modal-close" aria-label="Close">×</button>
+    <button class="lab-modal-close" id="lab-modal-close" aria-label="Close"><img src="icons/ic_close.svg" alt=""></button>
     <div class="lab-modal-image" id="lab-modal-image"></div>
     <div class="lab-modal" role="dialog" aria-modal="true">
       <div class="lab-modal-body" id="lab-modal-body"></div>
