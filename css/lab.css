@@ -7,7 +7,7 @@
 
   --white: #fff;
   --black: #161412;
-  --card-bg: #E8E7E5;
+  --card-bg: #EFEEEA;
   --charcoal: #313130;
 
   --gray-700: #5c5750;
@@ -51,7 +51,7 @@ body::-webkit-scrollbar {
 
 .lab-list-header {
   width: 100%;
-  margin: 0 0 4.5rem;
+  margin: 0 0 12rem;
   color: var(--black);
   text-transform: uppercase;
   display: flex;
@@ -62,7 +62,7 @@ body::-webkit-scrollbar {
 
 .lab-list-header h1,
 .lab-list-header h2 {
-  font-weight: 800;
+  font-weight: 700;
   font-style: normal;
   font-size: 3.2rem;
   line-height: 1;
@@ -106,7 +106,7 @@ letter-spacing: 3%;
   grid-template-columns: repeat(5, 1fr);
   grid-auto-flow: dense;
   grid-auto-rows: 340px;
-  gap: 8px;
+  gap: 12px;
 
 }
 
@@ -199,7 +199,7 @@ letter-spacing: 3%;
   font-weight: 600;
   font-size: 3rem;
   line-height: 1.25;
-  margin: 0 0 0.5rem;
+  margin: 0;
   flex-shrink: 0;
 }
 
@@ -291,13 +291,16 @@ letter-spacing: 3%;
   margin: 0;
 }
 
-.lab-card--artifact {}
+.lab-card--artifact {
+}
 
 .lab-card--artifact .card-title {
   font-size: 1.75rem;
-  margin-bottom: 0.3rem;
   text-transform: uppercase;
   letter-spacing: 2%;
+}
+.lab-card--artifact .card-subtitle {
+height:2rem;
 }
 
 .lab-card--artifact:hover,
