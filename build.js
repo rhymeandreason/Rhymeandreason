@@ -54,8 +54,10 @@ function renderPost(p, imgBase = '../images/') {
 function cardPreviewHtml(p) {
   if (p.type === 'artifact') {
     return `${p.mainImage ? `<img class="card-image" src="images/${escapeHtml(p.mainImage)}" alt="">` : ''}
+      <div class="card-text">
       <h2 class="card-title">${escapeHtml(p.title)}</h2>
-      ${p.subtitle ? `<p class="card-subtitle">${escapeHtml(p.subtitle)}</p>` : ''}`;
+      ${p.subtitle ? `<p class="card-subtitle">${escapeHtml(p.subtitle)}</p>` : ''}
+      </div>`;
   }
   const meta = `<p class="card-meta">${p.type === 'journal' ? `<span class="card-kicker">Journal</span>` : ''}<span class="card-date">${formatDate(p.date)}</span></p>`;
   const main = `${p.title ? `<h2 class="card-title">${escapeHtml(p.title)}</h2>` : ''}
