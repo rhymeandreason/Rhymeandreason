@@ -126,6 +126,12 @@ ${head(SITE.title)}
       <p class="lab-list-intro"><a href="feed.xml">RSS</a> · <a href="https://github.com/rhymeandreason/Studio" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/maryhuang1/" target="_blank" rel="noopener">LinkedIn</a> · <a href="mailto:rhymeandreason1.0@gmail.com">Email</a></p>
       <h2>Studio &amp; Lab</h2>
     </header>
+    <div class="lab-banner" aria-hidden="true">
+      <div class="lab-banner-track">
+        <div class="lab-banner-group"><span>Work in progress</span><span>Work in progress</span><span>Work in progress</span><span>Work in progress</span><span>Work in progress</span><span>Work in progress</span></div>
+        <div class="lab-banner-group"><span>Work in progress</span><span>Work in progress</span><span>Work in progress</span><span>Work in progress</span><span>Work in progress</span><span>Work in progress</span></div>
+      </div>
+    </div>
     <div class="lab-grid">
 ${cards}
     </div>

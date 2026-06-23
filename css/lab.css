@@ -101,6 +101,47 @@ letter-spacing: 3%;
   text-decoration-color: var(--black-60);
 }
 
+.lab-banner {
+  overflow: hidden;
+  //background: var(--blue);
+  margin: 0 0 1rem;
+  padding: 0.75rem 0;
+}
+
+.lab-banner-track {
+  display: flex;
+  width: max-content;
+  animation: lab-banner-scroll 16s linear infinite;
+}
+
+.lab-banner-group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.lab-banner-track span {
+  flex-shrink: 0;
+  padding: 0 1rem;
+  font-family: "futura-pt", sans-serif;
+ // font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 16%;
+  font-size: 1.4rem;
+  color: var(--gray-500);
+  white-space: nowrap;
+}
+
+.lab-banner-track span::after {
+  content: "•";
+//color: var(--blue);
+  margin-left: 2rem;
+}
+
+@keyframes lab-banner-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 .lab-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
