@@ -7,6 +7,6 @@
   "subtitle": "V.0.2",
   "date": "2026-06-22",
   "description": "A single column file browser that lists all my linked folders in a Project. Because a Project might often have a code repo and a folder of images or videos that aren't in the main Project folder.\nIt lives in its own window so that I can make it extra tall.\nA super bright color highlight, toggle for font size, and single click to open. ",
-  "mainImage": "1782176330852-Screenshot-2026-06-22-at-5-58-23-PM.png",
+  "mainImage": "file-directory.webp",
   "notes": []
 }
