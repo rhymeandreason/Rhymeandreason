@@ -101,7 +101,9 @@
     <img class="artifact-main-image" src="https://rhymeandreason.studio//images/1782152006747-Screenshot-2026-06-20-at-11-08-45-AM.png" alt="">
     <h1 class="post-title">Studio Space</h1>
     <p class="post-subtitle">V.0.8</p>
-    <div class="post-body"></div>
+    <div class="post-body"><p>My first decision was to have a menu bar dropdown list of Projects. I'm always working on multiple things, and I got tired of rustling around in Finder or making bookmarks to folders. Having this little menu is so satisfying.</p>
+<p>Underneath it's still files in local folders, because I don't want to upload more things to the cloud. Plus I get all the functionality of existing local files. Deleted items go into the trash bin, and I can restore them if I want.</p>
+<p>Maybe the most significant mental sorting difference is that I've made Projects the top hierarchy. Not apps. Honestly I care more about my projects and the ideas they contain than apps. </p></div>
     
   </div>]]></description>
     </item>

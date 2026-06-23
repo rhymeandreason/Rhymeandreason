@@ -42,7 +42,7 @@ h1 {
 .lab-list-section {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 6rem 2rem 8rem;
+  padding: 2rem 2rem 8rem;
 }
 
 body::-webkit-scrollbar {
@@ -50,29 +50,32 @@ body::-webkit-scrollbar {
 }
 
 .lab-list-header {
-  max-width: 640px;
+  width:100%;
   margin: 0 0 4.5rem;
-}
-
-.lab-list-kicker {
-  font-family: "futura-pt", sans-serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
+  color: var(--black);
   text-transform: uppercase;
-  color: var(--black-40);
-  margin: 0 0 1.25rem;
+display:flex;
 }
 
 .lab-list-header h1 {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 600;
+  font-weight: 800;
   font-style: normal;
-  font-size: 4.4rem;
+  font-size: 3.2rem;
   line-height: 1;
-  letter-spacing: 1%;
-  color: var(--black);
+  letter-spacing: 3%;
   margin: 0 0 1.25rem;
+  width: 200px;
+}
+
+.lab-list-header h2 {
+  font-weight: 800;
+  font-style: normal;
+  font-size: 3.2rem;
+  line-height: 1;
+  letter-spacing: 3%;
+  margin: 0 0 1.25rem;
+  width: 170px;
+text-align: right;
 }
 
 .lab-list-intro {
@@ -158,6 +161,7 @@ body::-webkit-scrollbar {
 
 
 @media (max-width: 500px) {
+
   .lab-card.cols-2,
   .lab-card.cols-3 {
     grid-column: span 1;
@@ -240,7 +244,7 @@ body::-webkit-scrollbar {
 }
 
 .cols-3 .card-title {
-font-size:4rem !important;
+  font-size: 4rem !important;
 }
 
 .lab-card--journal .card-date,
@@ -338,7 +342,7 @@ font-size:4rem !important;
 }
 
 .artifact-main-image {
- // width: 100%;
+  // width: 100%;
   border-radius: 8px;
   margin-bottom: 1rem;
 }
@@ -423,7 +427,7 @@ font-size:4rem !important;
 }
 
 .lab-modal {
- // background: #fff;
+  // background: #fff;
   border-radius: 20px;
   max-width: 600px;
   width: 100%;
