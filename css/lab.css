@@ -169,8 +169,6 @@ body::-webkit-scrollbar {
   }
 }
 
-
-
 .lab-card {
   display: flex;
   flex-direction: column;
@@ -181,17 +179,6 @@ body::-webkit-scrollbar {
   padding: 2.5rem 2rem;
   background: var(--card-bg);
   transition: background-color 0.2s ease;
-}
-
-@media (max-width: 500px) {
-  .lab-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 250px;
-  }
-
-  .card-kicker {
-    display: none;
-  }
 }
 
 /*
@@ -212,16 +199,6 @@ body::-webkit-scrollbar {
 
 .lab-card.cols-3 {
   grid-column: span 3;
-}
-
-
-
-@media (max-width: 500px) {
-
-  .lab-card.cols-2,
-  .lab-card.cols-3 {
-    grid-column: span 2;
-  }
 }
 
 .lab-card .card-meta {
@@ -364,60 +341,6 @@ body::-webkit-scrollbar {
 
 .lab-card--artifact:hover .card-subtitle {
   color: var(--lime);
-}
-
-/* ── Mobile ── */
-@media (max-width: 500px) {
-  .lab-list-section {
-    padding: 1.5rem 1.5rem 5rem;
-  }
-
-  .lab-list-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    margin: 0 0 5rem;
-  }
-
-  .lab-list-header h1 {
-    width: 100%;
-    font-size: 3.6rem;
-    text-align: center;
-  }
-
-  .lab-list-header h2 {
-    text-align: left;
-    display: none;
-  }
-
-  .lab-list-intro {
-    text-align: center;
-    flex: none;
-    width: 100%;
-  }
-
-  .card-cols {
-    flex-direction: column;
-    align-items: flex-start;
-    height: auto !important;
-    gap: 1rem;
-  }
-
-  .card-col-blurb {
-    align-items: flex-start;
-
-  }
-
-  .card-blurb {
-    font-size: 1.4rem !important;
-    line-height: 1.6rem;
-  }
-
-
-  .lab-card--journal .card-title {
-    font-size: 2.4rem !important;
-  }
-
 }
 
 .lab-modal-body {
@@ -597,4 +520,96 @@ body::-webkit-scrollbar {
 
 .lab-modal-close:hover img {
   opacity: 0.6;
+}
+
+/* ── Mobile ── */
+@media (max-width: 500px) {
+  .lab-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 250px;
+  }
+
+  .card-kicker {
+    display: none;
+  }
+
+  .lab-card.cols-2,
+  .lab-card.cols-3 {
+    grid-column: span 2;
+  }
+
+  .lab-list-section {
+    padding: 1.5rem 1.5rem 5rem;
+  }
+
+  .lab-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 0 0 5rem;
+  }
+
+  .lab-list-header h1 {
+    width: 100%;
+    font-size: 3.6rem;
+    text-align: center;
+  }
+
+  .lab-list-header h2 {
+    text-align: left;
+    display: none;
+  }
+
+  .lab-list-intro {
+    text-align: center;
+    flex: none;
+    width: 100%;
+  }
+
+  .card-cols {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto !important;
+    gap: 1rem;
+  }
+
+  .card-col-blurb {
+    align-items: flex-start;
+  }
+
+  .card-blurb {
+    font-size: 1.4rem !important;
+    line-height: 1.6rem;
+  }
+
+  .lab-card--journal .card-title {
+    font-size: 2.4rem !important;
+  }
+
+  .lab-modal-overlay--split {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+    overflow-y: auto;
+  }
+
+  .lab-modal-overlay--split .lab-modal-image {
+    max-width: 100%;
+    max-height: none;
+  }
+
+  .lab-modal-overlay--split .lab-modal-image .artifact-main-image {
+    max-height: none;
+  }
+
+  .lab-modal-overlay--split .lab-modal {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .lab-modal-body {
+    padding-bottom: 10rem;
+  }
 }
