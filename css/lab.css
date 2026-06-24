@@ -179,7 +179,6 @@ body::-webkit-scrollbar {
   text-decoration: none;
   color: inherit;
   padding: 2.5rem 2rem;
-  //background: #fbfaf7;
   background: var(--card-bg);
   transition: background-color 0.2s ease;
 }
@@ -221,7 +220,7 @@ body::-webkit-scrollbar {
 
   .lab-card.cols-2,
   .lab-card.cols-3 {
-    grid-column: span 1;
+    grid-column: span 2;
   }
 }
 
@@ -408,14 +407,15 @@ body::-webkit-scrollbar {
     align-items: flex-start;
 
   }
-.card-blurb{
-font-size:1.4rem !important;
-line-height:1.6rem;
-}
+
+  .card-blurb {
+    font-size: 1.4rem !important;
+    line-height: 1.6rem;
+  }
 
 
   .lab-card--journal .card-title {
-    font-size: 2.6rem !important;
+    font-size: 2.4rem !important;
   }
 
 }
