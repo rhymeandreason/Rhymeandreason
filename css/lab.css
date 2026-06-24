@@ -602,7 +602,7 @@ body::-webkit-scrollbar {
 
   .lab-modal-overlay--split .lab-modal-image .artifact-main-image {
     max-height: none;
-max-height:100%;
+    max-height: 100%;
   }
 
   .lab-modal-overlay--split .lab-modal {
@@ -611,10 +611,16 @@ max-height:100%;
   }
 
   .lab-modal-body {
+    padding: 2rem;
     padding-bottom: 10rem;
+
   }
 
-.lab-modal--artifact {
-padding:0px;
-}
+  .post-title {
+    line-height: 1.5em;
+  }
+
+  .lab-modal--artifact {
+    padding: 0px;
+  }
 }
