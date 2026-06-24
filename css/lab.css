@@ -591,17 +591,18 @@ body::-webkit-scrollbar {
     align-items: stretch;
     justify-content: flex-start;
     gap: 1.5rem;
-    padding: 1.5rem 1rem;
+    padding: 8rem 2rem;
     overflow-y: auto;
   }
 
   .lab-modal-overlay--split .lab-modal-image {
     max-width: 100%;
-    max-height: none;
+    max-height: 50%;
   }
 
   .lab-modal-overlay--split .lab-modal-image .artifact-main-image {
     max-height: none;
+max-height:100%;
   }
 
   .lab-modal-overlay--split .lab-modal {
@@ -612,4 +613,8 @@ body::-webkit-scrollbar {
   .lab-modal-body {
     padding-bottom: 10rem;
   }
+
+.lab-modal--artifact {
+padding:0px;
+}
 }
