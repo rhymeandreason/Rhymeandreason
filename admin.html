@@ -797,6 +797,14 @@ async function savePostNow(label) {
   const task = api('/api/posts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(post) })
     .then(async saved => {
       current = saved;
+      // The server may have renamed freshly-uploaded images to match the slug;
+      // sync the inputs' cached filenames so a subsequent autosave doesn't
+      // resubmit the now-stale pre-rename name and clobber the post's reference.
+      formEl.querySelectorAll('[data-upload]').forEach(input => {
+        input._uploaded = input.name === 'mainImage'
+          ? (saved.mainImage ? [saved.mainImage] : [])
+          : (saved.images || []);
+      });
       statusEl.textContent = (label || 'Saved') + ' at ' + new Date().toLocaleTimeString();
       await loadList();
     })
