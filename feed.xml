@@ -13,7 +13,7 @@
       <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
       <category>artifact</category>
       <description><![CDATA[<div class="post-content post-content--artifact">
-    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/code-editor.webp" alt="">
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/code-editor-2.webp" alt="">
     <h1 class="post-title">Code Editor</h1>
     <p class="post-subtitle">V.0.3</p>
     <div class="post-body"><p>Yup, I made my own code editor. My goal is to make a simpler editor just for css, html, and markdown. This might be a bit of going down the rabbit hole of making tools to make tools, but there are some specific features I couldn't find elsewhere.</p>
