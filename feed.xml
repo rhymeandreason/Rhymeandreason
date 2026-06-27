@@ -15,7 +15,7 @@
       <description><![CDATA[<div class="post-content post-content--artifact">
     <img class="artifact-main-image" src="https://rhymeandreason.studio//images/code-editor-2.webp" alt="">
     <h1 class="post-title">Code Editor</h1>
-    <p class="post-subtitle">V.0.3</p>
+    <p class="post-subtitle">V.0.5</p>
     <div class="post-body"><p>Yup, I made my own code editor. My goal is to make a simpler editor just for css, html, and markdown. This might be a bit of going down the rabbit hole of making tools to make tools, but there are some specific features I couldn't find elsewhere.</p>
 <p>Mainly: View diffs highlighted inline. AI writes big chunks of code all at once, and I want to see what it did. Default is 'uncommitted changes' (which is what Zed gives you), but I also have 'last commit', because sometimes the agent commits all in one go.</p></div>
     
@@ -273,9 +273,9 @@
       <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
       <category>artifact</category>
       <description><![CDATA[<div class="post-content post-content--artifact">
-    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/studio-ai.webp" alt="">
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/studio-ai-2.webp" alt="">
     <h1 class="post-title">Studio AI</h1>
-    <p class="post-subtitle">V.0.2</p>
+    <p class="post-subtitle">V.0.3</p>
     <div class="post-body"><p>I made my own UI for Claude Code. I put cute animated animal sprites, custom set per project. It has tabs, which the Claude desktop app doesn't have. </p>
 <p> It doesn't quite work well enough for me to use it reliably yet. But it was fun and satisfying to get this far in a day.</p></div>
     
