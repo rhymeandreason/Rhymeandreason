@@ -1,0 +1,11 @@
+{
+  "type": "artifact",
+  "slug": "calendar",
+  "columns": 1,
+  "title": "Calendar",
+  "subtitle": "V.0.2",
+  "date": "2026-06-30",
+  "description": "I made my own calendar app, largely motivated by being able to finally get the notifications to actually work how I want. \n\nI live a bit far from the city, so for any in person event, I need to leave over an hour ahead of time. In the background, it fetches the location and gets a drive time estimate to set the right notification time. Plus there's a global \"buffer time\" setting. In the future I want it to also look up parking info, and maybe compare driving to taking the ferry. \n\nThis fetches from my iCal, which fetches from my Google Calendar, so no oauth required.",
+  "mainImage": "calendar.webp",
+  "notes": []
+}
