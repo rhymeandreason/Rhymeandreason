@@ -7,6 +7,6 @@
   "subtitle": "V.0.3",
   "date": "2026-06-22",
   "description": "This was the first tool that I built. Mostly, I wanted a better way to organize all the images in a project folder, and I didn't want to use Lightroom for everything. Finder has thumbnail view, but the thumbnails are too small, and it's difficult to get the view settings exactly right. \n\nThe main feature is copy/paste. By default, cmd+c copies the whole image. So I can copy right over to Figma.\nIf the toggle for the Image Editor sidebar is open, cmd+c copies the Edits, and you can paste those Edits onto another image. That's my favorite feature from Lightroom, and it was satisfying to build my own. ",
-  "mainImage": "media-gallery.webp",
+  "mainImage": "media-gallery-2.webp",
   "notes": []
 }
