@@ -332,10 +332,37 @@ body::-webkit-scrollbar {
   height: 2rem;
 }
 
-.lab-card--artifact:hover,
-.lab-card--journal:hover {
+.lab-card--artifact:hover {
   outline: 4px solid #D9D7D1;
   outline-offset: -4px;
+}
+
+.lab-card--journal {
+  transition: border-radius 0.3s ease;
+}
+
+.lab-card--journal:hover {
+  border-radius: 24px;
+}
+
+/* chunky block cursor after the title, like an old Mac text prompt */
+.lab-card--journal .card-title::after {
+  content: "";
+  display: none;
+  width: 0.5em;
+  height: 0.8em;
+  margin-left: 0.12em;
+  vertical-align: -0.05em;
+  background: currentColor;
+}
+
+.lab-card--journal:hover .card-title::after {
+  display: inline-block;
+  animation: lab-cursor-blink 1s steps(1) infinite;
+}
+
+@keyframes lab-cursor-blink {
+  50% { opacity: 0; }
 }
 
 .lab-modal-body {
