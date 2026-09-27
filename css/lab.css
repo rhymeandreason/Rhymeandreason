@@ -3,7 +3,6 @@
   --lime: #CFF665;
   --yellow: #FEE602;
   --text: #1c1a17;
-  --modal: #AFE5ED;
 
   --white: #fff;
   --black: #161412;
@@ -335,12 +334,8 @@ body::-webkit-scrollbar {
 
 .lab-card--artifact:hover,
 .lab-card--journal:hover {
-  background: var(--blue);
-  color: var(--lime);
-}
-
-.lab-card--artifact:hover .card-subtitle {
-  color: var(--lime);
+  outline: 4px solid #D9D7D1;
+  outline-offset: -4px;
 }
 
 .lab-modal-body {
@@ -431,11 +426,11 @@ body::-webkit-scrollbar {
 .lab-modal-overlay {
   position: fixed;
   inset: 0;
-  background: var(--modal);
+  background: var(--card-bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
+  padding: 4rem 2rem;
   z-index: 100;
 }
 
@@ -443,8 +438,16 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-.lab-modal-overlay--split {
-  gap: 4rem;
+.lab-modal-panel {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 680px;
+  max-height: 85vh;
+}
+
+.lab-modal-overlay--split .lab-modal-panel {
+  max-width: 1200px;
 }
 
 .lab-modal-image {
@@ -455,37 +458,42 @@ body::-webkit-scrollbar {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 800px;
-  //width: 100%;
-  max-height: 85vh;
+  flex: 3 1 0;
+  min-width: 0;
+  padding: 5rem 4rem;
 }
 
 .lab-modal-overlay--split .lab-modal-image .artifact-main-image {
-  max-width: 100%;
-  max-height: 85vh;
   width: auto;
+  max-width: 100%;
+  max-height: calc(85vh - 10rem);
   margin: 0;
   object-fit: contain;
+}
 
+.lab-modal-panel .artifact-main-image,
+.lab-modal-panel .post-image {
+  filter: drop-shadow(0 1px 12px rgba(11, 19, 106, 0.10));
 }
 
 .lab-modal {
-  // background: #fff;
-  border-radius: 20px;
-  max-width: 600px;
-  width: 100%;
+  flex: 1 1 0;
+  min-width: 0;
   max-height: 85vh;
   overflow-y: auto;
-  padding: 2.5rem 2rem;
-  position: relative;
 }
 
 .lab-modal--artifact {
-  max-width: 420px;
+  flex: 2 1 0;
+  align-self: center;
+}
+
+.lab-modal-body {
+  padding: 5rem 5rem 2rem;
 }
 
 .lab-modal--artifact .lab-modal-body {
-  padding: 2rem;
+  padding: 5rem 5rem 4rem 1rem;
 }
 
 .lab-modal--artifact .post-title {
@@ -510,12 +518,12 @@ body::-webkit-scrollbar {
   padding: 0;
   line-height: 1;
   cursor: pointer;
-  z-index: 101;
+  z-index: 1;
 }
 
 .lab-modal-close img {
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
 }
 
 .lab-modal-close:hover img {
@@ -586,41 +594,48 @@ body::-webkit-scrollbar {
     font-size: 2.4rem !important;
   }
 
-  .lab-modal-overlay--split {
+  .lab-modal-overlay {
+    padding: 0;
+  }
+
+  .lab-modal-panel {
     flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 1.5rem;
-    padding: 8rem 2rem;
+    height: 100%;
+    max-height: none;
     overflow-y: auto;
+    outline: none;
   }
 
   .lab-modal-overlay--split .lab-modal-image {
-    max-width: 100%;
-    max-height: 50%;
+    flex: none;
+    padding: 6rem 2rem 1rem;
   }
 
   .lab-modal-overlay--split .lab-modal-image .artifact-main-image {
-    max-height: none;
-    max-height: 100%;
+    max-height: 50vh;
   }
 
-  .lab-modal-overlay--split .lab-modal {
+  .lab-modal,
+  .lab-modal--artifact {
+    flex: none;
+    align-self: stretch;
     max-height: none;
     overflow-y: visible;
   }
 
   .lab-modal-body {
-    padding: 2rem;
-    padding-bottom: 10rem;
+    padding: 6rem 2rem 10rem;
+  }
 
+  .lab-modal--artifact .lab-modal-body {
+    padding: 2rem 2rem 10rem;
+  }
+
+  .lab-modal-close {
+    position: fixed;
   }
 
   .post-title {
     line-height: 1.5em;
-  }
-
-  .lab-modal--artifact {
-    padding: 0px;
   }
 }
