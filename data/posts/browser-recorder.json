@@ -1,0 +1,12 @@
+{
+  "type": "artifact",
+  "slug": "browser-recorder",
+  "columns": 1,
+  "title": "Browser Recorder",
+  "subtitle": "V.0.2",
+  "date": "2026-09-28",
+  "description": "I found I needed to screen cap my website, and it's usually annoying to get the window size right. And the bottom gets cut off due to the rounded corners!\n\nSo I made this tool. It works oddly well. It resizes the browser, pops open the dev tools at the bottom to get rid of the rounded corners, and captures with the record tool. The videos go right into the active project media panel.",
+  "mainImage": "browser-recorder.webp",
+  "notes": [],
+  "order": 5
+}

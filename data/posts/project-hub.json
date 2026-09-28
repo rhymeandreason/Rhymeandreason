@@ -1,0 +1,12 @@
+{
+  "type": "artifact",
+  "slug": "project-hub",
+  "columns": 1,
+  "title": "Project Hub",
+  "subtitle": "V.0.9",
+  "date": "2026-09-28",
+  "description": "This has become my constant desktop companion. It's a skinny notepad sitting at the side of my screen. It started out with Notes and Media, and then I folded the Git tools, File Directory, and other common tools into it. \n\nI still find the color to be helpful in differentiating between projects. I've toned it down to pastel shades.",
+  "mainImage": "project-hub.webp",
+  "notes": [],
+  "order": 0
+}

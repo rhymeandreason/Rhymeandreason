@@ -2,7 +2,7 @@
   "type": "artifact",
   "slug": "git-helper",
   "columns": 1,
-  "order": 6,
+  "order": 10,
   "title": "Git Helper",
   "subtitle": "V.1.0",
   "date": "2026-06-22",

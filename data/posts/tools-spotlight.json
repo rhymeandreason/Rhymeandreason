@@ -1,0 +1,12 @@
+{
+  "type": "artifact",
+  "slug": "tools-spotlight",
+  "columns": 1,
+  "order": 3,
+  "title": "Tools Spotlight",
+  "subtitle": "V.0.5",
+  "date": "2026-09-28",
+  "description": "This opens on Opt + Space.\nHere is my trimmed down list of tools. They tend to be small. Will be interesting to see how this list evolves.",
+  "mainImage": "tools-spotlight.webp",
+  "notes": []
+}

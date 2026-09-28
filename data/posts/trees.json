@@ -7,5 +7,6 @@
   "date": "2026-07-13",
   "description": "A stylized tree generator. I want to add some art to my UI, but also want something different from static illustrations or icons. Fable made me this in one turn from a reference image. ",
   "mainImage": "trees-2.webp",
-  "notes": []
+  "notes": [],
+  "order": 25
 }

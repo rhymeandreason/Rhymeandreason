@@ -1,0 +1,12 @@
+{
+  "type": "artifact",
+  "slug": "bookmarks",
+  "columns": 1,
+  "title": "Bookmarks",
+  "subtitle": "V.0.1",
+  "date": "2026-09-28",
+  "description": "I save a lot of things on Instagram. I don't organize it at all. It's quite random, but there are good restaurants and art things that I want to find later without getting sucked into scrolling.\n\nThis was actually trickier to build than it seems, since Meta doesn't want people to so easily download content from their walls. I'd like to add my LinkedIn bookmarks too, since the UX on that site is just impossible.",
+  "mainImage": "bookmarks.webp",
+  "notes": [],
+  "order": 7
+}

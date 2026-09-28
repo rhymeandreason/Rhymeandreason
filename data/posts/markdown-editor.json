@@ -1,0 +1,12 @@
+{
+  "type": "artifact",
+  "slug": "markdown-editor",
+  "columns": 1,
+  "title": "Markdown Editor",
+  "subtitle": "V.0.5",
+  "date": "2026-09-28",
+  "description": "I use this one a lot, due to editing files for Claude. Typora is lovely, but it doesn't support showing the git diffs. \n\nThere's a lot of fiddly details to get a good text editor to work well. I haven't put as much time into this as I would like, but I use it almost every day. Funny how Markdown has become the writing format of choice, although it's always been more technical-sided.",
+  "mainImage": "markdown-editor.webp",
+  "notes": [],
+  "order": 1
+}

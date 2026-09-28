@@ -2,7 +2,7 @@
   "type": "artifact",
   "slug": "code-editor",
   "columns": 1,
-  "order": 0,
+  "order": 9,
   "title": "Code Editor",
   "subtitle": "V.0.5",
   "date": "2026-06-22",

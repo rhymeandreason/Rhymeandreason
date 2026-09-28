@@ -7,32 +7,32 @@
     <language>en-us</language>
     <atom:link href="https://rhymeandreason.studio//feed.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Code Editor</title>
-      <link>https://rhymeandreason.studio//artifact/code-editor.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/code-editor.html</guid>
-      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
+      <title>Project Hub</title>
+      <link>https://rhymeandreason.studio//artifact/project-hub.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/project-hub.html</guid>
+      <pubDate>Mon, 28 Sep 2026 12:00:00 GMT</pubDate>
       <category>artifact</category>
       <description><![CDATA[<div class="post-content post-content--artifact">
-    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/code-editor-2.webp" alt="">
-    <h1 class="post-title">Code Editor</h1>
-    <p class="post-subtitle">V.0.5</p>
-    <div class="post-body"><p>Yup, I made my own code editor. My goal is to make a simpler editor just for css, html, and markdown. This might be a bit of going down the rabbit hole of making tools to make tools, but there are some specific features I couldn't find elsewhere.</p>
-<p>Mainly: View diffs highlighted inline. AI writes big chunks of code all at once, and I want to see what it did. Default is 'uncommitted changes' (which is what Zed gives you), but I also have 'last commit', because sometimes the agent commits all in one go.</p></div>
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/project-hub.webp" alt="">
+    <h1 class="post-title">Project Hub</h1>
+    <p class="post-subtitle">V.0.9</p>
+    <div class="post-body"><p>This has become my constant desktop companion. It's a skinny notepad sitting at the side of my screen. It started out with Notes and Media, and then I folded the Git tools, File Directory, and other common tools into it. </p>
+<p>I still find the color to be helpful in differentiating between projects. I've toned it down to pastel shades.</p></div>
     
   </div>]]></description>
     </item>
     <item>
-      <title>Modes</title>
-      <link>https://rhymeandreason.studio//artifact/modes.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/modes.html</guid>
-      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
+      <title>Markdown Editor</title>
+      <link>https://rhymeandreason.studio//artifact/markdown-editor.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/markdown-editor.html</guid>
+      <pubDate>Mon, 28 Sep 2026 12:00:00 GMT</pubDate>
       <category>artifact</category>
       <description><![CDATA[<div class="post-content post-content--artifact">
-    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/modes.webp" alt="">
-    <h1 class="post-title">Modes</h1>
-    <p class="post-subtitle">V.0.8</p>
-    <div class="post-body"><p>This is my favorite tool to date. Modes are saved window layouts under a Project. This spotlight tool pops up on ctrl+space, and allows changing Projects and Modes with a few quick keystrokes. Tab to edit.</p>
-<p>This simple geometric design is more of the style I'd like to do for this project. Most everything is tidy and wireframe-y. I hope to push things out of the beige zone in short order.</p></div>
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/markdown-editor.webp" alt="">
+    <h1 class="post-title">Markdown Editor</h1>
+    <p class="post-subtitle">V.0.5</p>
+    <div class="post-body"><p>I use this one a lot, due to editing files for Claude. Typora is lovely, but it doesn't support showing the git diffs. </p>
+<p>There's a lot of fiddly details to get a good text editor to work well. I haven't put as much time into this as I would like, but I use it almost every day. Funny how Markdown has become the writing format of choice, although it's always been more technical-sided.</p></div>
     
   </div>]]></description>
     </item>
@@ -54,6 +54,141 @@
 <p>I’ve got a list of ideas but I’m trying not to plan so much. Build in the moment and don’t extrapolate. So far I’m going to keep my Mac and iPhone since I already own those, but I do want to try more open source hardware and seeing how much that can handle. </p></div>
       
     </div>]]></description>
+    </item>
+    <item>
+      <title>Tools Spotlight</title>
+      <link>https://rhymeandreason.studio//artifact/tools-spotlight.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/tools-spotlight.html</guid>
+      <pubDate>Mon, 28 Sep 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/tools-spotlight.webp" alt="">
+    <h1 class="post-title">Tools Spotlight</h1>
+    <p class="post-subtitle">V.0.5</p>
+    <div class="post-body"><p>This opens on Opt + Space. Here is my trimmed down list of tools. They tend to be small. Will be interesting to see how this list evolves.</p></div>
+    
+  </div>]]></description>
+    </item>
+    <item>
+      <title>End of Summer</title>
+      <link>https://rhymeandreason.studio//journal/end-of-summer.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//journal/end-of-summer.html</guid>
+      <pubDate>Mon, 28 Sep 2026 12:00:00 GMT</pubDate>
+      <category>journal</category>
+      <description><![CDATA[<div class="post-content post-content--journal">
+      <p class="post-date">September 28, 2026</p>
+      <h1 class="post-title">End of Summer</h1>
+      <div class="post-body"><p>It's the end of September... After an initial spree of building, I worked on other projects in the last 2 months. This was productive, because then I had to use these apps while needing to work on other things. I filled a project folder with hundreds of images and notes. Occasionally I had to fix bugginess with latency. Opus 5.5 is a huge improvement over version 4.8 that I started this project on, and it glides through the changes effortlessly.</p>
+<p>There definitely became a small handful of apps that I repeatedly used, and it's satisfying to experience the consolidation in an organic 'double diamond' design process. The more complex tools like Slides, Diagrams, and Video Editor that I was initially excited about, I never used. Instead, Notes window became a trusty pad always at the side of my screen. I folded File Directory and Git tools into sibling panels, and it feels satisfying as a unified Project hub. I find the tall skinny window size extremely useful, and most desktop apps don't allow such a narrow size. </p>
+<p>This week I gave my project hub a little visual refresh. It now has cute sticker icons and pastel hues. I've tried the 'stationery aesthetic' on other projects and it's never quite landed...but it feels at home here.</p>
+<p>I feel the project has condensed enough to where I could try and release an App for others to try. But I'm not sure that was ever the point. </p></div>
+      
+    </div>]]></description>
+    </item>
+    <item>
+      <title>Browser Recorder</title>
+      <link>https://rhymeandreason.studio//artifact/browser-recorder.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/browser-recorder.html</guid>
+      <pubDate>Mon, 28 Sep 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/browser-recorder.webp" alt="">
+    <h1 class="post-title">Browser Recorder</h1>
+    <p class="post-subtitle">V.0.2</p>
+    <div class="post-body"><p>I found I needed to screen cap my website, and it's usually annoying to get the window size right. And the bottom gets cut off due to the rounded corners!</p>
+<p>So I made this tool. It works oddly well. It resizes the browser, pops open the dev tools at the bottom to get rid of the rounded corners, and captures with the record tool. The videos go right into the active project media panel.</p></div>
+    
+  </div>]]></description>
+    </item>
+    <item>
+      <title>Color Picker</title>
+      <link>https://rhymeandreason.studio//artifact/color-picker.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/color-picker.html</guid>
+      <pubDate>Mon, 28 Sep 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/color-picker-2.webp" alt="">
+    <h1 class="post-title">Color Picker</h1>
+    <p class="post-subtitle">V.0.1</p>
+    <div class="post-body"><p>Color Picker is triggered from the Tools spotlight panel. It opens the native Mac global eyedropper tool, which color picks from anywhere on the screen. Then it pops the color chip into this panel under my active project. Click a chip to copy the value to the clipboard, hex and rgb.</p>
+<p>So simple, so useful. </p></div>
+    
+  </div>]]></description>
+    </item>
+    <item>
+      <title>Bookmarks</title>
+      <link>https://rhymeandreason.studio//artifact/bookmarks.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/bookmarks.html</guid>
+      <pubDate>Mon, 28 Sep 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/bookmarks.webp" alt="">
+    <h1 class="post-title">Bookmarks</h1>
+    <p class="post-subtitle">V.0.1</p>
+    <div class="post-body"><p>I save a lot of things on Instagram. I don't organize it at all. It's quite random, but there are good restaurants and art things that I want to find later without getting sucked into scrolling.</p>
+<p>This was actually trickier to build than it seems, since Meta doesn't want people to so easily download content from their walls. I'd like to add my LinkedIn bookmarks too, since the UX on that site is just impossible.</p></div>
+    
+  </div>]]></description>
+    </item>
+    <item>
+      <title>Modes</title>
+      <link>https://rhymeandreason.studio//artifact/modes.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/modes.html</guid>
+      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/modes.webp" alt="">
+    <h1 class="post-title">Modes</h1>
+    <p class="post-subtitle">V.0.8</p>
+    <div class="post-body"><p>This is my favorite tool to date. Modes are saved window layouts under a Project. This spotlight tool pops up on ctrl+space, and allows changing Projects and Modes with a few quick keystrokes. Tab to edit.</p>
+<p>This simple geometric design is more of the style I'd like to do for this project. Most everything is tidy and wireframe-y. I hope to push things out of the beige zone in short order.</p></div>
+    
+  </div>]]></description>
+    </item>
+    <item>
+      <title>Code Editor</title>
+      <link>https://rhymeandreason.studio//artifact/code-editor.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/code-editor.html</guid>
+      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/code-editor-2.webp" alt="">
+    <h1 class="post-title">Code Editor</h1>
+    <p class="post-subtitle">V.0.5</p>
+    <div class="post-body"><p>Yup, I made my own code editor. My goal is to make a simpler editor just for css, html, and markdown. This might be a bit of going down the rabbit hole of making tools to make tools, but there are some specific features I couldn't find elsewhere.</p>
+<p>Mainly: View diffs highlighted inline. AI writes big chunks of code all at once, and I want to see what it did. Default is 'uncommitted changes' (which is what Zed gives you), but I also have 'last commit', because sometimes the agent commits all in one go.</p></div>
+    
+  </div>]]></description>
+    </item>
+    <item>
+      <title>Git Helper</title>
+      <link>https://rhymeandreason.studio//artifact/git-helper.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/git-helper.html</guid>
+      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/git-helper.webp" alt="">
+    <h1 class="post-title">Git Helper</h1>
+    <p class="post-subtitle">V.1.0</p>
+    <div class="post-body"><p>I've used Github Desktop for a long time. But it only gives you one window, and it doesn't shrink below a certain size. So I made my own Git helper, which is much smaller and simpler. It just has pending commits, the button to "commit all", and the last commit. Clicking a file opens it in the Code Editor. </p>
+<p>The bright colors are set per project. It's my favorite feature. I can see what Project I'm in right away, and it's a bright post-it block on my screen.</p></div>
+    
+  </div>]]></description>
+    </item>
+    <item>
+      <title>Media Gallery</title>
+      <link>https://rhymeandreason.studio//artifact/media-gallery.html</link>
+      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/media-gallery.html</guid>
+      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
+      <category>artifact</category>
+      <description><![CDATA[<div class="post-content post-content--artifact">
+    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/media-gallery-2.webp" alt="">
+    <h1 class="post-title">Media Gallery</h1>
+    <p class="post-subtitle">V.0.3</p>
+    <div class="post-body"><p>This was the first tool that I built. Mostly, I wanted a better way to organize all the images in a project folder, and I didn't want to use Lightroom for everything. Finder has thumbnail view, but the thumbnails are too small, and it's difficult to get the view settings exactly right. </p>
+<p>The main feature is copy/paste. By default, cmd+c copies the whole image. So I can copy right over to Figma. If the toggle for the Image Editor sidebar is open, cmd+c copies the Edits, and you can paste those Edits onto another image. That's my favorite feature from Lightroom, and it was satisfying to build my own. </p></div>
+    
+  </div>]]></description>
     </item>
     <item>
       <title> 3 Weeks of Building</title>
@@ -104,36 +239,6 @@
     <div class="post-body"><p>My first decision was to have a menu bar dropdown list of Projects. I'm always working on multiple things, and I got tired of rustling around in Finder or making bookmarks to folders. Having this little menu is so satisfying.</p>
 <p>Underneath it's still files in local folders, because I don't want to upload more things to the cloud. Plus I get all the functionality of existing local files. Deleted items go into the trash bin, and I can restore them if I want.</p>
 <p>Maybe the most significant mental sorting difference is that I've made Projects the top hierarchy. Not apps. Honestly I care more about my projects and the ideas they contain than apps. </p></div>
-    
-  </div>]]></description>
-    </item>
-    <item>
-      <title>Git Helper</title>
-      <link>https://rhymeandreason.studio//artifact/git-helper.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/git-helper.html</guid>
-      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
-      <category>artifact</category>
-      <description><![CDATA[<div class="post-content post-content--artifact">
-    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/git-helper.webp" alt="">
-    <h1 class="post-title">Git Helper</h1>
-    <p class="post-subtitle">V.1.0</p>
-    <div class="post-body"><p>I've used Github Desktop for a long time. But it only gives you one window, and it doesn't shrink below a certain size. So I made my own Git helper, which is much smaller and simpler. It just has pending commits, the button to "commit all", and the last commit. Clicking a file opens it in the Code Editor. </p>
-<p>The bright colors are set per project. It's my favorite feature. I can see what Project I'm in right away, and it's a bright post-it block on my screen.</p></div>
-    
-  </div>]]></description>
-    </item>
-    <item>
-      <title>Media Gallery</title>
-      <link>https://rhymeandreason.studio//artifact/media-gallery.html</link>
-      <guid isPermaLink="true">https://rhymeandreason.studio//artifact/media-gallery.html</guid>
-      <pubDate>Mon, 22 Jun 2026 12:00:00 GMT</pubDate>
-      <category>artifact</category>
-      <description><![CDATA[<div class="post-content post-content--artifact">
-    <img class="artifact-main-image" src="https://rhymeandreason.studio//images/media-gallery-2.webp" alt="">
-    <h1 class="post-title">Media Gallery</h1>
-    <p class="post-subtitle">V.0.3</p>
-    <div class="post-body"><p>This was the first tool that I built. Mostly, I wanted a better way to organize all the images in a project folder, and I didn't want to use Lightroom for everything. Finder has thumbnail view, but the thumbnails are too small, and it's difficult to get the view settings exactly right. </p>
-<p>The main feature is copy/paste. By default, cmd+c copies the whole image. So I can copy right over to Figma. If the toggle for the Image Editor sidebar is open, cmd+c copies the Edits, and you can paste those Edits onto another image. That's my favorite feature from Lightroom, and it was satisfying to build my own. </p></div>
     
   </div>]]></description>
     </item>

@@ -1,0 +1,12 @@
+{
+  "type": "artifact",
+  "slug": "color-picker",
+  "columns": 1,
+  "order": 6,
+  "title": "Color Picker",
+  "subtitle": "V.0.1",
+  "date": "2026-09-28",
+  "description": "Color Picker is triggered from the Tools spotlight panel. It opens the native Mac global eyedropper tool, which color picks from anywhere on the screen. Then it pops the color chip into this panel under my active project. Click a chip to copy the value to the clipboard, hex and rgb.\n\nSo simple, so useful. ",
+  "mainImage": "color-picker-2.webp",
+  "notes": []
+}
